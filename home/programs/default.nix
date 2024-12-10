@@ -10,6 +10,7 @@
     kitty
     wofi
     pavucontrol
+    obsidian
 
     # cli
     neofetch
