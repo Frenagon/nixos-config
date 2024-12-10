@@ -29,6 +29,10 @@ in {
 
         monitor = cfg.monitors;
 
+        xwayland = {
+	  force_zero_scaling = true;
+        };
+
         env =
           [
             "XCURSOR_SIZE,24"
