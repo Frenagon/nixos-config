@@ -26,6 +26,13 @@
           inherit username;
           home = ./home/profiles/ada.nix;
         };
+
+        AdaLaptop = mkSystem {
+          system = defaultSystem;
+          config = ./hosts/ada-laptop;
+          inherit username;
+          home = ./home/profiles/ada-laptop.nix;
+        };
       };
     };
 }
