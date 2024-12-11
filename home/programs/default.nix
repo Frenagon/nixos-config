@@ -16,5 +16,6 @@
     neofetch
     alejandra
     tree
+    unzip
   ];
 }
