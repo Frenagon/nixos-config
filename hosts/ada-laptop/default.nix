@@ -12,6 +12,7 @@
     (import ../../modules/intel.nix (inputs // {device-id = "7dd5";}))
     ../../modules/power-management.nix
     ../../modules/hyprland.nix
+    ../../modules/stylix.nix
   ];
 
   # Bootloader
