@@ -1,0 +1,74 @@
+#! /usr/bin/env bash
+# Let's you control the volume of your system and sends
+# a notification when used.
+#
+# Globals:
+#   This program needs a notifu_ids.json file on the
+#   '$HOME/.local/data/' location with a unique integer
+#   value called 'volume_control' on it, this value is used
+#   to determine the notify-send id to be used by this script.
+#
+# Arguments:
+#   Command that determines the action of the script:
+#     up    - Rises the volume by 2%
+#     down  - Lowers the volume by 2%
+#     set   - Sets the volume to the default volume (set on SET_VOLUME)
+#     set X - Sets the volume to the specified amount (second argument)
+#     mute  - Mutes the volume
+#     NONE  - Writes the current volume state (See Outputs)
+#
+# Outputs:
+#   When no argument is received it writes the current volume
+#   state to STDOUT 'M' if muted or the current volume level
+#   if unmuted.
+
+declare -r COMMAND="$1"
+declare -r SET_VOLUME="${2:-80}"
+notify_id="$(jq -r '.volume_control' "$HOME/.local/data/notify-ids.json")"
+
+notify_volume() {
+  if [ $(pamixer --get-mute) = "true" ]; then
+    notify-send \
+      -i audio-volume-muted \
+      -r "$notify_id" \
+      -u normal \
+      "Audio Muted"
+    return
+  fi
+
+  declare volume
+  volume="$(pamixer --get-volume)"
+
+  if ((volume == 0)); then
+    icon_name="audio-volume-muted"
+  elif ((volume < 30)); then
+    icon_name="audio-volume-low"
+  elif ((volume < 70)); then
+    icon_name="audio-volume-medium"
+  else
+    icon_name="audio-volume-high"
+  fi
+
+  bar=$(seq -s "█" $((volume / 5)) | sed 's/[0-9]//g')
+  notify-send -i "$icon_name" -r "$notify_id" -u normal "$bar  $volume"
+}
+
+case $COMMAND in
+up)
+  pamixer --increase 2
+  ;;
+down)
+  pamixer --decrease 2
+  ;;
+set)
+  pamixer --set-volume "$SET_VOLUME"
+  ;;
+mute)
+  pamixer --toggle-mute
+  ;;
+*)
+  echo "$(pamixer --get-volume-human)"
+  ;;
+esac
+
+notify_volume

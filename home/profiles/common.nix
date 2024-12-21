@@ -2,6 +2,7 @@
   imports = [
     ../programs
     ../themes
+    ../scripts
     ../window-managers
   ];
 

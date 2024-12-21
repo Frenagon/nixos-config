@@ -18,6 +18,8 @@
     alejandra
     tree
     unzip
+    pamixer
+    jq
     libnotify
   ];
 
