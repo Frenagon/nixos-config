@@ -1,0 +1,11 @@
+#! /usr/bin/env bash
+# If an application is closed it runs it,
+# if it's open it closes it
+# Arguments:
+#   application to run or close
+#   commands to pass to the application
+if pgrep "$1"; then
+  pkill "$1"
+else
+  "$@"
+fi
