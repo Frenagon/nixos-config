@@ -6,9 +6,6 @@
 
   home.packages = with pkgs; [
     # ui
-    firefox
-    kitty
-    wofi
     pavucontrol
     obsidian
 
@@ -18,4 +15,10 @@
     tree
     unzip
   ];
+
+  programs = {
+    kitty.enable = true;
+    firefox.enable = true;
+    wofi.enable = true;
+  };
 }
