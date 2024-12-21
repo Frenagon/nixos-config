@@ -134,7 +134,8 @@ in {
           "$mainMod, R, exec, $menu"
           "$mainMod, P, pseudo, # dwindle"
           "$mainMod, J, togglesplit, # dwindle"
-	  "CTRL SHIFT, SPACE, exec, ~/.local/scripts/change_kb_layout"
+	  "CTRL, SPACE, exec, ~/.local/scripts/change_kb_layout next"
+	  "CTRL SHIFT, SPACE, exec, ~/.local/scripts/change_kb_layout prev"
 
           "$mainMod, left, movefocus, l"
           "$mainMod, right, movefocus, r"
