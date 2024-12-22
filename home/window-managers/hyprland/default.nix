@@ -126,12 +126,12 @@ in {
         "$mainMod" = "SUPER";
 
         bind = [
-          "$mainMod, E, exec, $fileManager"
-          "$mainMod, P, pseudo, # dwindle"
-          "$mainMod, J, togglesplit, # dwindle"
           "$mainMod, SPACE, exec, $terminal"
+          "$mainMod, E, exec, $fileManager"
           "$mainMod, Q, killactive,"
           "$mainMod, F, togglefloating,"
+          "$mainMod, J, togglesplit, # dwindle"
+          "$mainMod, P, pseudo, # dwindle"
           "$mainMod CTRL SHIFT, Q, exit,"
           "SHIFT, SPACE, exec, run_or_close $menu"
           "CTRL, SPACE, exec, change_kb_layout next"
