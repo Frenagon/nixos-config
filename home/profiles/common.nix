@@ -1,9 +1,9 @@
 {pkgs, ...}: {
   imports = [
     ../programs
-    ../themes
     ../scripts
     ../shells
+    ../themes
     ../window-managers
   ];
 

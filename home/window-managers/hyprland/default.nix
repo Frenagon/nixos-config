@@ -131,11 +131,11 @@ in {
           "$mainMod, M, exit,"
           "$mainMod, E, exec, $fileManager"
           "$mainMod, V, togglefloating,"
-          "$mainMod, R, exec, $menu"
+          "$mainMod, R, exec, run_or_close $menu"
           "$mainMod, P, pseudo, # dwindle"
           "$mainMod, J, togglesplit, # dwindle"
-          "CTRL, SPACE, exec, ~/.local/scripts/change_kb_layout next"
-          "CTRL SHIFT, SPACE, exec, ~/.local/scripts/change_kb_layout prev"
+          "CTRL, SPACE, exec, change_kb_layout next"
+          "CTRL SHIFT, SPACE, exec, change_kb_layout prev"
 
           "$mainMod, left, movefocus, l"
           "$mainMod, right, movefocus, r"
@@ -177,9 +177,9 @@ in {
         ];
 
         bindel = [
-          ",XF86AudioRaiseVolume, exec, ~/.local/scripts/volume_control up"
-          ",XF86AudioLowerVolume, exec, ~/.local/scripts/volume_control down"
-          ",XF86AudioMute, exec, ~/.local/scripts/volume_control mute"
+          ",XF86AudioRaiseVolume, exec, volume_control up"
+          ",XF86AudioLowerVolume, exec, volume_control down"
+          ",XF86AudioMute, exec, volume_control mute"
           ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
           ",XF86MonBrightnessUp, exec, brightnessctl s 10%+"
           ",XF86MonBrightnessDown, exec, brightnessctl s 10%-"
