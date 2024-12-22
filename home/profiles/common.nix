@@ -3,6 +3,7 @@
     ../programs
     ../themes
     ../scripts
+    ../shells
     ../window-managers
   ];
 
