@@ -115,7 +115,7 @@ in {
 
         input = {
           kb_layout = "us,us";
-	  kb_variant = ",intl";
+          kb_variant = ",intl";
           follow_mouse = 1;
           sensitivity = 0;
           touchpad.natural_scroll = false;
@@ -134,8 +134,8 @@ in {
           "$mainMod, R, exec, $menu"
           "$mainMod, P, pseudo, # dwindle"
           "$mainMod, J, togglesplit, # dwindle"
-	  "CTRL, SPACE, exec, ~/.local/scripts/change_kb_layout next"
-	  "CTRL SHIFT, SPACE, exec, ~/.local/scripts/change_kb_layout prev"
+          "CTRL, SPACE, exec, ~/.local/scripts/change_kb_layout next"
+          "CTRL SHIFT, SPACE, exec, ~/.local/scripts/change_kb_layout prev"
 
           "$mainMod, left, movefocus, l"
           "$mainMod, right, movefocus, r"
