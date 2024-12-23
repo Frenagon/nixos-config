@@ -6,6 +6,7 @@
   imports = [
     ./git.nix
     ./neovim
+    ./wofi
   ];
 
   home.packages = with pkgs; [
@@ -26,7 +27,6 @@
   programs = {
     kitty.enable = true;
     firefox.enable = true;
-    wofi.enable = true;
   };
 
   services.dunst = {

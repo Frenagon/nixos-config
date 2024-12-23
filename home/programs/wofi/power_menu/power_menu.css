@@ -1,0 +1,88 @@
+@define-color accent rgba(97, 175, 239, 0.67);
+@define-color txt #ABB2BF;
+@define-color bg #282C34;
+@define-color bg2 #393E48;
+
+* {
+  font-family: "DejaVu Sans Mono", monospace;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Window */
+window {
+  margin: 0px;
+  padding: 10px;
+  border: 3px solid @accent;
+  border-radius: 8px;
+  background-color: @bg;
+  animation: slideIn 0.5s ease-in-out both;
+}
+
+/* Slide In */
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Inner Box */
+#inner-box {
+  margin: 5px;
+  padding: 10px;
+  border: none;
+  background-color: @bg;
+  animation: fadeIn 0.5s ease-in-out both;
+}
+
+/* Fade In */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Outer Box */
+#outer-box {
+  margin: 5px;
+  padding: 10px;
+  border: none;
+  background-color: @bg;
+}
+
+/* Scroll */
+#scroll {
+  margin: 0px;
+  padding: 10px;
+  border: none;
+}
+
+/* Text */
+#text {
+  margin: 5px;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  color: @txt;
+  animation: fadeIn 0.5s ease-in-out both;
+}
+
+/* Selected Entry */
+#entry:selected {
+  outline: none;
+  background-color: @bg;
+}
+
+/* Selected Text */
+#text:selected {
+  background-color: @accent;
+  color: @bg2;
+}
