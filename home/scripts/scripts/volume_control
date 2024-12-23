@@ -55,12 +55,21 @@ notify_volume() {
 
 case $COMMAND in
 up)
-  pamixer --increase 2
+  if [ $(pamixer --get-mute) = "true" ]; then
+    pamixer --unmute
+  else
+    pamixer --increase 2
+  fi
   ;;
 down)
-  pamixer --decrease 2
+  if [ $(pamixer --get-mute) = "true" ]; then
+    pamixer --unmute
+  else
+    pamixer --decrease 2
+  fi
   ;;
 set)
+  pamixer --unmute
   pamixer --set-volume "$SET_VOLUME"
   ;;
 mute)
