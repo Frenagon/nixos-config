@@ -69,7 +69,9 @@
     isNormalUser = true;
     description = "Frenagon";
     extraGroups = ["networkmanager" "wheel"];
+    shell = pkgs.zsh;
   };
+  programs.zsh.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
