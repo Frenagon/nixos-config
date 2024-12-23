@@ -6,6 +6,7 @@
   imports = [
     ./dunst
     ./git
+    ./kitty
     ./neovim
     ./wofi
   ];
@@ -26,7 +27,6 @@
   ];
 
   programs = {
-    kitty.enable = true;
     firefox.enable = true;
   };
 }
