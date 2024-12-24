@@ -8,6 +8,9 @@ with lib; {
     extraConfig = {
       init.defaultBranch = "main";
       push.autoSetupRemote = true;
+      core.editor = "nvim";
+      diff.tool = "nvimdiff";
+      merge.tool = "nvimdiff";
     };
 
     aliases = {
