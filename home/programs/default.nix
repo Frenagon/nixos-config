@@ -24,6 +24,7 @@
     pamixer
     jq
     libnotify
+    bat
   ];
 
   programs = {
