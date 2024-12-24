@@ -5,6 +5,7 @@
 }: {
   imports = [
     ./dunst
+    ./eza
     ./git
     ./kitty
     ./neovim
