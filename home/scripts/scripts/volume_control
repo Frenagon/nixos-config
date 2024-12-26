@@ -3,7 +3,7 @@
 # a notification when used.
 #
 # Globals:
-#   This program needs a notifu_ids.json file on the
+#   This program needs a notify_ids.json file on the
 #   '$HOME/.local/data/' location with a unique integer
 #   value called 'volume_control' on it, this value is used
 #   to determine the notify-send id to be used by this script.
