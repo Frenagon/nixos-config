@@ -181,8 +181,8 @@ in {
           ",XF86AudioLowerVolume, exec, volume_control down"
           ",XF86AudioMute, exec, volume_control mute"
           ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-          ",XF86MonBrightnessUp, exec, brightnessctl s 10%+"
-          ",XF86MonBrightnessDown, exec, brightnessctl s 10%-"
+          ",XF86MonBrightnessUp, exec, brightness_control up"
+          ",XF86MonBrightnessDown, exec, brightness_control down"
         ];
 
         bindl = [

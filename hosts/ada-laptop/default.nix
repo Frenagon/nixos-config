@@ -81,6 +81,7 @@
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
+    brightnessctl
   ];
 
   # This value determines the NixOS release from which the default

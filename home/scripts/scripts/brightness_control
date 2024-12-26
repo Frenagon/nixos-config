@@ -1,0 +1,65 @@
+#! /usr/bin/env bash
+# Let's you control the brightness of your system and sends
+# a notification when used.
+#
+# Globals:
+#   This program needs a notify_ids.json file on the
+#   '$HOME/.local/data/' location with a unique integer
+#   value called 'birghtness_control' on it, this value is used
+#   to determine the notify-send id to be used by this script.
+#
+# Arguments:
+#   Command that determines the action of the script:
+#     up    - Rises the brightness by 2%
+#     down  - Lowers the brightness by 2%
+#     NONE  - Writes the current brightness state (See Outputs)
+#
+# Outputs:
+#   When no argument is received it writes the current brightness to STDOUT.
+
+declare -r COMMAND="$1"
+declare -r MIN_BRIGHTNESS_PERC=10;
+declare -r MIN_BRIGHNTESS=$(($(brightnessctl max)*$MIN_BRIGHTNESS_PERC/100))
+declare -r RELATIVE_MAX=$(($(brightnessctl max)-$MIN_BRIGHNTESS))
+declare -r RELATIVE_SKIPS=$(($RELATIVE_MAX/50))
+notify_id="$(jq -r '.brightness_control' "$HOME/.local/data/notify-ids.json")"
+
+to_relative() {
+  declare relative_brightness=$(($1-$MIN_BRIGHNTESS))
+  echo $(($relative_brightness*100/$RELATIVE_MAX))
+}
+
+notify_brightness() {
+  declare brightness=$(to_relative $(brightnessctl get))
+
+  if ((brightness < 40)); then
+    icon_name="brightness-low-symbolic"
+  elif ((brightness < 70)); then
+    icon_name="brightness-medium-symbolic"
+  else
+    icon_name="brightness-high-symbolic"
+  fi
+
+  bar=$(seq -s "█" $((brightness / 5)) | sed 's/[0-9]//g')
+  notify-send -i "$icon_name" -r "$notify_id" -u normal "$bar  $brightness"
+}
+
+case $COMMAND in
+up)
+  brightnessctl set "${RELATIVE_SKIPS}+"
+  ;;
+down)
+  declare new_brightness=$(to_relative $(($(brightnessctl get)-$RELATIVE_SKIPS)))
+  if ((new_brightness > 0)); then
+    brightnessctl set "${RELATIVE_SKIPS}-"
+  else
+    brightnessctl set "$MIN_BRIGHNTESS"
+  fi
+  ;;
+*)
+  declare brightness=$(to_relative $(brightnessctl get))
+  echo "${brightness}%"
+  ;;
+esac
+
+notify_brightness
