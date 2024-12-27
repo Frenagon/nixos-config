@@ -21,7 +21,7 @@ declare -r COMMAND="$1"
 declare -r MIN_BRIGHTNESS_PERC=10;
 declare -r MIN_BRIGHNTESS=$(($(brightnessctl max)*$MIN_BRIGHTNESS_PERC/100))
 declare -r RELATIVE_MAX=$(($(brightnessctl max)-$MIN_BRIGHNTESS))
-declare -r RELATIVE_SKIPS=$(($RELATIVE_MAX/50))
+declare -r RELATIVE_SKIPS=$(($RELATIVE_MAX/20))
 notify_id="$(jq -r '.brightness_control' "$HOME/.local/data/notify-ids.json")"
 
 to_relative() {
