@@ -4,6 +4,7 @@
   ...
 }: {
   imports = [
+		./bat
     ./dunst
     ./eza
     ./git
@@ -25,7 +26,6 @@
     pamixer
     jq
     libnotify
-    bat
   ];
 
   programs = {
