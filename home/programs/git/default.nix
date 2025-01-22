@@ -20,9 +20,9 @@ with lib; {
     delta = {
       enable = true;
       options = {
-				line-numbers = true;
-				tabs = 2;
-			};
+        line-numbers = true;
+        tabs = 2;
+      };
     };
   };
 }

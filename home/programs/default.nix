@@ -4,7 +4,7 @@
   ...
 }: {
   imports = [
-		./bat
+    ./bat
     ./dunst
     ./eza
     ./git
