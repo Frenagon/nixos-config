@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   imports = [
+    ../coding
     ../programs
     ../scripts
     ../shells

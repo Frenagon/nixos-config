@@ -20,7 +20,6 @@
 
     # cli
     neofetch
-    alejandra
     tree
     unzip
     pamixer
