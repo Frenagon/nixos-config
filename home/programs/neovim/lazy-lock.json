@@ -1,4 +1,5 @@
 {
+  "conform.nvim": { "branch": "master", "commit": "b788593a9fa658b47bc30a04d8f0f7dc98144b14" },
   "lazy.nvim": { "branch": "main", "commit": "7e6c863bc7563efbdd757a310d17ebc95166cef3" },
   "nvim-lspconfig": { "branch": "master", "commit": "b4d65bce97795438ab6e1974b3672c17a4865e3c" },
   "onedarkpro.nvim": { "branch": "main", "commit": "44775f8206ee43b692e7f3dc894ddc47996ee523" }
