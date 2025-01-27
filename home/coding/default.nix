@@ -2,7 +2,7 @@
   home.packages = with pkgs; [
     # lsp
     typescript-language-server
-    superhtml
+    tailwindcss-language-server
     lua-language-server
 
     # formatter
