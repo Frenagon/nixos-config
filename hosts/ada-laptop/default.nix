@@ -1,12 +1,7 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{
-  pkgs,
-  lib,
-  config,
-  ...
-} @ inputs: {
+{pkgs, ...} @ inputs: {
   imports = [
     ./hardware-configuration.nix
     (import ../../modules/intel.nix (inputs // {device-id = "7dd5";}))
@@ -14,6 +9,8 @@
     ../../modules/hyprland.nix
     ../../modules/stylix.nix
   ];
+
+  nix.nixPath = ["nixpkgs=${inputs.inputs.nixpkgs}"];
 
   # Bootloader
   boot.loader = {
