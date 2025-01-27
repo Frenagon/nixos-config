@@ -2,9 +2,9 @@ return {
 	"neovim/nvim-lspconfig",
 	opts = function()
 		return {
-			on_attach = function(_, bufnr)
+			on_attach = function(_, buffer)
 				local function mapbufr(mode, lhs, rhs, desc)
-					vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc })
+					vim.keymap.set(mode, lhs, rhs, { buffer = buffer, desc = desc })
 				end
 
 				mapbufr("n", "<leader>r", vim.lsp.buf.rename, "Rename")
@@ -23,6 +23,9 @@ return {
 	config = function(_, opts)
 		local function setup(name, server)
 			local settings = server.settings
+			if not settings.on_attach then
+				settings.on_attach = opts.on_attach
+			end
 
 			if server.setup then
 				if server.setup(settings) then
