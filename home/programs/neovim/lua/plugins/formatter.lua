@@ -10,6 +10,7 @@ return {
 				typescript = { "prettier" },
 				typescriptreact = { "prettier" },
 				["typescript.jsx"] = { "prettier" },
+				html = { "prettier" },
 			},
 			format_on_save = {
 				timeout = 500,
