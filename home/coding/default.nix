@@ -7,6 +7,7 @@
     lua-language-server
 
     # formatter
+    nodePackages.prettier
     alejandra
     stylua
   ];
