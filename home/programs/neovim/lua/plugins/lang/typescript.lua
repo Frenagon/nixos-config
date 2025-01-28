@@ -3,9 +3,7 @@ return {
 		"neovim/nvim-lspconfig",
 		opts = {
 			servers = {
-				ts_ls = {
-					settings = {},
-				},
+				ts_ls = {},
 			},
 		},
 	},

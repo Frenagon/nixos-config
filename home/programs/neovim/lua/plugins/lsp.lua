@@ -1,5 +1,8 @@
 return {
 	"neovim/nvim-lspconfig",
+	dependencies = {
+		"saghen/blink.cmp",
+	},
 	opts = function()
 		return {
 			on_attach = function(_, buffer)
@@ -21,22 +24,19 @@ return {
 		}
 	end,
 	config = function(_, opts)
-		local function setup(name, server)
-			local settings = server.settings
-			if not settings.on_attach then
-				settings.on_attach = opts.on_attach
+		for server, config in pairs(opts.servers) do
+			config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
+
+			if not config.on_attach then
+				config.on_attach = opts.on_attach
 			end
 
-			if server.setup then
-				if server.setup(settings) then
+			if config.setup then
+				if config.setup(config) then
 					return
 				end
 			end
-			require("lspconfig")[name].setup(settings)
-		end
-
-		for name, server in pairs(opts.servers) do
-			setup(name, server)
+			require("lspconfig")[server].setup(config)
 		end
 	end,
 }
