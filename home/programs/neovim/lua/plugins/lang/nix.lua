@@ -3,7 +3,16 @@ return {
 		"neovim/nvim-lspconfig",
 		opts = {
 			servers = {
-				nixd = {},
+				nixd = {
+					nixpkgs = {
+						expr = "import <nixpkgs> { }",
+					},
+					options = {
+						nixos = {
+							expr = '(builtins.getFlake "~/.nixos-config").nixosConfigurations.Ada.options',
+						},
+					},
+				},
 			},
 		},
 	},
