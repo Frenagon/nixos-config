@@ -1,5 +1,8 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
+    # compiler
+    gcc
+
     # lsp
     typescript-language-server
     tailwindcss-language-server
