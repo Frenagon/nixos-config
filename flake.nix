@@ -41,5 +41,12 @@
           home = ./home/profiles/ada-laptop.nix;
         };
       };
+
+      homeConfigurations = {
+        frenagon = mkHome {
+          system = defaultSystem;
+          home = ./home/profiles/common.nix;
+        };
+      };
     };
 }

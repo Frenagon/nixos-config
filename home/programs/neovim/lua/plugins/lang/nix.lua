@@ -4,12 +4,23 @@ return {
 		opts = {
 			servers = {
 				nixd = {
-					nixpkgs = {
-						expr = "import <nixpkgs> { }",
-					},
-					options = {
-						nixos = {
-							expr = '(builtins.getFlake "~/.nixos-config").nixosConfigurations.Ada.options',
+					cmd = { "nixd" },
+					settings = {
+						nixd = {
+							nixpkgs = {
+								expr = "import <nixpkgs> { }",
+							},
+							options = {
+								nixosAda = {
+									expr = '(builtins.getFlake "/home/frenagon/.nixos-config").nixosConfigurations.Ada.options',
+								},
+								nixosAdaLaptop = {
+									expr = '(builtins.getFlake "/home/frenagon/.nixos-config").nixosConfigurations.AdaLaptop.options',
+								},
+								home_manager = {
+									expr = '(builtins.getFlake "/home/frenagon/.nixos-config").homeConfigurations.frenagon.options',
+								},
+							},
 						},
 					},
 				},
