@@ -21,6 +21,8 @@
     pamixer
     jq
     libnotify
+    wl-clipboard
+    cliphist
   ];
 
   programs = {
