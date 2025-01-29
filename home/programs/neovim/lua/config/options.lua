@@ -1,3 +1,5 @@
+vim.o.laststatus = 3
+
 vim.o.clipboard = "unnamedplus"
 
 vim.o.number = true
