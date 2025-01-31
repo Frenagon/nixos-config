@@ -35,6 +35,7 @@
           config = ./hosts/ada;
           inherit username;
           home = ./home/profiles/ada.nix;
+          modules = [];
         };
 
         AdaLaptop = mkSystem {
@@ -42,6 +43,7 @@
           config = ./hosts/ada-laptop;
           inherit username;
           home = ./home/profiles/ada-laptop.nix;
+          modules = [];
         };
 
         AdaRes = mkSystem {
