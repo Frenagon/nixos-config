@@ -7,6 +7,9 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-hardware = {
+      url = "github:NixOS/nixos-hardware/master";
+    };
     hyprland = {
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -20,7 +23,7 @@
     };
   };
 
-  outputs = {...} @ inputs: let
+  outputs = {nixos-hardware, ...} @ inputs: let
     builders = import ./utils/builders.nix inputs;
     defaultSystem = "x86_64-linux";
     username = "frenagon";
@@ -39,6 +42,16 @@
           config = ./hosts/ada-laptop;
           inherit username;
           home = ./home/profiles/ada-laptop.nix;
+        };
+
+        AdaRes = mkSystem {
+          system = defaultSystem;
+          config = ./hosts/ada-res;
+          inherit username;
+          home = ./home/profiles/ada-res.nix;
+          modules = [
+            nixos-hardware.nixosModules.lenovo-thinkpad-t490
+          ];
         };
       };
 

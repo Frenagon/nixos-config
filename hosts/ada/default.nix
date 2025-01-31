@@ -6,27 +6,22 @@
     ./hardware-configuration.nix
     ../../modules/nvidia.nix
     ../../modules/hyprland.nix
+    ../../modules/bootloader.nix
     ../../modules/stylix.nix
   ];
 
   nix.nixPath = ["nixpkgs=${inputs.inputs.nixpkgs}"];
 
   # Bootloader
-  boot.loader = {
-    efi.canTouchEfiVariables = true;
-    grub = {
-      enable = true;
-      devices = ["nodev"];
-      efiSupport = true;
-      extraEntries = ''
-        menuentry 'Windows 11' --class windows --class os $menuentry_id_option 'EADB-C29C' {
-          insmod part_gpt
-          insmod fat
-          search --no-floppy --fs-uuid --set=root EADB-C29C
-          chainloader /efi/Microsoft/Boot/bootmgfw.efi
-        }
-      '';
-    };
+  boot.loader.grub = {
+    extraEntries = ''
+      menuentry 'Windows 11' --class windows --class os $menuentry_id_option 'EADB-C29C' {
+        insmod part_gpt
+        insmod fat
+        search --no-floppy --fs-uuid --set=root EADB-C29C
+        chainloader /efi/Microsoft/Boot/bootmgfw.efi
+      }
+    '';
   };
 
   # Hostname

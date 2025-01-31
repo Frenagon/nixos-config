@@ -11,17 +11,19 @@ in {
         };
       in {
         inherit system specialArgs;
-        modules = [
-          config
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = specialArgs;
-            home-manager.users.${username} = import home;
-          }
-          stylix.nixosModules.stylix
-        ];
+        modules =
+          [
+            config
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = specialArgs;
+              home-manager.users.${username} = import home;
+            }
+            stylix.nixosModules.stylix
+          ]
+          ++ cfg.modules;
       }
     );
 
