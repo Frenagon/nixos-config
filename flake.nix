@@ -43,7 +43,9 @@
           config = ./hosts/ada-laptop;
           inherit username;
           home = ./home/profiles/ada-laptop.nix;
-          modules = [];
+          modules = [
+            nixos-hardware.nixosModules.lenovo-thinkpad-t14
+          ];
         };
 
         AdaRes = mkSystem {
