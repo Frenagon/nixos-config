@@ -133,7 +133,7 @@ in {
           "$mainMod, P, pseudo, # dwindle"
           "$mainMod CTRL SHIFT, Q, exit,"
           "$mainMod SHIFT, P, exec, power_menu"
-          "ALT, SPACE, exec, run_or_close $menu"
+          "SHIFT, SPACE, exec, run_or_close $menu"
           "CTRL, SPACE, exec, change_kb_layout next"
           "CTRL SHIFT, SPACE, exec, change_kb_layout prev"
 
