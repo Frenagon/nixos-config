@@ -37,6 +37,8 @@ in {
           [
             "XCURSOR_SIZE,24"
             "HYPRCURSOR_SIZE,24"
+            "NIXOS_OZONE_WL,1"
+            "ELECTRON_OZONE_PLATFORM_HINT,wayland"
           ]
           ++ lib.optionals cfg.nvidiaPatches [
             "LIBVA_DRIVER_NAME,nvidia"
