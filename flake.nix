@@ -14,6 +14,10 @@
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    auto-cpufreq = {
+      url = "github:AdnanHodzic/auto-cpufreq";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     stylix = {
       url = "github:danth/stylix";
       inputs = {
@@ -23,7 +27,11 @@
     };
   };
 
-  outputs = {nixos-hardware, ...} @ inputs: let
+  outputs = {
+    nixos-hardware,
+    auto-cpufreq,
+    ...
+  } @ inputs: let
     builders = import ./utils/builders.nix inputs;
     defaultSystem = "x86_64-linux";
     username = "frenagon";
@@ -44,6 +52,7 @@
           inherit username;
           home = ./home/profiles/ada-laptop.nix;
           modules = [
+            auto-cpufreq.nixosModules.default
             nixos-hardware.nixosModules.lenovo-thinkpad-t14
           ];
         };
@@ -54,6 +63,7 @@
           inherit username;
           home = ./home/profiles/ada-res.nix;
           modules = [
+            auto-cpufreq.nixosModules.default
             nixos-hardware.nixosModules.lenovo-thinkpad-t490
           ];
         };
