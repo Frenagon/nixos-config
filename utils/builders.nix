@@ -1,7 +1,6 @@
 inputs: let
   nixpkgs = inputs.nixpkgs;
   home-manager = inputs.home-manager;
-  stylix = inputs.stylix;
 in {
   mkSystem = cfg:
     nixpkgs.lib.nixosSystem (
@@ -19,9 +18,10 @@ in {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = specialArgs;
-              home-manager.users.${username} = import home;
+              home-manager.users.${username} = {
+                imports = cfg.homeModules;
+              };
             }
-            stylix.nixosModules.stylix
           ]
           ++ cfg.modules;
       }
@@ -32,9 +32,7 @@ in {
       with cfg; {
         pkgs = nixpkgs.legacyPackages.${system};
         extraSpecialArgs = {inherit inputs;};
-        modules = [
-          home
-        ];
+        modules = cfg.modules;
       }
     );
 }

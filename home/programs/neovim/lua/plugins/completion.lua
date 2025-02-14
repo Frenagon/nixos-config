@@ -11,6 +11,9 @@ return {
 				nerd_font_variant = "mono",
 			},
 			sources = {
+				cmdline = {
+					enable = false,
+				},
 				default = { "lazydev", "lsp", "path", "snippets", "buffer" },
 				providers = {
 					lazydev = {

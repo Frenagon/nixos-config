@@ -7,7 +7,7 @@
     ../../modules/nvidia.nix
     ../../modules/hyprland.nix
     ../../modules/bootloader.nix
-    ../../modules/stylix.nix
+    ../../modules/colorscheme.nix
   ];
 
   nix.nixPath = ["nixpkgs=${inputs.inputs.nixpkgs}"];

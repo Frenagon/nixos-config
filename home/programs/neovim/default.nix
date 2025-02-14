@@ -12,6 +12,6 @@ in {
     vimAlias = true;
     vimdiffAlias = true;
   };
-  stylix.targets.neovim.enable = false;
+  catppuccin.nvim.enable = false;
   xdg.configFile."nvim".source = mkOutOfStoreSymlink "${nvimConfig}";
 }

@@ -18,18 +18,23 @@
       url = "github:AdnanHodzic/auto-cpufreq";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    stylix = {
-      url = "github:danth/stylix";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        home-manager.follows = "home-manager";
-      };
+    catppuccin = {
+      url = "github:catppuccin/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
+    #    stylix = {
+    #      url = "github:danth/stylix";
+    #      inputs = {
+    #        nixpkgs.follows = "nixpkgs";
+    #        home-manager.follows = "home-manager";
+    #      };
+    #    };
   };
 
   outputs = {
     nixos-hardware,
     auto-cpufreq,
+    catppuccin,
     ...
   } @ inputs: let
     builders = import ./utils/builders.nix inputs;
@@ -42,18 +47,25 @@
           system = defaultSystem;
           config = ./hosts/ada;
           inherit username;
-          home = ./home/profiles/ada.nix;
-          modules = [];
+          modules = [catppuccin.nixosModules.catppuccin];
+          homeModules = [
+            ./home/profiles/ada.nix
+            catppuccin.homeManagerModules.catppuccin
+          ];
         };
 
         AdaLaptop = mkSystem {
           system = defaultSystem;
           config = ./hosts/ada-laptop;
           inherit username;
-          home = ./home/profiles/ada-laptop.nix;
           modules = [
+            catppuccin.nixosModules.catppuccin
             auto-cpufreq.nixosModules.default
             nixos-hardware.nixosModules.lenovo-thinkpad-t14
+          ];
+          homeModules = [
+            ./home/profiles/ada-laptop.nix
+            catppuccin.homeManagerModules.catppuccin
           ];
         };
 
@@ -61,10 +73,14 @@
           system = defaultSystem;
           config = ./hosts/ada-res;
           inherit username;
-          home = ./home/profiles/ada-res.nix;
           modules = [
+            catppuccin.nixosModules.catppuccin
             auto-cpufreq.nixosModules.default
             nixos-hardware.nixosModules.lenovo-thinkpad-t490
+          ];
+          homeModules = [
+            ./home/profiles/ada-res.nix
+            catppuccin.homeManagerModules.catppuccin
           ];
         };
       };
@@ -72,7 +88,10 @@
       homeConfigurations = {
         frenagon = mkHome {
           system = defaultSystem;
-          home = ./home/profiles/common.nix;
+          modules = [
+            ./home/profiles/common.nix
+            catppuccin.homeManagerModules.catppuccin
+          ];
         };
       };
     };
