@@ -1,3 +1,5 @@
+vim.g.border_style = "rounded" ---@type "single"|"double"|"rounded"
+
 vim.opt.termguicolors = true
 vim.opt.signcolumn = "yes"
 vim.opt.laststatus = 3
