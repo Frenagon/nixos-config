@@ -2,7 +2,9 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		version = false,
+		cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
 		build = ":TSUpdate",
+		event = { "BufReadPost", "BufNewFile" },
 		opts = {
 			ensure_installed = {
 				"nix",
@@ -16,7 +18,7 @@ return {
 				"markdown",
 				"markdown_inline",
 			},
-			highlight = { enable = true },
+			highlight = { enable = true, use_languagetree = true },
 			indent = { enable = true },
 			incremental_selection = { enable = true },
 		},
