@@ -1,11 +1,7 @@
+local map = require("utils").map
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
-
-local function map(mode, keys, action, desc)
-	desc = desc or ""
-	local opts = { noremap = true, silent = true, desc = desc }
-	vim.keymap.set(mode, keys, action, opts)
-end
 
 map("n", "<leader>w", "<cmd>w<CR>", "Save")
 map("n", "<C-s>", "<cmd>update<CR>", "Save")

@@ -23,6 +23,7 @@
     libnotify
     wl-clipboard
     cliphist
+    file
   ];
 
   programs = {
