@@ -24,6 +24,7 @@
     wl-clipboard
     cliphist
     file
+    fd
   ];
 
   programs = {

@@ -1,4 +1,5 @@
-local map = require("utils").map
+local utils = require("utils")
+local map = utils.map
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
@@ -35,3 +36,5 @@ map("v", "??", "y:h <C-R>0<CR>", "Vim help")
 map("v", "?/", "y:/<C-R>0<CR>", "Search the buffer")
 
 map("n", "<C-c>", "<cmd>noh<CR>", "Remove highlights")
+
+map("n", "<leader>tf", utils.toggle_flow, "Toggle flow")

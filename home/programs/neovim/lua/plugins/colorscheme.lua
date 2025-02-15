@@ -4,6 +4,7 @@ return {
 		name = "catppuccin",
 		enabled = true,
 		priority = 1000,
+		lazy = false,
 		init = function()
 			vim.cmd.colorscheme("catppuccin")
 		end,
@@ -12,7 +13,6 @@ return {
 			integrations = {
 				snacks = true,
 				treesitter = true,
-				mason = true,
 				blink_cmp = true,
 				native_lsp = {
 					enabled = true,

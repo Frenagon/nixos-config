@@ -28,8 +28,9 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.mouse = "a"
 vim.opt.swapfile = false
 vim.opt.undofile = true
-
-vim.opt.statusline = ""
+vim.opt.pumheight = 10
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
 vim.diagnostic.config({
 	virtual_text = {
