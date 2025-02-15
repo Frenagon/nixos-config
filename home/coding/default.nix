@@ -9,6 +9,7 @@
     tailwindcss-language-server
     nixd
     lua-language-server
+    marksman
 
     # formatter
     nodePackages.prettier

@@ -10,6 +10,7 @@
   "nvim-lspconfig": { "branch": "master", "commit": "1f941b3668151963fca3e1230922c433ea4b7b64" },
   "nvim-treesitter": { "branch": "master", "commit": "2206739829518c9ea59dbdb9003e0147fdaf2d1c" },
   "onedarkpro.nvim": { "branch": "main", "commit": "44775f8206ee43b692e7f3dc894ddc47996ee523" },
+  "render-markdown.nvim": { "branch": "main", "commit": "e05a9f22f31c088ece3fa5928daf546a015b66ee" },
   "snacks.nvim": { "branch": "main", "commit": "eb81468b475f6251f5850ae956e19547e8f533ec" },
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "2a5ceff981501cff8f46871d5402cd3378a8ab6a" }
 }
