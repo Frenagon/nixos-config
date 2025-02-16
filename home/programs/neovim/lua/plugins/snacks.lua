@@ -29,6 +29,11 @@ return {
 			},
 		},
 		opts = {
+			statuscolumn = {
+				left = { "fold", "git" },
+				right = { "mark", "sign" },
+			},
+			notifier = {},
 			indent = {
 				animate = {
 					enabled = false,
