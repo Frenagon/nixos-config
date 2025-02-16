@@ -18,14 +18,14 @@ return {
 				function()
 					Snacks.picker.explorer()
 				end,
-				"Snacks Explorer",
+				desc = "Snacks Explorer",
 			},
 			{
 				"<leader>ff",
 				function()
 					Snacks.picker.files()
 				end,
-				"Find Files",
+				desc = "Find Files",
 			},
 		},
 		opts = {
