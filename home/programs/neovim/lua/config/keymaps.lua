@@ -7,8 +7,8 @@ vim.g.maplocalleader = "\\"
 map("n", "<leader>w", "<cmd>w<CR>", "Save")
 map("n", "<C-s>", "<cmd>update<CR>", "Save")
 map("n", "<leader>e", "<cmd>Ex<CR>", "Open Explorer")
-map("n", "<leader>q", "<cmd>q<CR>", "Quit")
-map("n", "<leader>Q", "<cmd>wq<CR>", "Save and Quit")
+map("n", "<leader>Q", "<cmd>q<CR>", "Quit")
+map("n", "<C-q>", "<cmd>wq<CR>", "Save and Quit")
 
 -- Insert movment
 map("i", "<C-h>", "<Left>")
@@ -29,12 +29,13 @@ map("n", "<A-l>", "<cmd>vertical resize -2<CR>", "Reduce split vertical")
 -- Buffer movement
 map("n", "<Tab>", "<cmd>bnext<CR>", "Next buffer")
 map("n", "<s-Tab>", "<cmd>bprev<CR>", "Previous buffer")
-map("n", "<C-q>", "<cmd>bdelete<CR>", "Close buffer")
+map("n", "<leader>q", "<cmd>bdelete<CR>", "Close buffer")
 
 -- Selected actions
 map("v", "??", "y:h <C-R>0<CR>", "Vim help")
 map("v", "?/", "y:/<C-R>0<CR>", "Search the buffer")
 
-map("n", "<C-c>", "<cmd>noh<CR>", "Remove highlights")
-
+-- Toggles
 map("n", "<leader>tf", utils.toggle_flow, "Toggle flow")
+
+map("n", "<C-c>", "<cmd>noh<CR>", "Remove highlights")

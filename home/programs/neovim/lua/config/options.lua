@@ -17,6 +17,7 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.scrolloff = 2
 vim.opt.sidescrolloff = 2
+vim.opt.cmdheight = 0
 
 vim.opt.smartindent = true
 vim.opt.expandtab = true
