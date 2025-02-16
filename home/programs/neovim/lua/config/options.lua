@@ -32,6 +32,7 @@ vim.opt.undofile = true
 vim.opt.pumheight = 10
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+vim.opt.timeout = false
 
 vim.diagnostic.config({
 	virtual_text = {
