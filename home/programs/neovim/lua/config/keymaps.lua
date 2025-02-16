@@ -6,7 +6,6 @@ vim.g.maplocalleader = "\\"
 
 map("n", "<leader>w", "<cmd>w<CR>", "Save")
 map("n", "<C-s>", "<cmd>update<CR>", "Save")
-map("n", "<leader>e", "<cmd>Ex<CR>", "Open Explorer")
 map("n", "<leader>Q", "<cmd>q<CR>", "Quit")
 map("n", "<C-q>", "<cmd>wq<CR>", "Save and Quit")
 
