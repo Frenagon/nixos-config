@@ -35,6 +35,11 @@ return {
 			},
 			notifier = {},
 			indent = {
+				scope = {
+					treesitter = {
+						enabled = false,
+					},
+				},
 				animate = {
 					enabled = false,
 				},
