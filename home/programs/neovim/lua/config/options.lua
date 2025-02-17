@@ -6,7 +6,7 @@ vim.opt.laststatus = 3
 vim.opt.fillchars:append({ eob = " " })
 vim.opt.shortmess:append("aIF")
 vim.opt.cursorline = true
-vim.opt.cursorlineopt = "number"
+vim.opt.cursorlineopt = "both"
 vim.opt.ruler = true
 vim.opt.number = true
 vim.opt.relativenumber = true
