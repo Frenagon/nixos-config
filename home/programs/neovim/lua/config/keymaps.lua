@@ -37,4 +37,4 @@ map("v", "?/", "y:/<C-R>0<CR>", "Search the buffer")
 -- Toggles
 map("n", "<leader>tf", utils.toggle_flow, "Toggle flow")
 
-map("n", "<C-c>", "<cmd>noh<CR>", "Remove highlights")
+map("n", "<C-c>", "<cmd>noh<CR><cmd>redraw!<CR>", "Remove highlights")
