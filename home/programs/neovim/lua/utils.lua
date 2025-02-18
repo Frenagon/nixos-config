@@ -9,16 +9,18 @@ end
 local state = 0
 M.toggle_flow = function()
 	if state == 0 then
-		vim.o.relativenumber = false
-		vim.o.number = false
 		vim.opt.signcolumn = "yes:4"
-		vim.o.winbar = ""
+		vim.opt.number = false
+		vim.opt.relativenumber = false
+		vim.opt.winbar = ""
+		vim.g.ministatusline_disable = true
 		state = 1
 	else
-		vim.o.relativenumber = true
-		vim.o.number = true
 		vim.opt.signcolumn = "auto"
-		vim.o.winbar = "%{%v:lua.dropbar()%}"
+		vim.opt.number = true
+		vim.opt.relativenumber = true
+		vim.opt.winbar = "%{%v:lua.dropbar()%}"
+		vim.g.ministatusline_disable = false
 		state = 0
 	end
 end
