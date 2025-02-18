@@ -5,29 +5,15 @@ return {
 		"folke/snacks.nvim",
 		priority = 1000,
 		lazy = false,
-		keys = {
-			{
-				"<leader>.",
-				function()
-					Snacks.scratch()
-				end,
-				desc = "Scratch Pad",
-			},
-			{
-				"<leader>E",
-				function()
-					Snacks.picker.explorer()
-				end,
-				desc = "Snacks Explorer",
-			},
-			{
-				"<leader>ff",
-				function()
-					Snacks.picker.files()
-				end,
-				desc = "Find Files",
-			},
-		},
+		keys = function()
+			local snacks = require("snacks")
+
+			return {
+				{ "<leader>.", snacks.scratch.open, desc = "Scratch pad" },
+				{ "<leader>E", snacks.picker.explorer, desc = "Snacks explorer" },
+				{ "<leader>ff", snacks.picker.files, desc = "Find files" },
+			}
+		end,
 		opts = {
 			statuscolumn = {
 				left = { "fold", "git" },

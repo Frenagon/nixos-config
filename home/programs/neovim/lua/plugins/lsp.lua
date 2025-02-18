@@ -18,15 +18,17 @@ return {
 						vim.keymap.set(mode, keys, action, opts)
 					end
 
-					map("n", "<leader>k", vim.lsp.buf.hover, "Open Hover Menu")
+					-- Actions
+					map("n", "<leader>k", vim.lsp.buf.hover, "Open hover menu")
 					map("n", "<leader>r", vim.lsp.buf.rename, "Rename")
-					map({ "n", "v" }, "<leader>a", vim.lsp.buf.code_action, "Code Actions")
+					map({ "n", "v" }, "<leader>a", vim.lsp.buf.code_action, "Code actions")
 
-					map("n", "gd", vim.lsp.buf.definition, "Go to Definition")
-					map("n", "gD", vim.lsp.buf.declaration, "Go to Declaration")
-					map("n", "gt", vim.lsp.buf.type_definition, "Go to Type Definition")
-					map("n", "gi", vim.lsp.buf.implementation, "Go to Implementation")
-					map("n", "gR", vim.lsp.buf.references, "Go to References")
+					-- Motions
+					map("n", "gd", vim.lsp.buf.definition, "Go to definition")
+					map("n", "gD", vim.lsp.buf.declaration, "Go to declaration")
+					map("n", "gt", vim.lsp.buf.type_definition, "Go to type definition")
+					map("n", "gi", vim.lsp.buf.implementation, "Go to implementation")
+					map("n", "gR", vim.lsp.buf.references, "Go to references")
 				end,
 			}
 		end,
