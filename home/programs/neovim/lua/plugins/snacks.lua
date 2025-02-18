@@ -12,6 +12,7 @@ return {
 				{ "<leader>.", snacks.scratch.open, desc = "Scratch pad" },
 				{ "<leader>E", snacks.picker.explorer, desc = "Snacks explorer" },
 				{ "<leader>ff", snacks.picker.files, desc = "Find files" },
+				{ "<leader>n", snacks.notifier.show_history, desc = "Show notifications" },
 			}
 		end,
 		opts = {
