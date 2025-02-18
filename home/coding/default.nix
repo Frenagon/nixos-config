@@ -1,8 +1,9 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    # compiler
+    # languages
     gnumake
     gcc
+    rustup
 
     # lsp
     typescript-language-server

@@ -3,17 +3,17 @@ return {
 		"saghen/blink.cmp",
 		dependencies = "rafamadriz/friendly-snippets",
 		version = "*",
-		build = "nix run .#rustup",
+		build = "cargo build --release",
 		event = { "LspAttach" },
 		opts = {
 			keymap = { preset = "enter" },
 			appearance = {
 				nerd_font_variant = "mono",
 			},
+			cmdline = {
+				enabled = false,
+			},
 			sources = {
-				cmdline = {
-					enable = false,
-				},
 				default = { "lazydev", "lsp", "path", "snippets", "buffer", "markdown" },
 				providers = {
 					lazydev = {
