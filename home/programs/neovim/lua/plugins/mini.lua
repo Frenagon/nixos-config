@@ -137,6 +137,8 @@ return {
 			icons = {},
 		},
 		config = function(_, opts)
+			local utils = require("utils")
+
 			-- General
 			local clue = require("mini.clue")
 			opts.clue = {
@@ -274,7 +276,7 @@ return {
 								git_section = git_section
 									.. " "
 									.. git_data.head_name
-									.. (git_data.status ~= "" and "*" or "")
+									.. (utils.is_repo_modified() and "*" or "")
 							end
 							if git_data.in_progress then
 								git_section = git_section .. (git_section and " ") .. git_data.in_progress
