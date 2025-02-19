@@ -28,7 +28,6 @@
   ];
 
   programs = {
-    firefox.enable = true;
     vivaldi.enable = true;
   };
 }
