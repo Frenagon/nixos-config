@@ -274,7 +274,7 @@ return {
 								git_section = git_section
 									.. " "
 									.. git_data.head_name
-									.. (git_data.status and "*" or "")
+									.. (git_data.status ~= "" and "*" or "")
 							end
 							if git_data.in_progress then
 								git_section = git_section .. (git_section and " ") .. git_data.in_progress
