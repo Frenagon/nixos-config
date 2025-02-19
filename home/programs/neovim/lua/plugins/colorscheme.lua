@@ -37,12 +37,12 @@ return {
 				return {
 					--[[ Statusline ]]
 					-- Border
-					StatuslineBorderNormal = { bg = colors.blue },
-					StatuslineBorderInsert = { bg = colors.green },
-					StatuslineBorderVisual = { bg = colors.mauve },
-					StatuslineBorderReplace = { bg = colors.red },
-					StatuslineBorderCommand = { bg = colors.yellow },
-					StatuslineBorderOther = { bg = colors.teal },
+					StatuslineBGModeNormal = { bg = colors.blue, fg = colors.crust, style = { "bold" } },
+					StatuslineBGModeInsert = { bg = colors.green, fg = colors.crust, style = { "bold" } },
+					StatuslineBGModeVisual = { bg = colors.mauve, fg = colors.crust, style = { "bold" } },
+					StatuslineBGModeReplace = { bg = colors.red, fg = colors.crust, style = { "bold" } },
+					StatuslineBGModeCommand = { bg = colors.yellow, fg = colors.crust, style = { "bold" } },
+					StatuslineBGModeOther = { bg = colors.teal, fg = colors.crust, style = { "bold" } },
 					-- Sections
 					MiniStatuslineFileinfo = { fg = colors.text, bg = colors.surface0 },
 					MiniStatuslineDevinfo = { fg = colors.text, bg = colors.surface0 },

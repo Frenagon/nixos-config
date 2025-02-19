@@ -240,14 +240,20 @@ return {
 				content = {
 					active = function()
 						local mode, mode_hl = statusline.section_mode({ trunc_width = 120 })
-						local border_mode = "Other"
+						local bg_mode = "Other"
 						for _, v in ipairs({ "Normal", "Insert", "Visual", "Replace", "Command" }) do
 							if v == mode then
-								border_mode = mode
+								bg_mode = mode
 								break
 							end
 						end
-						local border_section = "%#StatuslineBorder" .. border_mode .. "# "
+						local mode_hl_bg = "StatuslineBGMode" .. bg_mode
+						local border = "%#" .. mode_hl_bg .. "# "
+
+						local recording = ""
+						if vim.fn.reg_recording() ~= "" then
+							recording = "@" .. vim.fn.reg_recording()
+						end
 
 						local location = statusline.section_location({ trunc_width = 9999 })
 						local search = statusline.section_searchcount({ trunc_width = 75 })
@@ -284,8 +290,9 @@ return {
 						end
 
 						return statusline.combine_groups({
-							border_section,
+							border,
 							{ hl = mode_hl, strings = { mode } },
+							{ hl = mode_hl_bg, strings = { recording } },
 							{ hl = "MiniStatuslineFileinfo", strings = { location } },
 							{ hl = "MiniStatuslineFileinfo", strings = { search } },
 							"%<", -- Mark general truncate point
@@ -294,7 +301,7 @@ return {
 							{ hl = "MiniStatuslineDevinfo", strings = { diagnostics } },
 							"%#" .. icon_hl .. "# " .. icon .. " %#MiniStatuslineFileinfo#" .. filetype .. " ",
 							{ hl = "StatuslineGit", strings = { git_section } },
-							border_section,
+							border,
 						})
 					end,
 				},
