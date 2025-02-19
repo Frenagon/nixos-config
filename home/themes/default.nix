@@ -17,6 +17,9 @@
     };
     flavor = "macchiato";
     accent = "sapphire";
+    cursors = {
+      enable = true;
+    };
   };
   #  stylix = {
   #    iconTheme = {
