@@ -256,8 +256,8 @@ return {
 							recording = "@" .. vim.fn.reg_recording()
 						end
 
-						local location = statusline.section_location({ trunc_width = 9999 })
 						local search = statusline.section_searchcount({ trunc_width = 75 })
+						local location = statusline.section_location({ trunc_width = 9999 })
 
 						local filename = statusline.section_filename({ trunc_width = 9999 })
 						local filename_hl = "MiniStatuslineFilename" .. (vim.o.mod and "Mod" or "")
@@ -304,8 +304,9 @@ return {
 							border,
 							{ hl = mode_hl, strings = { mode } },
 							{ hl = mode_hl_bg, strings = { recording } },
-							{ hl = "MiniStatuslineFileinfo", strings = { location } },
 							{ hl = "MiniStatuslineFileinfo", strings = { search } },
+							{ hl = "MiniStatuslineFileinfo", strings = { location } },
+							{ hl = "MiniStatuslineFileinfo", strings = { "%P" } },
 							"%<", -- Mark general truncate point
 							{ hl = filename_hl, strings = { filename } },
 							"%=", -- End left alignment
