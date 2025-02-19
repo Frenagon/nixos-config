@@ -33,6 +33,46 @@ return {
 					enabled = true,
 				},
 			},
+			custom_highlights = function(colors)
+				return {
+					--[[ Statusline ]]
+					-- Border
+					StatuslineBorderNormal = { bg = colors.blue },
+					StatuslineBorderInsert = { bg = colors.green },
+					StatuslineBorderVisual = { bg = colors.mauve },
+					StatuslineBorderReplace = { bg = colors.red },
+					StatuslineBorderCommand = { bg = colors.yellow },
+					StatuslineBorderOther = { bg = colors.teal },
+					-- Sections
+					MiniStatuslineFileinfo = { fg = colors.text, bg = colors.surface0 },
+					MiniStatuslineDevinfo = { fg = colors.text, bg = colors.surface0 },
+					MiniStatuslineFilename = { fg = colors.text, bg = colors.surface0 },
+					MiniStatuslineFilenameMod = { fg = colors.yellow, bg = colors.surface0 },
+					StatuslineGit = { fg = colors.peach, bg = colors.surface0 },
+					-- Modes
+					MiniStatuslineModeNormal = { fg = colors.blue, bg = colors.surface0 },
+					MiniStatuslineModeInsert = { fg = colors.green, bg = colors.surface0 },
+					MiniStatuslineModeVisual = { fg = colors.mauve, bg = colors.surface0 },
+					MiniStatuslineModeReplace = { fg = colors.red, bg = colors.surface0 },
+					MiniStatuslineModeCommand = { fg = colors.yellow, bg = colors.surface0 },
+					MiniStatuslineModeOther = { fg = colors.teal, bg = colors.surface0 },
+					-- Diagnostics
+					SatuslineDiagnosticsError = { fg = colors.red, bg = colors.surface0 },
+					SatuslineDiagnosticsWarn = { fg = colors.yellow, bg = colors.surface0 },
+					SatuslineDiagnosticsInfo = { fg = colors.sky, bg = colors.surface0 },
+					SatuslineDiagnosticsHint = { fg = colors.teal, bg = colors.surface0 },
+					-- Icons
+					MiniIconsYellow = { fg = colors.yellow, bg = colors.surface0 },
+					MiniIconsPurple = { fg = colors.mauve, bg = colors.surface0 },
+					MiniIconsGrey = { fg = colors.text, bg = colors.surface0 },
+					MiniIconsCyan = { fg = colors.teal, bg = colors.surface0 },
+					MiniIconsAzure = { fg = colors.sky, bg = colors.surface0 },
+					MiniIconsRed = { fg = colors.red, bg = colors.surface0 },
+					MiniIconsOrange = { fg = colors.peach, bg = colors.surface0 },
+					MiniIconsGreen = { fg = colors.green, bg = colors.surface0 },
+					MiniIconsBlue = { fg = colors.blue, bg = colors.surface0 },
+				}
+			end,
 		},
 	},
 

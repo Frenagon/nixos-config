@@ -23,6 +23,7 @@ return {
 				{ "<leader>fb", builtin.buffers, desc = "Find buffers" },
 				{ "<leader>fr", builtin.resume, desc = "Resume find" },
 				{ "<leader>fa", builtin.grep_live, desc = "Find all (grep live)" },
+				{ "<leader>fh", extra.pickers.hl_groups, desc = "Find highlight groups" },
 
 				-- Explorer
 				{
@@ -227,6 +228,73 @@ return {
 				content_hooks = {
 					starter.gen_hook.adding_bullet(pad .. "• ", false),
 					starter.gen_hook.aligning("center", "center"),
+				},
+			}
+
+			local statusline = require("mini.statusline")
+			local git = require("mini.git")
+			local icons = require("mini.icons")
+			opts.statusline = {
+				content = {
+					active = function()
+						local mode, mode_hl = statusline.section_mode({ trunc_width = 120 })
+						local border_mode = "Other"
+						for _, v in ipairs({ "Normal", "Insert", "Visual", "Replace", "Command" }) do
+							if v == mode then
+								border_mode = mode
+								break
+							end
+						end
+						local border_section = "%#StatuslineBorder" .. border_mode .. "# "
+
+						local location = statusline.section_location({ trunc_width = 9999 })
+						local search = statusline.section_searchcount({ trunc_width = 75 })
+
+						local filename = statusline.section_filename({ trunc_width = 9999 })
+						local filename_hl = "MiniStatuslineFilename" .. (vim.o.mod and "Mod" or "")
+
+						local diagnostics = statusline.section_diagnostics({
+							trunc_width = 75,
+							icon = "",
+							signs = {
+								ERROR = "%#SatuslineDiagnosticsError# ✘ ",
+								WARN = "%#SatuslineDiagnosticsWarn#  ",
+								INFO = "%#SatuslineDiagnosticsInfo# ◉ ",
+								HINT = "%#SatuslineDiagnosticsHint# 󱐮 ",
+							},
+						})
+
+						local filetype = vim.o.filetype
+						local icon, icon_hl = icons.get("file", vim.fn.expand("%"))
+
+						local git_data = git.get_buf_data(0)
+						local git_section = ""
+						if git_data then
+							if git_data.head_name then
+								git_section = git_section
+									.. " "
+									.. git_data.head_name
+									.. (git_data.status and "*" or "")
+							end
+							if git_data.in_progress then
+								git_section = git_section .. (git_section and " ") .. git_data.in_progress
+							end
+						end
+
+						return statusline.combine_groups({
+							border_section,
+							{ hl = mode_hl, strings = { mode } },
+							{ hl = "MiniStatuslineFileinfo", strings = { location } },
+							{ hl = "MiniStatuslineFileinfo", strings = { search } },
+							"%<", -- Mark general truncate point
+							{ hl = filename_hl, strings = { filename } },
+							"%=", -- End left alignment
+							{ hl = "MiniStatuslineDevinfo", strings = { diagnostics } },
+							"%#" .. icon_hl .. "# " .. icon .. " %#MiniStatuslineFileinfo#" .. filetype .. " ",
+							{ hl = "StatuslineGit", strings = { git_section } },
+							border_section,
+						})
+					end,
 				},
 			}
 
