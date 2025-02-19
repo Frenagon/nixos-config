@@ -214,12 +214,13 @@ return {
 			end
 			local starter = require("mini.starter")
 			local extra = require("mini.extra")
+			local builtin = require("mini.pick").builtin
 			opts.starter = {
 				evaluate_single = true,
 				header = header,
 				items = {
 					new_section("Recent Files", extra.pickers.oldfiles, ""),
-					new_section("Find Files", extra.pickers.git_files, ""),
+					new_section("Find Files", builtin.files, ""),
 					new_section("To-do list", function()
 						extra.pickers.visit_paths({ filter = "todo" })
 					end, ""),
