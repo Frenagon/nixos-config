@@ -273,7 +273,17 @@ return {
 						})
 
 						local filetype = vim.o.filetype
-						local icon, icon_hl = icons.get("file", vim.fn.expand("%"))
+						local filetype_section = ""
+						if filetype ~= "" then
+							local icon, icon_hl = icons.get("file", vim.fn.expand("%"))
+							filetype_section = "%#"
+								.. icon_hl
+								.. "# "
+								.. icon
+								.. " %#MiniStatuslineFileinfo#"
+								.. filetype
+								.. " "
+						end
 
 						local git_data = git.get_buf_data(0)
 						local git_section = ""
@@ -299,7 +309,7 @@ return {
 							{ hl = filename_hl, strings = { filename } },
 							"%=", -- End left alignment
 							{ hl = "MiniStatuslineDevinfo", strings = { diagnostics } },
-							"%#" .. icon_hl .. "# " .. icon .. " %#MiniStatuslineFileinfo#" .. filetype .. " ",
+							filetype_section,
 							{ hl = "StatuslineGit", strings = { git_section } },
 							border,
 						})
