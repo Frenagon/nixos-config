@@ -1,6 +1,7 @@
 {...}: {
   imports = [
     ../coding
+    ../fonts
     ../programs
     ../scripts
     ../shells
