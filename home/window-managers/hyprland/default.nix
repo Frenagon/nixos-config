@@ -49,6 +49,8 @@ in {
           gaps_in = 5;
           gaps_out = 20;
           border_size = 2;
+          "col.active_border" = "$accent";
+          "col.inactive_border" = "rgba($accentAlpha77)";
           resize_on_border = false;
           allow_tearing = false;
           layout = "dwindle";
@@ -62,6 +64,7 @@ in {
             enabled = true;
             range = 4;
             render_power = 3;
+            color = "rgba($crustAlpha99)";
           };
           blur = {
             enabled = true;
@@ -112,6 +115,7 @@ in {
 
         misc = {
           disable_hyprland_logo = true;
+          background_color = "$base";
         };
 
         input = {

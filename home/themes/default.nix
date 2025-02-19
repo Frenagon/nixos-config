@@ -16,6 +16,7 @@
       icon.enable = true;
     };
     flavor = "macchiato";
+    accent = "sapphire";
   };
   #  stylix = {
   #    iconTheme = {
