@@ -4,8 +4,8 @@ local map = utils.map
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
-map("n", "<leader>w", "<cmd>w<CR>", "Save")
-map("n", "<C-s>", "<cmd>update<CR>", "Save")
+map("n", "<leader>w", "<cmd>silent w<CR>", "Save")
+map("n", "<C-s>", "<cmd>silent update<CR>", "Save")
 map("n", "<leader>Q", "<cmd>q<CR>", "Quit")
 map("n", "<C-q>", "<cmd>wq<CR>", "Save and Quit")
 
