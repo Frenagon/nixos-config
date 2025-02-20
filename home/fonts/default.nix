@@ -6,5 +6,7 @@
     liberation_ttf
     dejavu_fonts
     jetbrains-mono
+    nerd-fonts.dejavu-sans-mono
+    nerd-fonts.fira-code
   ];
 }
