@@ -5,5 +5,6 @@
     font-awesome
     liberation_ttf
     dejavu_fonts
+    jetbrains-mono
   ];
 }
