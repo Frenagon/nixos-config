@@ -10,15 +10,15 @@
 #
 # Arguments:
 #   Command that determines the action of the script:
-#     up    - Rises the brightness by 2%
-#     down  - Lowers the brightness by 2%
+#     up    - Rises the brightness by 5%
+#     down  - Lowers the brightness by 5%
 #     NONE  - Writes the current brightness state (See Outputs)
 #
 # Outputs:
 #   When no argument is received it writes the current brightness to STDOUT.
 
 declare -r COMMAND="$1"
-declare -r MIN_BRIGHTNESS_PERC=10;
+declare -r MIN_BRIGHTNESS_PERC=0;
 declare -r MIN_BRIGHNTESS=$(($(brightnessctl max)*$MIN_BRIGHTNESS_PERC/100))
 declare -r RELATIVE_MAX=$(($(brightnessctl max)-$MIN_BRIGHNTESS))
 declare -r RELATIVE_SKIPS=$(($RELATIVE_MAX/20))
