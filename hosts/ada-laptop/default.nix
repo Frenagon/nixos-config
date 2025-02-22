@@ -27,6 +27,10 @@
 
   # Networking
   networking.networkmanager.enable = true;
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
 
   # Sound
   security.rtkit.enable = true;
