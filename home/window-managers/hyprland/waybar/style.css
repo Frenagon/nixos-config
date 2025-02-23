@@ -9,6 +9,10 @@ window#waybar {
   color: @text;
 }
 
+.modules-center {
+  margin: 0px 60px;
+}
+
 tooltip {
   background-color: @base;
   border: 2px solid @sapphire;
@@ -92,7 +96,6 @@ tooltip {
 }
 
 #window {
-  margin-left: 10px;
   border-radius: 10px;
 }
 
