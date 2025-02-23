@@ -1,0 +1,154 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 35,
+  "margin": "10 20 0 20",
+
+  "modules-left": ["clock", "custom/weather", "hyprland/workspaces"],
+  "modules-center": ["hyprland/window"],
+  "modules-right": [
+    "network",
+    "bluetooth",
+    "temperature",
+    "memory",
+    "battery",
+    "backlight",
+    "pulseaudio",
+    "pulseaudio#microphone"
+  ],
+
+  "clock": {
+    "format": " {0:%H:%M}   {0:%a, %b %e}",
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "locale": "en_US.UTF-8",
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#f4dbd6'><b>{}</b></span>",
+        "days": "<span color='#f5bde6'><b>{}</b></span>",
+        "weeks": "<span color='#8bd5ca'><b>W{}</b></span>",
+        "weekdays": "<span color='#f5a97f'><b>{}</b></span>",
+        "today": "<span color='#ed8796'><b><u>{}</u></b></span>"
+      }
+    },
+    "smooth-scrolling-threshold": 2,
+    "actions": {
+      "on-click": "mode",
+      "on-click-right": "shift_reset",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    }
+  },
+  "custom/weather": {
+    "format": "{}",
+    "tooltip": true,
+    "interval": 3600,
+    "exec": "waybar-weather.py",
+    "return-type": "json",
+    "on-click": "waybar-weather.py"
+  },
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": ""
+    }
+  },
+
+  "hyprland/window": {
+    "format": "{class} {title}",
+    "rewrite": {
+      "vivaldi-stable (.*) - Vivaldi": "  $1",
+      "kitty (.*)": "  $1",
+      "obsidian (.*) - Obsidian .*": "  $1"
+    }
+  },
+
+  "network": {
+    "format-wifi": " {signalStrength}%",
+    "format-ethernet": " {ipaddr}/{cidr}",
+    "tooltip-format": "{essid} {gwaddr}",
+    "format-linked": "{ifname} (No IP)",
+    "format-disconnected": "Disconnected ⚠",
+    "format-alt": "{essid} {gwaddr}",
+    "on-click-right": "kitty --hold nmcli device wifi list"
+  },
+  "bluetooth": {
+    "format": " {status}",
+    "format-disabled": "",
+    "format-connected": " {num_connections}",
+    "tooltip-format": "{device_alias}",
+    "tooltip-format-connected": " {device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}",
+    "on-click": "toggle_bluetooth",
+    "on-click-right": "kitty bluetoothctl"
+  },
+
+  "temperature": {
+    "critical-threshold": 80,
+    "format": "{icon} {temperatureC}°C",
+    "format-critical": "{icon} {temperatureC}°C",
+    "format-icons": ["", "󰈸"],
+    "tooltip": false
+  },
+  "memory": {
+    "states": {
+      "critical": 90
+    },
+    "format": "  {}%",
+    "tooltip-format": "{used:0.1f}GB/{total:0.1f}GB used"
+  },
+  "battery": {
+    "states": {
+      "warning": 40,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt": "{icon} {time}",
+    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+  },
+
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon} {percent}%",
+    "format-icons": ["󰃞", "󰃟", "󰃠"],
+    "on-scroll-up": "brightnessctl -q set 1%+",
+    "on-scroll-down": "brightnessctl -q set 1%-"
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "tooltip": false,
+    "format-muted": " Muted",
+    "on-click": "pamixer -t",
+    "on-scroll-up": "pamixer -i 5",
+    "on-scroll-down": "pamixer -d 5",
+    "scroll-step": 100,
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""]
+    }
+  },
+  "pulseaudio#microphone": {
+    "format": "{format_source}",
+    "format-source": " {volume}%",
+    "format-source-muted": " Muted",
+    "on-click": "pamixer --default-source -t",
+    "on-scroll-up": "pamixer --default-source -i 5",
+    "on-scroll-down": "pamixer --default-source -d 5",
+    "scroll-step": 5
+  }
+}

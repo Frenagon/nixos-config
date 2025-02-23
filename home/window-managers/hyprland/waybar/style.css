@@ -1,0 +1,165 @@
+* {
+  font-family: "DejaVu Sans Mono", "Font Awesome 6 Free";
+  font-weight: bold;
+  font-size: 14px;
+}
+
+window#waybar {
+  background-color: transparent;
+  color: @text;
+}
+
+tooltip {
+  background-color: @base;
+  border: 2px solid @sapphire;
+  border-radius: 10px;
+}
+
+#clock,
+#custom-weather,
+#workspaces,
+#window,
+#network,
+#bluetooth,
+#temperature,
+#memory,
+#battery,
+#backlight,
+#pulseaudio {
+  background-color: @base;
+  padding: 0px 10px;
+  border: 1px solid @sapphire;
+}
+
+#clock {
+  color: @peach;
+  border-radius: 10px 0px 0px 10px;
+  border-right: 0px;
+}
+
+#custom-weather {
+  border-radius: 0px 10px 10px 0px;
+}
+
+#workspaces {
+  margin-left: 10px;
+  padding: 0px;
+  border-radius: 10px;
+}
+
+#workspaces button {
+  padding: 0px 10px;
+  border-radius: 0px;
+  box-shadow: inherit;
+  text-shadow: inherit;
+}
+
+#workspaces button:first-child {
+  margin-left: 0px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+#workspaces button:last-child {
+  margin-left: 0px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+#workspaces button:hover {
+  background-color: @surface0;
+}
+
+#workspaces button.active {
+  background-color: @surface2;
+}
+
+@keyframes blink {
+  0% {
+    background-color: @teal;
+  }
+  50% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: @teal;
+  }
+}
+
+#workspaces button.urgent {
+  background-color: @teal;
+  animation: blink 1s infinite;
+}
+
+#window {
+  margin-left: 10px;
+  border-radius: 10px;
+}
+
+window#waybar.empty #window {
+  opacity: 0;
+}
+
+#network {
+  color: @yellow;
+  border-radius: 10px 0px 0px 10px;
+  border-right: 0px;
+}
+
+#bluetooth {
+  color: @blue;
+  border-radius: 0px 10px 10px 0px;
+  margin-right: 10px;
+}
+
+#bluetooth.off {
+  color: @overlay1;
+}
+
+#temperature {
+  color: @lavender;
+  border-radius: 10px 0px 0px 10px;
+  border-right: 0px;
+}
+
+#temperature.critical {
+  color: @red;
+}
+
+#memory {
+  color: @flamingo;
+  border-right: 0px;
+}
+
+#memory.critical {
+  color: @red;
+}
+
+#battery {
+  color: @green;
+  border-radius: 0px 10px 10px 0px;
+  margin-right: 10px;
+}
+
+#battery.warning {
+  color: @yellow;
+}
+
+#battery.critical {
+  color: @red;
+}
+
+#backlight {
+  border-radius: 10px 0px 0px 10px;
+  border-right: 0px;
+}
+
+#pulseaudio {
+  color: @blue;
+}
+
+#pulseaudio.microphone {
+  color: @mauve;
+  border-radius: 0px 10px 10px 0px;
+  border-left: 0px;
+}

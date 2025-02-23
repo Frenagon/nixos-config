@@ -27,6 +27,8 @@ in {
         "$terminal" = "kitty";
         "$menu" = "wofi --show drun";
 
+        exec-once = "waybar";
+
         monitor = cfg.monitors;
 
         xwayland = {
