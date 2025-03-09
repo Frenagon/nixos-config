@@ -148,6 +148,10 @@ in {
           "$mainMod, right, movefocus, r"
           "$mainMod, up, movefocus, u"
           "$mainMod, down, movefocus, d"
+          "$mainMod, H, movefocus, l"
+          "$mainMod, L, movefocus, r"
+          "$mainMod, K, movefocus, u"
+          "$mainMod, J, movefocus, d"
 
           "$mainMod, 1, workspace, 1"
           "$mainMod, 2, workspace, 2"
@@ -171,6 +175,15 @@ in {
           "$mainMod SHIFT, 9, movetoworkspace, 9"
           "$mainMod SHIFT, 0, movetoworkspace, 10"
 
+          "$mainMod CTRL, left, movewindow, l"
+          "$mainMod CTRL, right, movewindow, r"
+          "$mainMod CTRL, up, movewindow, u"
+          "$mainMod CTRL, down, movewindow, d"
+          "$mainMod CTRL, H, movewindow, l"
+          "$mainMod CTRL, L, movewindow, r"
+          "$mainMod CTRL, K, movewindow, u"
+          "$mainMod CTRL, J, movewindow, d"
+
           "$mainMod, S, togglespecialworkspace, magic"
           "$mainMod SHIFT, S, movetoworkspace, special:magic"
 
@@ -188,6 +201,17 @@ in {
         bindm = [
           "$mainMod, mouse:272, movewindow"
           "$mainMod, mouse:273, resizewindow"
+        ];
+
+        binde = [
+          "$mainMod ALT, left, resizeactive, -20 0"
+          "$mainMod ALT, right, resizeactive, 20 0"
+          "$mainMod ALT, up, resizeactive, 0 -20"
+          "$mainMod ALT, down, resizeactive, 0 20"
+          "$mainMod ALT, H, resizeactive, -20 0"
+          "$mainMod ALT, L, resizeactive, 20 0"
+          "$mainMod ALT, K, resizeactive, 0 -20"
+          "$mainMod ALT, J, resizeactive, 0 20"
         ];
 
         bindel = [
