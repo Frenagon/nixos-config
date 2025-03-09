@@ -25,6 +25,7 @@
     cliphist
     file
     fd
+    grimblast
   ];
 
   programs = {

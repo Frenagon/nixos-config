@@ -176,6 +176,13 @@ in {
 
           "$mainMod, mouse_down, workspace, e+1"
           "$mainMod, mouse_up, workspace, e-1"
+
+          "$mainMod, S, exec, grimblast --notify copy area"
+          "$mainMod ALT, S, exec, grimblast --notify save area"
+          "$mainMod CTRL, S, exec, grimblast --notify copy active"
+          "$mainMod CTRL ALT, S, exec, grimblast --notify save active"
+          "$mainMod SHIFT, S, exec, grimblast --notify copy output"
+          "$mainMod SHIFT ALT, S, exec, grimblast --notify save output"
         ];
 
         bindm = [
