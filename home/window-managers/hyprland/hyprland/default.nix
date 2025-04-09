@@ -136,7 +136,7 @@ in {
           "$mainMod, E, exec, $fileManager"
           "$mainMod, Q, killactive,"
           "$mainMod, F, togglefloating,"
-          "$mainMod, J, togglesplit, # dwindle"
+          "$mainMod SHIFT, J, togglesplit, # dwindle"
           "$mainMod, P, pseudo, # dwindle"
           "$mainMod CTRL SHIFT, Q, exit,"
           "$mainMod SHIFT, P, exec, power_menu"
@@ -184,8 +184,8 @@ in {
           "$mainMod CTRL, K, movewindow, u"
           "$mainMod CTRL, J, movewindow, d"
 
-          "$mainMod, S, togglespecialworkspace, magic"
-          "$mainMod SHIFT, S, movetoworkspace, special:magic"
+          "$mainMod, A, togglespecialworkspace, magic"
+          "$mainMod SHIFT, A, movetoworkspace, special:magic"
 
           "$mainMod, mouse_down, workspace, e+1"
           "$mainMod, mouse_up, workspace, e-1"
