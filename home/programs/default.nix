@@ -30,5 +30,6 @@
 
   programs = {
     vivaldi.enable = true;
+    google-chrome.enable = true;
   };
 }
