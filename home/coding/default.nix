@@ -18,6 +18,7 @@
     lua-language-server
     marksman
     pyright
+    emmet-ls
 
     # formatter
     nodePackages.prettier
