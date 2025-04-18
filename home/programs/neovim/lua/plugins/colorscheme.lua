@@ -71,6 +71,8 @@ return {
 					MiniIconsOrange = { fg = colors.peach, bg = colors.surface0 },
 					MiniIconsGreen = { fg = colors.green, bg = colors.surface0 },
 					MiniIconsBlue = { fg = colors.blue, bg = colors.surface0 },
+					-- Matchup
+					MatchWord = { bg = colors.surface1, style = { "bold" } },
 				}
 			end,
 		},

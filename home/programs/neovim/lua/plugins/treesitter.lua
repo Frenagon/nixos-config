@@ -22,6 +22,9 @@ return {
 			highlight = { enable = true, use_languagetree = true },
 			indent = { enable = true },
 			incremental_selection = { enable = true },
+			matchup = {
+				enable = true,
+			},
 		},
 		config = function(_, opts)
 			require("nvim-treesitter.configs").setup(opts)
@@ -33,5 +36,12 @@ return {
 		opts = {
 			enable_autocmd = false,
 		},
+	},
+
+	{
+		"andymass/vim-matchup",
+		config = function()
+			vim.g.matchup_matchparen_offscreen = { method = "popup" }
+		end,
 	},
 }

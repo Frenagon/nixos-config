@@ -14,5 +14,6 @@
   "onedarkpro.nvim": { "branch": "main", "commit": "44775f8206ee43b692e7f3dc894ddc47996ee523" },
   "render-markdown.nvim": { "branch": "main", "commit": "f6c9e1841cf644a258eb037dae587e3cf407d696" },
   "snacks.nvim": { "branch": "main", "commit": "fe6f767d010873c122d9e772cebb753d784fa6d4" },
-  "telescope-fzf-native.nvim": { "branch": "main", "commit": "2a5ceff981501cff8f46871d5402cd3378a8ab6a" }
+  "telescope-fzf-native.nvim": { "branch": "main", "commit": "2a5ceff981501cff8f46871d5402cd3378a8ab6a" },
+  "vim-matchup": { "branch": "master", "commit": "ea2ff43e09e68b63fc6d9268fc5d82d82d433cb3" }
 }
