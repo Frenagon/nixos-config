@@ -94,18 +94,7 @@ return {
 				},
 			},
 			operators = {},
-			pairs = {
-				mappings = {
-					["<"] = {
-						action = "closeopen",
-						pair = "<>",
-						neigh_pattern = "[^\\].",
-						register = {
-							cr = false,
-						},
-					},
-				},
-			},
+			pairs = {},
 			splitjoin = {},
 			surround = {
 				custom_surroundings = {
