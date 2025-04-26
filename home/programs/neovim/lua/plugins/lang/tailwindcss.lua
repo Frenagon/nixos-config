@@ -35,11 +35,6 @@ return {
 			},
 		},
 		opts = {
-			highlight = {
-				style = "virtual_left",
-				virtual_text = "󰝤 ",
-				emphasis = false,
-			},
 			auto_download = false,
 		},
 	},
