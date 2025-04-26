@@ -11,6 +11,7 @@
   "nvim-lspconfig": { "branch": "master", "commit": "7af2c37192deae28d1305ae9e68544f7fb5408e1" },
   "nvim-treesitter": { "branch": "master", "commit": "95648f915424131ba0304989bfd618dce651e1cf" },
   "nvim-ts-context-commentstring": { "branch": "main", "commit": "1b212c2eee76d787bbea6aa5e92a2b534e7b4f8f" },
+  "oklch-color-picker.nvim": { "branch": "master", "commit": "25f2687babe1dec42a5f1305b0522a86b289475d" },
   "onedarkpro.nvim": { "branch": "main", "commit": "44775f8206ee43b692e7f3dc894ddc47996ee523" },
   "render-markdown.nvim": { "branch": "main", "commit": "f6c9e1841cf644a258eb037dae587e3cf407d696" },
   "snacks.nvim": { "branch": "main", "commit": "fe6f767d010873c122d9e772cebb753d784fa6d4" },
