@@ -40,7 +40,7 @@ return {
 				virtual_text = "󰝤 ",
 				emphasis = false,
 			},
+			auto_download = false,
 		},
-		auto_download = false,
 	},
 }
