@@ -44,6 +44,9 @@ return {
 						border = vim.g.border_style,
 					},
 				},
+				trigger = {
+					show_on_insert_on_trigger_character = false,
+				},
 			},
 		},
 		opts_extend = { "sources.default" },
