@@ -4,7 +4,7 @@
   hyprland = {
     enable = true;
     monitors = [
-      ", highrr, auto, 1.8"
+      ", preferred, auto, 1.875"
     ];
   };
 }
