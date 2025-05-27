@@ -22,13 +22,6 @@
       url = "github:catppuccin/nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    #    stylix = {
-    #      url = "github:danth/stylix";
-    #      inputs = {
-    #        nixpkgs.follows = "nixpkgs";
-    #        home-manager.follows = "home-manager";
-    #      };
-    #    };
   };
 
   outputs = {
@@ -50,7 +43,7 @@
           modules = [catppuccin.nixosModules.catppuccin];
           homeModules = [
             ./home/profiles/ada.nix
-            catppuccin.homeManagerModules.catppuccin
+            catppuccin.homeModules.catppuccin
           ];
         };
 
@@ -65,7 +58,7 @@
           ];
           homeModules = [
             ./home/profiles/ada-laptop.nix
-            catppuccin.homeManagerModules.catppuccin
+            catppuccin.homeModules.catppuccin
           ];
         };
 
@@ -80,7 +73,7 @@
           ];
           homeModules = [
             ./home/profiles/ada-res.nix
-            catppuccin.homeManagerModules.catppuccin
+            catppuccin.homeModules.catppuccin
           ];
         };
       };
@@ -90,7 +83,7 @@
           system = defaultSystem;
           modules = [
             ./home/profiles/common.nix
-            catppuccin.homeManagerModules.catppuccin
+            catppuccin.homeModules.catppuccin
           ];
         };
       };
