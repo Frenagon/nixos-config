@@ -58,7 +58,8 @@
       "2": "",
       "3": "",
       "4": "",
-      "5": ""
+      "5": "",
+      "6": ""
     }
   },
 
@@ -67,7 +68,8 @@
     "rewrite": {
       "vivaldi-stable (.*) - Vivaldi": "  $1",
       "kitty (.*)": "  $1",
-      "obsidian (.*) - Obsidian .*": "  $1"
+      "obsidian (.*) - Obsidian .*": "  $1",
+      "(.*) - Godot Engine": "  $1"
     }
   },
 
