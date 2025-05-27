@@ -13,6 +13,7 @@
     # ui
     pavucontrol
     obsidian
+    godot
 
     # cli
     neofetch
