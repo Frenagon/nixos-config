@@ -49,7 +49,8 @@ in {
 
         exec-once = [
           "uwsm app -- vivaldi"
-          "uwsm app -- obsidian"
+          "[workspace 2 silent]uwsm app -- kitty"
+          "[workspace 3 silent]uwsm app -- obsidian"
           "uwsm app -- waybar"
           "uwsm app -- clipse -listen"
           "systemctl --user enable --now hypridle.service"
@@ -184,10 +185,11 @@ in {
           "$mainMod, 1, workspace, 1"
           "$mainMod, 2, workspace, 2"
           "$mainMod, 3, workspace, 3"
+          "$mainMod, 3, exec, pidof obsidian || uwsm app -- obsidian"
           "$mainMod, 4, workspace, 4"
           "$mainMod, 5, workspace, 5"
           "$mainMod, 6, workspace, 6"
-          "$mainMod, 6, exec, uwsm app -- godot"
+          "$mainMod, 6, exec, pidof godot || uwsm app -- godot"
           "$mainMod, 7, workspace, 7"
           "$mainMod, 8, workspace, 8"
           "$mainMod, 9, workspace, 9"
@@ -266,6 +268,8 @@ in {
           "float, class:(clipse)"
           "size 622 652, class:(clipse)"
           "stayfocused, class:(clipse)"
+          "workspace 3, class:(obsidian)"
+          "workspace 6, class:(Godot)"
         ];
       };
     };
