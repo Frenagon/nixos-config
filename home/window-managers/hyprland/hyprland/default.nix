@@ -49,8 +49,8 @@ in {
 
         exec-once = [
           "uwsm app -- vivaldi"
-          "[workspace 2 silent]uwsm app -- kitty"
-          "[workspace 3 silent]uwsm app -- obsidian"
+          "[workspace 2 silent] uwsm app -- kitty"
+          "[workspace 3 silent] uwsm app -- obsidian"
           "uwsm app -- waybar"
           "uwsm app -- clipse -listen"
           "systemctl --user enable --now hypridle.service"
@@ -185,7 +185,6 @@ in {
           "$mainMod, 1, workspace, 1"
           "$mainMod, 2, workspace, 2"
           "$mainMod, 3, workspace, 3"
-          "$mainMod, 3, exec, pidof obsidian || uwsm app -- obsidian"
           "$mainMod, 4, workspace, 4"
           "$mainMod, 5, workspace, 5"
           "$mainMod, 6, workspace, 6"
