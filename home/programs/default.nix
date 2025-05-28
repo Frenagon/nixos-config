@@ -27,6 +27,7 @@
     file
     fd
     grimblast
+    clipse
   ];
 
   programs = {

@@ -32,7 +32,10 @@ in {
         "$terminal" = "kitty";
         "$menu" = "wofi --show drun";
 
-        exec-once = "waybar";
+        exec-once = [
+          "waybar"
+          "clipse -listen"
+        ];
 
         monitor = cfg.monitors;
 
@@ -146,6 +149,8 @@ in {
           "$mainMod, P, pseudo, # dwindle"
           "$mainMod CTRL SHIFT, Q, exit,"
           "$mainMod SHIFT, P, exec, power_menu"
+          "$mainMod, C, exec, hyprpicker -ad"
+          "$mainMod, V, exec, kitty --class clipse -e 'clipse'"
           "SHIFT, SPACE, exec, run_or_close $menu"
           "CTRL, SPACE, exec, change_kb_layout next"
           "CTRL SHIFT, SPACE, exec, change_kb_layout prev"
@@ -202,8 +207,6 @@ in {
           "$mainMod CTRL ALT, S, exec, grimblast --notify save active"
           "$mainMod SHIFT, S, exec, grimblast --notify copy output"
           "$mainMod SHIFT ALT, S, exec, grimblast --notify save output"
-
-          "$mainMod, C, exec, hyprpicker -ad"
         ];
 
         bindm = [
@@ -241,7 +244,10 @@ in {
         windowrulev2 = [
           "suppressevent maximize, class:.*"
           "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
-          "tile, class:Godot"
+          "tile, class:(Godot)"
+          "float, class:(clipse)"
+          "size 622 652, class:(clipse)"
+          "stayfocused, class:(clipse)"
         ];
       };
     };
