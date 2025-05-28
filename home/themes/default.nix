@@ -20,5 +20,8 @@
     cursors = {
       enable = true;
     };
+    hyprlock = {
+      useDefaultConfig = false;
+    };
   };
 }

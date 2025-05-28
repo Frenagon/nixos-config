@@ -30,9 +30,6 @@ in {
           fi
         '';
       };
-      hyprlock = {
-        enable = true;
-      };
     };
 
     home.packages = with pkgs; [
