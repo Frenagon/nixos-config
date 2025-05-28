@@ -30,6 +30,9 @@ in {
           fi
         '';
       };
+      hyprlock = {
+        enable = true;
+      };
     };
 
     home.packages = with pkgs; [
@@ -37,18 +40,25 @@ in {
       hyprpicker
     ];
 
+    services = {
+      hypridle = {
+        enable = true;
+      };
+    };
+
     wayland.windowManager.hyprland = {
       enable = true;
       systemd.enable = false;
       settings = {
         "$terminal" = "kitty";
-        "$menu" = "uwsm app -- rofi -show drun -run-command 'uwsm app -- {cmd}'";
+        "$menu" = "rofi -show drun -run-command 'uwsm app -- {cmd}'";
 
         exec-once = [
           "uwsm app -- vivaldi"
           "uwsm app -- obsidian"
           "uwsm app -- waybar"
           "uwsm app -- clipse -listen"
+          "systemctl --user enable --now hypridle.service"
         ];
 
         monitor = cfg.monitors;
