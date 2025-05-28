@@ -1,4 +1,5 @@
 {
+  pkgs,
   lib,
   config,
   ...
@@ -21,6 +22,10 @@ in {
   };
 
   config = mkIf cfg.enable {
+    home.packages = with pkgs; [
+      hyprpicker
+    ];
+
     wayland.windowManager.hyprland = {
       enable = true;
       settings = {
@@ -197,6 +202,8 @@ in {
           "$mainMod CTRL ALT, S, exec, grimblast --notify save active"
           "$mainMod SHIFT, S, exec, grimblast --notify copy output"
           "$mainMod SHIFT ALT, S, exec, grimblast --notify save output"
+
+          "$mainMod, C, exec, hyprpicker -ad"
         ];
 
         bindm = [
