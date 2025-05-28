@@ -22,19 +22,33 @@ in {
   };
 
   config = mkIf cfg.enable {
+    programs = {
+      zsh = {
+        profileExtra = ''
+          if uwsm check may-start && uwsm select; then
+            exec uwsm start default
+          fi
+        '';
+      };
+    };
+
     home.packages = with pkgs; [
+      uwsm
       hyprpicker
     ];
 
     wayland.windowManager.hyprland = {
       enable = true;
+      systemd.enable = false;
       settings = {
         "$terminal" = "kitty";
-        "$menu" = "wofi --show drun";
+        "$menu" = "uwsm app -- rofi -show drun -run-command 'uwsm app -- {cmd}'";
 
         exec-once = [
-          "waybar"
-          "clipse -listen"
+          "uwsm app -- vivaldi"
+          "uwsm app -- obsidian"
+          "uwsm app -- waybar"
+          "uwsm app -- clipse -listen"
         ];
 
         monitor = cfg.monitors;
@@ -140,17 +154,16 @@ in {
         "$mainMod" = "SUPER";
 
         bind = [
-          "$mainMod, SPACE, exec, $terminal"
-          "$mainMod, E, exec, $fileManager"
+          "$mainMod, SPACE, exec, uwsm app -- $terminal"
           "$mainMod, Q, killactive,"
           "$mainMod, F, fullscreen,"
           "$mainMod SHIFT, F, togglefloating,"
           "$mainMod SHIFT, J, togglesplit, # dwindle"
           "$mainMod, P, pseudo, # dwindle"
           "$mainMod CTRL SHIFT, Q, exit,"
-          "$mainMod SHIFT, P, exec, power_menu"
-          "$mainMod, C, exec, hyprpicker -ad"
-          "$mainMod, V, exec, kitty --class clipse -e 'clipse'"
+          "$mainMod SHIFT, P, exec, uwsm app -- power_menu"
+          "$mainMod, C, exec, uwsm app -- hyprpicker -ad"
+          "$mainMod, V, exec, uwsm app -- kitty --class clipse -e 'clipse'"
           "SHIFT, SPACE, exec, run_or_close $menu"
           "CTRL, SPACE, exec, change_kb_layout next"
           "CTRL SHIFT, SPACE, exec, change_kb_layout prev"
@@ -170,6 +183,7 @@ in {
           "$mainMod, 4, workspace, 4"
           "$mainMod, 5, workspace, 5"
           "$mainMod, 6, workspace, 6"
+          "$mainMod, 6, exec, uwsm app -- godot"
           "$mainMod, 7, workspace, 7"
           "$mainMod, 8, workspace, 8"
           "$mainMod, 9, workspace, 9"

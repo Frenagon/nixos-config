@@ -6,6 +6,7 @@
     ./git
     ./kitty
     ./neovim
+    ./rofi
     ./wofi
   ];
 
