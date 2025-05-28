@@ -169,6 +169,7 @@ in {
           "$mainMod SHIFT, P, exec, uwsm app -- power_menu"
           "$mainMod, C, exec, uwsm app -- hyprpicker -ad"
           "$mainMod, V, exec, uwsm app -- kitty --class clipse -e 'clipse'"
+          "$mainMod SHIFT, L, exec, pidof hyprlock || hyprlock"
           "SHIFT, SPACE, exec, run_or_close $menu"
           "CTRL, SPACE, exec, change_kb_layout next"
           "CTRL SHIFT, SPACE, exec, change_kb_layout prev"
