@@ -37,7 +37,7 @@ in {
           }
           {
             monitor = "";
-            text = "cmd[update:43200000] date +'%A, %d %B %Y'";
+            text = "cmd[update:43200000] LC_TIME=en_US.utf8 date +'%A, %d %B %Y'";
             color = "$text";
             font_size = 25;
             font_family = "$font";
