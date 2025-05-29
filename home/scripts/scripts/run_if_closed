@@ -1,0 +1,9 @@
+#! /usr/bin/env bash
+# Runs an application only if it's not already running on hyprland
+# Arguments:
+#   search argument for clients
+#   application to run
+#   commands to pass to the application
+if ! hyprctl clients | grep "$1"; then
+  uwsm app -- "${@:2}"
+fi
