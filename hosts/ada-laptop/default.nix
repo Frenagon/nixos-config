@@ -9,6 +9,7 @@
     ../../modules/hyprland.nix
     ../../modules/bootloader.nix
     ../../modules/colorscheme.nix
+    ../../modules/steam.nix
   ];
 
   nix.nixPath = ["nixpkgs=${inputs.inputs.nixpkgs}"];
