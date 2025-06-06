@@ -19,11 +19,13 @@
     marksman
     pyright
     emmet-ls
+    bash-language-server
 
     # formatter
     nodePackages.prettier
     alejandra
     stylua
     black
+    shfmt
   ];
 }

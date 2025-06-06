@@ -7,6 +7,7 @@ return {
 		event = { "BufReadPost", "BufNewFile" },
 		opts = {
 			ensure_installed = {
+				"bash",
 				"nix",
 				"lua",
 				"javascript",
