@@ -39,11 +39,21 @@ in {
             monitor = "";
             text = "cmd[update:43200000] LC_TIME=en_US.utf8 date +'%A, %d %B %Y'";
             color = "$text";
-            font_size = 25;
+            font_size = 24;
             font_family = "$font";
             position = "0, 350";
             halign = "center";
             valign = "center";
+          }
+          {
+            monitor = "";
+            text = "cmd[update:60000] battery-level";
+            color = "$text";
+            font_size = 24;
+            font_family = "$font";
+            position = "-15, 10";
+            halign = "right";
+            valign = "bottom";
           }
         ];
 

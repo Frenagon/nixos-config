@@ -1,0 +1,20 @@
+#! /usr/bin/env bash
+# Returns a string with an icon representing the
+# current battery level and the percentage capacity.
+bIcons=("󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹")
+bIconsLength=${#bIcons[@]}
+bCapacity=$(cat /sys/class/power_supply/BAT0/capacity)
+bStatus=$(cat /sys/class/power_supply/BAT0/status)
+
+bIcon=""
+if [ "$bStatus" == "Charging" ]; then
+  bIcon=""
+else
+  bIconIndex=$((bCapacity / (100 / bIconsLength)))
+  if [ "$bIconIndex" -ge "$bIconsLength" ]; then
+    bIconIndex=$((bIconsLength - 1))
+  fi
+  bIcon=${bIcons[bIconIndex]}
+fi
+
+echo "${bIcon} ${bCapacity}%"
