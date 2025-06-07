@@ -18,7 +18,7 @@ return {
 									expr = '(builtins.getFlake "/home/frenagon/.nixos-config").nixosConfigurations.AdaLaptop.options',
 								},
 								home_manager = {
-									expr = '(builtins.getFlake "/home/frenagon/.nixos-config").homeConfigurations.frenagon.options',
+									expr = '(builtins.getFlake "/home/frenagon/.nixos-config").homeConfigurations.AdaWSL.options',
 								},
 							},
 						},

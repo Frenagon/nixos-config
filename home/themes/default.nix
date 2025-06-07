@@ -1,15 +1,20 @@
-{...}: {
-  gtk = {
+{
+  lib,
+  config,
+  ...
+}:
+with lib; {
+  gtk = mkIf (!config.windows.wsl) {
     enable = true;
   };
 
-  qt = {
+  qt = mkIf (!config.windows.wsl) {
     enable = true;
     platformTheme.name = "kvantum";
     style.name = "kvantum";
   };
 
-  catppuccin = {
+  catppuccin = mkIf (!config.windows.wsl) {
     enable = true;
     gtk = {
       enable = true;

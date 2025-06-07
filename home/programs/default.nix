@@ -1,4 +1,10 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
+with lib; {
   imports = [
     ./bat
     ./dunst
@@ -7,31 +13,34 @@
     ./kitty
     ./neovim
     ./rofi
-    ./wofi
   ];
 
-  home.packages = with pkgs; [
-    # ui
-    pavucontrol
-    obsidian
-    godot
+  home.packages = with pkgs;
+    [
+      # cli
+      neofetch
+      tree
+      unzip
+      jq
+      file
+      fd
+      clipse
+    ]
+    ++ optionals (!config.windows.wsl) [
+      # ui
+      pavucontrol
+      obsidian
+      godot
 
-    # cli
-    neofetch
-    tree
-    unzip
-    pamixer
-    jq
-    libnotify
-    wl-clipboard
-    cliphist
-    file
-    fd
-    grimblast
-    clipse
-  ];
+      # cli
+      pamixer
+      libnotify
+      wl-clipboard
+      cliphist
+      grimblast
+    ];
 
-  programs = {
+  programs = mkIf (!config.windows.wsl) {
     vivaldi.enable = true;
     google-chrome.enable = true;
   };

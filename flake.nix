@@ -79,10 +79,10 @@
       };
 
       homeConfigurations = {
-        frenagon = mkHome {
+        AdaWSL = mkHome {
           system = defaultSystem;
           modules = [
-            ./home/profiles/common.nix
+            ./home/profiles/ada-wsl.nix
             catppuccin.homeModules.catppuccin
           ];
         };

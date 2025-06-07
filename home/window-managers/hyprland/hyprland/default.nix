@@ -7,20 +7,6 @@
 with lib; let
   cfg = config.hyprland;
 in {
-  options.hyprland = {
-    enable = mkEnableOption "Enable Hyprland";
-
-    monitors = mkOption {
-      default = [",preferred,auto,auto"];
-      description = "Array of monitor configurations";
-    };
-
-    nvidiaPatches = mkOption {
-      default = false;
-      description = "Add Nvidia environment variables";
-    };
-  };
-
   config = mkIf cfg.enable {
     programs = {
       zsh = {
@@ -65,7 +51,7 @@ in {
             "NIXOS_OZONE_WL,1"
             "ELECTRON_OZONE_PLATFORM_HINT,wayland"
           ]
-          ++ lib.optionals cfg.nvidiaPatches [
+          ++ optionals cfg.nvidiaPatches [
             "LIBVA_DRIVER_NAME,nvidia"
             "__GLX_VENDOR_LIBRARY_NAME,nvidia"
           ];

@@ -1,5 +1,10 @@
-{...}: {
-  programs.kitty = {
+{
+  lib,
+  config,
+  ...
+}:
+with lib; {
+  programs.kitty = mkIf (!config.windows.wsl) {
     enable = true;
     extraConfig = ''
       window_padding_width 20 10 0 10
