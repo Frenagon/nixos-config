@@ -14,18 +14,18 @@ with lib; {
     style.name = "kvantum";
   };
 
-  catppuccin = mkIf (!config.windows.wsl) {
+  catppuccin = {
     enable = true;
-    gtk = {
+    flavor = "macchiato";
+    accent = "sapphire";
+    gtk = mkIf (!config.windows.wsl) {
       enable = true;
       icon.enable = true;
     };
-    flavor = "macchiato";
-    accent = "sapphire";
-    cursors = {
+    cursors = mkIf (!config.windows.wsl) {
       enable = true;
     };
-    hyprlock = {
+    hyprlock = mkIf (!config.windows.wsl) {
       useDefaultConfig = false;
     };
   };

@@ -22,12 +22,17 @@
       url = "github:catppuccin/nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
     nixos-hardware,
     auto-cpufreq,
     catppuccin,
+    nixos-wsl,
     ...
   } @ inputs: let
     builders = import ./utils/builders.nix inputs;
@@ -62,26 +67,15 @@
           ];
         };
 
-        AdaRes = mkSystem {
+        AdaWSL = mkSystem {
           system = defaultSystem;
-          config = ./hosts/ada-res;
+          config = ./hosts/ada-wsl;
           inherit username;
           modules = [
             catppuccin.nixosModules.catppuccin
-            auto-cpufreq.nixosModules.default
-            nixos-hardware.nixosModules.lenovo-thinkpad-t490
+            nixos-wsl.nixosModules.default
           ];
           homeModules = [
-            ./home/profiles/ada-res.nix
-            catppuccin.homeModules.catppuccin
-          ];
-        };
-      };
-
-      homeConfigurations = {
-        AdaWSL = mkHome {
-          system = defaultSystem;
-          modules = [
             ./home/profiles/ada-wsl.nix
             catppuccin.homeModules.catppuccin
           ];
