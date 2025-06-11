@@ -2,20 +2,36 @@
   "layer": "top",
   "position": "top",
   "height": 35,
-  "margin": "10 20 0 20",
+  "margin": "0",
 
-  "modules-left": ["clock", "custom/weather", "hyprland/workspaces"],
+  "modules-left": [
+    "clock",
+    "custom/separator",
+    "custom/weather",
+    "custom/separator",
+    "hyprland/workspaces",
+    "custom/separator"
+  ],
   "modules-center": ["hyprland/window"],
   "modules-right": [
+    "custom/separator",
     "network",
     "bluetooth",
+    "custom/separator",
     "temperature",
     "memory",
     "battery",
+    "custom/separator",
     "backlight",
     "pulseaudio",
     "pulseaudio#microphone"
   ],
+
+  "custom/separator": {
+    "format": "❚",
+    "interval": "once",
+    "tooltip": false
+  },
 
   "clock": {
     "format": " {0:%H:%M}   {0:%a, %b %e}",

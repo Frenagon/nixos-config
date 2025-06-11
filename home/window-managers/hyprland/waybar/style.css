@@ -9,14 +9,15 @@ window#waybar {
   color: @text;
 }
 
-.modules-center {
-  margin: 0px 60px;
-}
-
 tooltip {
   background-color: @base;
   border: 2px solid @sapphire;
-  border-radius: 10px;
+  border-radius: 0px;
+}
+
+#custom-separator {
+  color: @sapphire;
+  margin: 5px 0px;
 }
 
 #clock,
@@ -30,63 +31,44 @@ tooltip {
 #battery,
 #backlight,
 #pulseaudio {
-  background-color: @base;
+  background-color: transparent;
   padding: 0px 10px;
-  border: 1px solid @sapphire;
+  margin: 0px;
 }
 
 #clock {
   color: @peach;
-  border-radius: 10px 0px 0px 10px;
-  border-right: 0px;
 }
 
 #custom-weather {
-  border-radius: 0px 10px 10px 0px;
 }
 
 #workspaces {
-  margin-left: 10px;
   padding: 0px;
-  border-radius: 10px;
 }
 
 #workspaces button {
-  padding: 0px 10px;
-  border-radius: 0px;
   box-shadow: inherit;
   text-shadow: inherit;
 }
 
-#workspaces button:first-child {
-  margin-left: 0px;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-}
-
-#workspaces button:last-child {
-  margin-left: 0px;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-}
-
 #workspaces button:hover {
-  background-color: @surface0;
+  color: @surface0;
 }
 
 #workspaces button.active {
-  background-color: @surface2;
+  color: @surface2;
 }
 
 @keyframes blink {
   0% {
-    background-color: @teal;
+    color: @teal;
   }
   50% {
-    background-color: transparent;
+    color: transparent;
   }
   100% {
-    background-color: @teal;
+    color: @teal;
   }
 }
 
@@ -96,7 +78,6 @@ tooltip {
 }
 
 #window {
-  border-radius: 10px;
 }
 
 window#waybar.empty #window {
@@ -105,14 +86,12 @@ window#waybar.empty #window {
 
 #network {
   color: @yellow;
-  border-radius: 10px 0px 0px 10px;
   border-right: 0px;
 }
 
 #bluetooth {
   color: @blue;
-  border-radius: 0px 10px 10px 0px;
-  margin-right: 10px;
+  border: 0px;
 }
 
 #bluetooth.off {
@@ -121,7 +100,6 @@ window#waybar.empty #window {
 
 #temperature {
   color: @lavender;
-  border-radius: 10px 0px 0px 10px;
   border-right: 0px;
 }
 
@@ -140,8 +118,7 @@ window#waybar.empty #window {
 
 #battery {
   color: @green;
-  border-radius: 0px 10px 10px 0px;
-  margin-right: 10px;
+  border-right: 0px;
 }
 
 #battery.warning {
@@ -153,7 +130,7 @@ window#waybar.empty #window {
 }
 
 #backlight {
-  border-radius: 10px 0px 0px 10px;
+  color: @text;
   border-right: 0px;
 }
 
@@ -163,6 +140,4 @@ window#waybar.empty #window {
 
 #pulseaudio.microphone {
   color: @mauve;
-  border-radius: 0px 10px 10px 0px;
-  border-left: 0px;
 }

@@ -57,18 +57,17 @@ in {
           ];
 
         general = {
-          gaps_in = 5;
-          gaps_out = 20;
+          gaps_in = 2;
+          gaps_out = 0;
           border_size = 2;
           "col.active_border" = "$accent";
-          "col.inactive_border" = "rgba($accentAlpha77)";
+          "col.inactive_border" = "$overlay0";
           resize_on_border = false;
           allow_tearing = false;
           layout = "dwindle";
         };
 
         decoration = {
-          rounding = 10;
           active_opacity = 1.0;
           inactive_opacity = 1.0;
           shadow = {
