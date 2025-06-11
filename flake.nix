@@ -80,6 +80,20 @@
             catppuccin.homeModules.catppuccin
           ];
         };
+
+        AdaWSLWork = mkSystem {
+          system = defaultSystem;
+          config = ./hosts/ada-wsl-work;
+          inherit username;
+          modules = [
+            catppuccin.nixosModules.catppuccin
+            nixos-wsl.nixosModules.default
+          ];
+          homeModules = [
+            ./home/profiles/ada-wsl-work.nix
+            catppuccin.homeModules.catppuccin
+          ];
+        };
       };
     };
 }
