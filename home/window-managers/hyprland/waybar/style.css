@@ -17,7 +17,7 @@ tooltip {
 
 #custom-separator {
   color: @sapphire;
-  margin: 5px 0px;
+  margin: 0px 5px;
 }
 
 #clock,
