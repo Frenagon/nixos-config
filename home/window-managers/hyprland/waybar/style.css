@@ -73,7 +73,7 @@ tooltip {
 }
 
 #workspaces button.urgent {
-  background-color: @teal;
+  color: @teal;
   animation: blink 1s infinite;
 }
 
