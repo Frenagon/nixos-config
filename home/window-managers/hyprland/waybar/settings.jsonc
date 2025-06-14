@@ -84,7 +84,9 @@
       "vivaldi-stable (.*) - Vivaldi": "  $1",
       "kitty (.*)": "  $1",
       "obsidian (.*) - Obsidian .*": "  $1",
-      "(.*) - Godot Engine": "  $1"
+      "(.*) - Godot Engine": "  $1",
+      "Godot Godot Engine - (.*)": "  $1",
+      "Godot Godot": "  Godot"
     }
   },
 
