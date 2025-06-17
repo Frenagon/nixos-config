@@ -6,6 +6,9 @@ return {
 				timeout = 500,
 			},
 			formatters = {
+				biome = {
+					require_cwd = true,
+				},
 				prettier = {
 					require_cwd = true,
 				},

@@ -12,11 +12,11 @@ return {
 		"stevearc/conform.nvim",
 		opts = {
 			formatters_by_ft = {
-				html = { "prettier" },
-				css = { "prettier" },
-				less = { "prettier" },
-				sass = { "prettier" },
-				scss = { "prettier" },
+				html = { "biome", "prettier", stop_after_first = true },
+				css = { "biome", "prettier", stop_after_first = true },
+				less = { "biome", "prettier", stop_after_first = true },
+				sass = { "biome", "prettier", stop_after_first = true },
+				scss = { "biome", "prettier", stop_after_first = true },
 			},
 		},
 	},

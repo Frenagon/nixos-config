@@ -20,6 +20,7 @@
     pyright
     emmet-ls
     bash-language-server
+    biome
 
     # formatter
     nodePackages.prettier
