@@ -47,7 +47,7 @@ in {
           }
           {
             monitor = "";
-            text = "cmd[update:60000] battery-level";
+            text = "cmd[update:5000] battery-level";
             color = "$text";
             font_size = 24;
             font_family = "$font";

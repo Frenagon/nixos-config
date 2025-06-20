@@ -6,15 +6,14 @@ bIconsLength=${#bIcons[@]}
 bCapacity=$(cat /sys/class/power_supply/BAT0/capacity)
 bStatus=$(cat /sys/class/power_supply/BAT0/status)
 
-bIcon=""
-if [ "$bStatus" == "Charging" ]; then
-  bIcon=""
-else
-  bIconIndex=$((bCapacity / (100 / bIconsLength)))
-  if [ "$bIconIndex" -ge "$bIconsLength" ]; then
-    bIconIndex=$((bIconsLength - 1))
-  fi
-  bIcon=${bIcons[bIconIndex]}
+bIconIndex=$((bCapacity / (100 / bIconsLength)))
+if [ "$bIconIndex" -ge "$bIconsLength" ]; then
+  bIconIndex=$((bIconsLength - 1))
 fi
 
-echo "${bIcon} ${bCapacity}%"
+bIcon="${bIcons[bIconIndex]}"
+if [ "$bStatus" == "Charging" ]; then
+  bIcon="${bIcon}󱐋"
+fi
+
+echo "${bIcon}"
