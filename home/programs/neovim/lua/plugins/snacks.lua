@@ -14,6 +14,7 @@ return {
 				{ "<leader>ff", snacks.picker.files, desc = "Find files" },
 				{ "<leader>n", snacks.notifier.show_history, desc = "Show notifications" },
 				{ "<leader>gb", snacks.git.blame_line, desc = "Show git blame" },
+				{ "<leader>gr", snacks.gitbrowse.open, desc = "Open file in browser" },
 			}
 		end,
 		opts = {
