@@ -13,6 +13,7 @@ return {
 				{ "<leader>E", snacks.picker.explorer, desc = "Snacks explorer" },
 				{ "<leader>ff", snacks.picker.files, desc = "Find files" },
 				{ "<leader>n", snacks.notifier.show_history, desc = "Show notifications" },
+				{ "<leader>gb", snacks.git.blame_line, desc = "Show git blame" },
 			}
 		end,
 		opts = {
@@ -31,6 +32,7 @@ return {
 					enabled = false,
 				},
 			},
+			git = {},
 		},
 	},
 }
