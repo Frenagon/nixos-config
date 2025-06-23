@@ -64,7 +64,7 @@ return {
 
 				-- Git
 				{ "<leader>gc", extra.pickers.git_commits, desc = "Show git commits" },
-				{ "<leader>gh", extra.pickers.git_hunks, desc = "Show git hunks" },
+				{ "<leader>gH", extra.pickers.git_hunks, desc = "Show git hunks" },
 				{ "<leader>gB", extra.pickers.git_branches, desc = "Show git branches" },
 
 				-- Diagnostics

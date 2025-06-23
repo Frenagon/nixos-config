@@ -15,6 +15,9 @@ return {
 				{ "<leader>n", snacks.notifier.show_history, desc = "Show notifications" },
 				{ "<leader>gb", snacks.git.blame_line, desc = "Show git blame" },
 				{ "<leader>gr", snacks.gitbrowse.open, desc = "Open file in browser" },
+				{ "<leader>gL", snacks.lazygit.open, desc = "Open lazygit" },
+				{ "<leader>gl", snacks.lazygit.log, desc = "Show git logs" },
+				{ "<leader>gh", snacks.lazygit.log_file, desc = "Show git file history" },
 			}
 		end,
 		opts = {
@@ -33,7 +36,6 @@ return {
 					enabled = false,
 				},
 			},
-			git = {},
 		},
 	},
 }

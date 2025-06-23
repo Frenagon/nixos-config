@@ -25,4 +25,6 @@ with lib; {
       };
     };
   };
+
+  programs.lazygit.enable = true;
 }
