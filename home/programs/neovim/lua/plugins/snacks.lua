@@ -14,7 +14,7 @@ return {
 				{ "<leader>ff", snacks.picker.files, desc = "Find files" },
 				{ "<leader>n", snacks.notifier.show_history, desc = "Show notifications" },
 				{ "<leader>gb", snacks.git.blame_line, desc = "Show git blame" },
-				{ "<leader>gr", snacks.gitbrowse.open, desc = "Open file in browser" },
+				{ "<leader>gr", snacks.gitbrowse.open, mode = { "n", "v" }, desc = "Open file in browser" },
 				{ "<leader>gg", snacks.lazygit.open, desc = "Open lazygit" },
 				{ "<leader>gL", snacks.lazygit.log, desc = "Show git logs" },
 				{ "<leader>gl", snacks.lazygit.log_file, desc = "Show git file history" },
