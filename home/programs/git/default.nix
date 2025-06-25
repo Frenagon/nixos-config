@@ -7,7 +7,10 @@ with lib; {
 
     extraConfig = {
       init.defaultBranch = "main";
-      push.autoSetupRemote = true;
+      push = {
+        default = "current";
+        autoSetupRemote = true;
+      };
       core.editor = "nvim";
       diff.tool = "nvimdiff";
       merge.tool = "nvimdiff";
