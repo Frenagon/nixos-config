@@ -153,6 +153,7 @@ in {
           "$mainMod, V, exec, uwsm app -- kitty --class clipse -e 'clipse'"
           "$mainMod SHIFT, L, exec, pgrep hyprlock || hyprlock"
           "SHIFT, SPACE, exec, run_or_close $menu"
+          "$mainMod, PERIOD, exec, bemoji -n"
           "CTRL, SPACE, exec, change_kb_layout next"
           "CTRL SHIFT, SPACE, exec, change_kb_layout prev"
 
