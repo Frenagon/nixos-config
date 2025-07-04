@@ -7,8 +7,6 @@
   "modules-left": [
     "clock",
     "custom/separator",
-    "custom/weather",
-    "custom/separator",
     "hyprland/workspaces",
     "custom/separator"
   ],
