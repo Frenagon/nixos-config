@@ -13,6 +13,7 @@ with lib; {
     ./kitty
     ./neovim
     ./rofi
+    ./zoxide
   ];
 
   home.packages = with pkgs;
@@ -24,6 +25,7 @@ with lib; {
       jq
       file
       fd
+      fzf
       clipse
     ]
     ++ optionals (!config.windows.wsl) [
