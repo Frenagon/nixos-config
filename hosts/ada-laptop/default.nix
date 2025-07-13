@@ -77,6 +77,9 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # Run Unpatched Dynamic Binaries
+  programs.nix-ld.enable = true;
+
   # Enable flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
