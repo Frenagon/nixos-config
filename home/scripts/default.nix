@@ -6,4 +6,8 @@ in {
     ".local/scripts".source = mkOutOfStoreSymlink "${scriptsDir}/scripts";
     ".local/data".source = mkOutOfStoreSymlink "${scriptsDir}/data";
   };
+
+  home.sessionPath = [
+    "$HOME/.local/scripts"
+  ];
 }
