@@ -17,4 +17,8 @@ in {
   ];
 
   xdg.configFile."rofi".source = mkOutOfStoreSymlink "${rofiConfig}";
+
+  home.sessionPath = [
+    "$HOME/.config/rofi/scripts"
+  ];
 }
