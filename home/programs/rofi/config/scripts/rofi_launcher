@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# Runs rofi with the selected theme and style
+# Arguments:
+#   number of the selected theme
+#   number of the selected style
+
+declare -r THEME="$HOME/.config/rofi/launchers/type-${1:-1}/style-${2:-1}.rasi"
+
+## Run
+rofi \
+  -show drun \
+  -theme "${THEME}"
