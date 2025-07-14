@@ -6,12 +6,8 @@
 with config.lib.file; let
   rofiConfig = "${config.home.homeDirectory}/.nixos-config/home/programs/rofi/config";
 in {
-  programs.rofi = {
-    enable = true;
-    configPath = "";
-  };
-
   home.packages = with pkgs; [
+    rofi-wayland
     bemoji
     wtype
   ];
