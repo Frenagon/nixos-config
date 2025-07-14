@@ -5,8 +5,11 @@
     font-awesome
     liberation_ttf
     dejavu_fonts
-    jetbrains-mono
     nerd-fonts.dejavu-sans-mono
     nerd-fonts.fira-code
+    nerd-fonts.iosevka
+    nerd-fonts.jetbrains-mono
+    (google-fonts.override {fonts = ["Grape Nuts"];})
+    icomoon-feather
   ];
 }
