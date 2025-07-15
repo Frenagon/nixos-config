@@ -11,7 +11,7 @@ return {
 			return {
 				{ "<leader>.", snacks.scratch.open, desc = "Scratch pad" },
 				{ "<leader>E", snacks.picker.explorer, desc = "Snacks explorer" },
-				{ "<leader>ff", snacks.picker.files, desc = "Find files" },
+				{ "<leader>F", snacks.picker.files, desc = "Find files" },
 				{ "<leader>n", snacks.notifier.show_history, desc = "Show notifications" },
 				{ "<leader>gb", snacks.git.blame_line, desc = "Show git blame" },
 				{ "<leader>gr", snacks.gitbrowse.open, mode = { "n", "v" }, desc = "Open file in browser" },

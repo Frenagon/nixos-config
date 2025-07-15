@@ -19,7 +19,7 @@ return {
 
 			return {
 				-- Find
-				{ "<leader>F", builtin.files, desc = "Find files" },
+				{ "<leader>ff", builtin.files, desc = "Find files" },
 				{ "<leader>fb", builtin.buffers, desc = "Find buffers" },
 				{ "<leader>fr", builtin.resume, desc = "Resume find" },
 				{ "<leader>fa", builtin.grep_live, desc = "Find all (grep live)" },
