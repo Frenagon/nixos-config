@@ -28,7 +28,6 @@ in {
       systemd.enable = false;
       settings = {
         "$terminal" = "kitty";
-        "$menu" = "rofi -show drun -run-command 'uwsm app -- {cmd}'";
 
         exec-once = [
           "uwsm app -- vivaldi"
@@ -152,7 +151,7 @@ in {
           "$mainMod, C, exec, uwsm app -- hyprpicker -ad"
           "$mainMod, V, exec, uwsm app -- kitty --class clipse -e 'clipse'"
           "$mainMod SHIFT, L, exec, pgrep hyprlock || hyprlock"
-          "SHIFT, SPACE, exec, run_or_close $menu"
+          "SHIFT, SPACE, exec, rofi_launcher 4 5"
           "$mainMod, PERIOD, exec, bemoji -n"
           "CTRL, SPACE, exec, change_kb_layout next"
           "CTRL SHIFT, SPACE, exec, change_kb_layout prev"

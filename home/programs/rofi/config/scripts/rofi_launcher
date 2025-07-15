@@ -7,7 +7,8 @@
 
 declare -r THEME="$HOME/.config/rofi/launchers/type-${1:-1}/style-${2:-1}.rasi"
 
-## Run
-rofi \
+run_or_close \
+  rofi \
   -show drun \
-  -theme "${THEME}"
+  -theme "${THEME}" \
+  -run-command 'uwsm app -- {cmd}'
