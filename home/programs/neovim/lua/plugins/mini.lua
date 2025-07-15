@@ -30,7 +30,8 @@ return {
 					"<leader>e",
 					function()
 						if not files.close() then
-							files.open()
+							files.open(vim.api.nvim_buf_get_name(0))
+							files.reveal_cwd()
 						end
 					end,
 					desc = "Mini explorer",
