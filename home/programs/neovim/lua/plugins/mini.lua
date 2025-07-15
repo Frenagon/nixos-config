@@ -38,7 +38,7 @@ return {
 				},
 
 				-- Buffers
-				{ "<leader>bq", bufremove.delete, desc = "Close buffer" },
+				{ "<leader>bd", bufremove.delete, desc = "Close buffer" },
 
 				-- To-do list
 				{
