@@ -147,7 +147,7 @@ in {
           "$mainMod SHIFT, J, togglesplit, # dwindle"
           "$mainMod, P, pseudo, # dwindle"
           "$mainMod CTRL SHIFT, Q, exit,"
-          "$mainMod SHIFT, P, exec, uwsm app -- power_menu"
+          "$mainMod SHIFT, P, exec, uwsm app -- rofi_powermenu 2 7"
           "$mainMod, C, exec, uwsm app -- hyprpicker -ad"
           "$mainMod, V, exec, uwsm app -- kitty --class clipse -e 'clipse'"
           "$mainMod SHIFT, L, exec, pgrep hyprlock || hyprlock"

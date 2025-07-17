@@ -1,0 +1,94 @@
+#!/usr/bin/env bash
+
+# Displays a rofi powermenu
+# Arguments:
+#   type - number of the type of powermenu
+#   style - number of the style of powermenu
+
+# Directories
+declare -r config_dir="${XDG_CONFIG_HOME:-$HOME/.config}/rofi"
+declare -r images_dir="${config_dir}/images/powermenu"
+declare -r theme="$HOME/.config/rofi/powermenu/type-${1-1}/style-${2-1}.rasi"
+
+# Legends
+host="$(hostname)"
+uptime="$(uptime -p | sed -e 's/up //g')"
+
+## CONFIRMATION WINDOW
+# Confirmation options
+declare -r yes=""
+declare -r no=""
+
+# Confirmation CMD
+confirmation_cmd() {
+  rofi -theme "${theme}" \
+    -theme-str 'window {location: center; anchor: center; fullscreen: false; width: 350px;}' \
+    -theme-str 'mainbox {children: [ "message", "listview" ];}' \
+    -theme-str 'message {margin: 0px 50px; horizontal-align: 0.5;}' \
+    -theme-str 'listview {columns: 2; lines: 1;}' \
+    -theme-str 'element {padding: 10px 0px; children: [element-text];}' \
+    -theme-str 'element-text {horizontal-align: 0.5;}' \
+    -dmenu \
+    -p 'Confirmation' \
+    -mesg 'Are you Sure?'
+}
+
+# Launch confirmation
+confirm_exit() {
+  echo -en "$yes\n$no" | confirmation_cmd
+}
+
+## POWERMENU
+# Powermenu options
+declare -a powermenu_list=(
+  "Lock\0icon\x1fthumbnail://${images_dir}/lock.svg"
+  "Suspend\0icon\x1fthumbnail://${images_dir}/suspend.svg"
+  "Log Out\0icon\x1fthumbnail://${images_dir}/log-out.svg"
+  "Reboot\0icon\x1fthumbnail://${images_dir}/reboot.svg"
+  "Shutdown\0icon\x1fthumbnail://${images_dir}/shutdown.svg"
+)
+declare -a powermenu_labels
+for entry in "${powermenu_list[@]}"; do
+  powermenu_labels+=("${entry/\\*/}")
+done
+powermenu_options=$(
+  IFS=$'\n'
+  echo "${powermenu_list[*]}"
+)
+
+# Powermenu actions
+declare -a powermenu_actions=(
+  "hyprlock"
+  "systemctl suspend"
+  "hyprctl dispatch exit"
+  "reboot"
+  "poweroff"
+)
+
+# Powermenu CMD
+powermenu_cmd() {
+  rofi -dmenu -show-icons \
+    -p "${host}" \
+    -mesg "Uptime: $uptime" \
+    -theme "${theme}"
+}
+
+# Launch powermenu
+run_powermenu() {
+  echo -en "$powermenu_options" | powermenu_cmd
+}
+
+# Run powermenu
+selected=$(run_powermenu)
+if [[ "$selected" == "" ]]; then
+  exit 0
+fi
+
+# Confirm and execute selection
+if [[ $(confirm_exit) == "$yes" ]]; then
+  for i in "${!powermenu_labels[@]}"; do
+    if [[ "$selected" == "${powermenu_labels[i]}" ]]; then
+      ${powermenu_actions[i]}
+    fi
+  done
+fi

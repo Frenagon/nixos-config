@@ -27,6 +27,7 @@ with lib; {
       fd
       fzf
       clipse
+      procps
     ]
     ++ optionals (!config.windows.wsl) [
       # ui
@@ -40,6 +41,7 @@ with lib; {
       wl-clipboard
       cliphist
       grimblast
+      gdk-pixbuf
     ];
 
   programs = mkIf (!config.windows.wsl) {
