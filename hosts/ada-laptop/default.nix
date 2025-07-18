@@ -14,13 +14,43 @@
 
   nix.nixPath = ["nixpkgs=${inputs.inputs.nixpkgs}"];
 
-  # Embedded controller wake-ups drain battery in s2idle on this device
-  # See https://lore.kernel.org/all/ZnFYpWHJ5Ml724Nv@ohnotp/
-  boot.kernelParams = ["acpi.ec_no_wakeup=1"];
+  # Boot
+  boot = {
+    # Boot animation
+    plymouth = {
+      enable = true;
+      # theme = "rings";
+      # themePackages = with pkgs; [
+      #   # By default we would install all themes
+      #   (adi1090x-plymouth-themes.override {
+      #     selected_themes = ["rings"];
+      #   })
+      # ];
+    };
 
-  # Bootloader
-  boot.loader.grub = {
-    gfxmodeEfi = "1024x768";
+    # Enable "Silent boot"
+    consoleLogLevel = 3;
+    initrd.verbose = false;
+    kernelParams = [
+      "quiet"
+      "splash"
+      "boot.shell_on_fail"
+      "udev.log_priority=3"
+      "rd.systemd.show_status=auto"
+
+      # Embedded controller wake-ups drain battery in s2idle on this device
+      # See https://lore.kernel.org/all/ZnFYpWHJ5Ml724Nv@ohnotp/
+      "acpi.ec_no_wakeup=1"
+    ];
+
+    # Bootloader
+    loader = {
+      # Hide the OS choice for bootloaders.
+      # It's still possible to open the bootloader list by pressing any key
+      # It will just not appear on screen unless a key is pressed
+      timeout = 0;
+      grub.gfxmodeEfi = "1024x768";
+    };
   };
 
   # Hostname
