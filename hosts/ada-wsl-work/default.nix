@@ -37,7 +37,7 @@
   users.users.frenagon = {
     isNormalUser = true;
     description = "Frenagon";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel" "docker"];
     shell = pkgs.zsh;
   };
   programs.zsh.enable = true;
@@ -50,6 +50,9 @@
 
   # Enable flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
+
+  # Enable docker
+  virtualisation.docker.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
