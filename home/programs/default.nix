@@ -32,6 +32,7 @@ with lib; {
     ++ optionals (!config.windows.wsl) [
       # ui
       pavucontrol
+      piper
       openrgb
       obsidian
       godot

@@ -95,6 +95,9 @@
     variant = "";
   };
 
+  # Mouse
+  services.ratbagd.enable = true;
+
   # Open RGB
   services.hardware.openrgb.enable = true;
 
