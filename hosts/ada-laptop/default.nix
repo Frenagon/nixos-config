@@ -96,6 +96,10 @@
   };
 
   # Mouse
+  hardware.logitech.wireless = {
+    enable = true;
+    enableGraphical = true;
+  };
   services.ratbagd.enable = true;
 
   # Open RGB
