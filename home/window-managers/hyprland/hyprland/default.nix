@@ -49,6 +49,7 @@ in {
             "XCURSOR_SIZE,32"
             "NIXOS_OZONE_WL,1"
             "ELECTRON_OZONE_PLATFORM_HINT,wayland"
+            "WLR_NO_HARDWARE_CURSORS,1"
           ]
           ++ optionals cfg.nvidiaPatches [
             "LIBVA_DRIVER_NAME,nvidia"
