@@ -31,11 +31,11 @@ return {
 					function()
 						if not files.close() then
 							local currentFile = vim.api.nvim_buf_get_name(0)
-							if currentFile ~= "ministarter://1/welcome" then
+							if currentFile == "ministarter://1/welcome" or currentFile == "" then
+								files.open(nil, false)
+							else
 								files.open(currentFile)
 								files.reveal_cwd()
-							else
-								files.open(nil, false)
 							end
 						end
 					end,
