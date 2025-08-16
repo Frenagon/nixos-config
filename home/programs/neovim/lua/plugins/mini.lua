@@ -30,8 +30,13 @@ return {
 					"<leader>e",
 					function()
 						if not files.close() then
-							files.open(vim.api.nvim_buf_get_name(0))
-							files.reveal_cwd()
+							local currentFile = vim.api.nvim_buf_get_name(0)
+							if currentFile ~= "ministarter://1/welcome" then
+								files.open(currentFile)
+								files.reveal_cwd()
+							else
+								files.open()
+							end
 						end
 					end,
 					desc = "Mini explorer",
