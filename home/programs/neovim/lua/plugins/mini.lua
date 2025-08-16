@@ -35,7 +35,7 @@ return {
 								files.open(currentFile)
 								files.reveal_cwd()
 							else
-								files.open()
+								files.open(nil, false)
 							end
 						end
 					end,
