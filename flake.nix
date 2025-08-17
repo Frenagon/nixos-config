@@ -10,12 +10,12 @@
     nixos-hardware = {
       url = "github:NixOS/nixos-hardware/master";
     };
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     auto-cpufreq = {
       url = "github:AdnanHodzic/auto-cpufreq";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     catppuccin = {
@@ -38,6 +38,9 @@
     builders = import ./utils/builders.nix inputs;
     defaultSystem = "x86_64-linux";
     username = "frenagon";
+    commonHomeModules = [
+      catppuccin.homeModules.catppuccin
+    ];
   in
     with builders; {
       nixosConfigurations = {
@@ -46,10 +49,11 @@
           config = ./hosts/ada;
           inherit username;
           modules = [catppuccin.nixosModules.catppuccin];
-          homeModules = [
-            ./home/profiles/ada.nix
-            catppuccin.homeModules.catppuccin
-          ];
+          homeModules =
+            [
+              ./home/profiles/ada.nix
+            ]
+            ++ commonHomeModules;
         };
 
         AdaLaptop = mkSystem {
@@ -61,10 +65,11 @@
             auto-cpufreq.nixosModules.default
             nixos-hardware.nixosModules.lenovo-thinkpad-t14
           ];
-          homeModules = [
-            ./home/profiles/ada-laptop.nix
-            catppuccin.homeModules.catppuccin
-          ];
+          homeModules =
+            [
+              ./home/profiles/ada-laptop.nix
+            ]
+            ++ commonHomeModules;
         };
 
         AdaWSL = mkSystem {
@@ -75,10 +80,11 @@
             catppuccin.nixosModules.catppuccin
             nixos-wsl.nixosModules.default
           ];
-          homeModules = [
-            ./home/profiles/ada-wsl.nix
-            catppuccin.homeModules.catppuccin
-          ];
+          homeModules =
+            [
+              ./home/profiles/ada-wsl.nix
+            ]
+            ++ commonHomeModules;
         };
 
         AdaWSLWork = mkSystem {
@@ -89,10 +95,11 @@
             catppuccin.nixosModules.catppuccin
             nixos-wsl.nixosModules.default
           ];
-          homeModules = [
-            ./home/profiles/ada-wsl-work.nix
-            catppuccin.homeModules.catppuccin
-          ];
+          homeModules =
+            [
+              ./home/profiles/ada-wsl-work.nix
+            ]
+            ++ commonHomeModules;
         };
       };
     };
