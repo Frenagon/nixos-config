@@ -6,7 +6,7 @@ with lib; {
     ../programs
     ../scripts
     ../shells
-    ../ssh
+    ../secrets
     ../themes
     ../window-managers
   ];
