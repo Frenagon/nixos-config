@@ -36,6 +36,7 @@ in {
           "uwsm app -- waybar"
           "uwsm app -- clipse -listen"
           "systemctl --user enable --now hypridle.service"
+          "1password --silent"
         ];
 
         monitor = cfg.monitors;
