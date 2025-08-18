@@ -11,7 +11,7 @@ in {
     ../../modules/hyprland.nix
     ../../modules/bootloader.nix
     ../../modules/colorscheme.nix
-    (import ../../modules/1password.nix (inputs // {username = username;}))
+    ../../modules/1password.nix
     ../../modules/steam.nix
   ];
 
