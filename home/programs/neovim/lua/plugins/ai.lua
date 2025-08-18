@@ -16,6 +16,7 @@ return {
 				claude = {
 					endpoint = "https://api.anthropic.com",
 					model = "claude-sonnet-4-20250514",
+					api_key_name = "cmd:op read 'op://Private/Claude Neovim API/credential'",
 					timeout = 30000, -- Timeout in milliseconds
 					extra_request_body = {
 						temperature = 0.75,
@@ -25,12 +26,24 @@ return {
 				moonshot = {
 					endpoint = "https://api.moonshot.ai/v1",
 					model = "kimi-k2-0711-preview",
+					api_key_name = "cmd:op read 'op://Private/Kimi K2 API/credential'",
 					timeout = 30000, -- Timeout in milliseconds
 					extra_request_body = {
 						temperature = 0.75,
 						max_tokens = 32768,
 					},
 				},
+			},
+			input = {
+				provider = "snacks",
+				provider_opts = {
+					title = "Avante Input",
+					icon = " ",
+				},
+			},
+			selector = {
+				--- @type avante.SelectorProvider
+				provider = "mini_pick",
 			},
 		},
 		dependencies = {
@@ -40,11 +53,8 @@ return {
 			"echasnovski/mini.pick", -- for file_selector provider mini.pick
 			"nvim-telescope/telescope.nvim", -- for file_selector provider telescope
 			"hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
-			"ibhagwan/fzf-lua", -- for file_selector provider fzf
-			"stevearc/dressing.nvim", -- for input provider dressing
 			"folke/snacks.nvim", -- for input provider snacks
 			"nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-			"zbirenbaum/copilot.lua", -- for providers='copilot'
 			{
 				-- support for image pasting
 				"HakonHarnes/img-clip.nvim",

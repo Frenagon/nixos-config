@@ -1,7 +1,10 @@
 return {
 	{
 		"saghen/blink.cmp",
-		dependencies = "rafamadriz/friendly-snippets",
+		dependencies = {
+			"rafamadriz/friendly-snippets",
+			"Kaiser-Yang/blink-cmp-avante",
+		},
 		version = "*",
 		build = "cargo build --release",
 		event = { "LspAttach" },
@@ -14,7 +17,7 @@ return {
 				enabled = false,
 			},
 			sources = {
-				default = { "lazydev", "lsp", "path", "snippets", "buffer", "markdown" },
+				default = { "avante", "lazydev", "lsp", "path", "snippets", "buffer", "markdown" },
 				providers = {
 					lazydev = {
 						name = "LazyDev",
@@ -25,6 +28,10 @@ return {
 						name = "RenderMarkdown",
 						module = "render-markdown.integ.blink",
 						fallbacks = { "lsp" },
+					},
+					avante = {
+						name = "Avante",
+						module = "blink-cmp-avante",
 					},
 				},
 			},
