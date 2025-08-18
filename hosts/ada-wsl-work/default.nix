@@ -3,15 +3,18 @@
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 # NixOS-WSL specific options are documented on the NixOS-WSL repository:
 # https://github.com/nix-community/NixOS-WSL
-{pkgs, ...} @ inputs: {
+{pkgs, ...} @ inputs: let
+  username = "frenagon";
+in {
   imports = [
     ../../modules/colorscheme.nix
+    ../../modules/1password.nix
   ];
 
   nix.nixPath = ["nixpkgs=${inputs.inputs.nixpkgs}"];
 
   wsl.enable = true;
-  wsl.defaultUser = "frenagon";
+  wsl.defaultUser = username;
 
   # Hostname
   networking.hostName = "AdaWSLWork";
@@ -34,9 +37,9 @@
   };
 
   # Define a user account.
-  users.users.frenagon = {
+  users.users."${username}" = {
     isNormalUser = true;
-    description = "Frenagon";
+    description = "${username}";
     extraGroups = ["networkmanager" "wheel" "docker"];
     shell = pkgs.zsh;
   };

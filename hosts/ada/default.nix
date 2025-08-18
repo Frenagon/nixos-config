@@ -1,13 +1,16 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{pkgs, ...} @ inputs: {
+{pkgs, ...} @ inputs: let
+  username = "frenagon";
+in {
   imports = [
     ./hardware-configuration.nix
     ../../modules/nvidia.nix
     ../../modules/hyprland.nix
     ../../modules/bootloader.nix
     ../../modules/colorscheme.nix
+    (import ../../modules/1password.nix (inputs // {username = username;}))
   ];
 
   nix.nixPath = ["nixpkgs=${inputs.inputs.nixpkgs}"];
@@ -67,9 +70,9 @@
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.frenagon = {
+  users.users."${username}" = {
     isNormalUser = true;
-    description = "Frenagon";
+    description = "${username}";
     extraGroups = ["networkmanager" "wheel"];
     shell = pkgs.zsh;
   };
