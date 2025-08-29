@@ -11,7 +11,7 @@ return {
 		---@module 'avante'
 		opts = {
 			-- add any opts here
-			provider = "claude",
+			provider = "moonshot",
 			providers = {
 				claude = {
 					endpoint = "https://api.anthropic.com",
