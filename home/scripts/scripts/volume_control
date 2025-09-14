@@ -29,7 +29,7 @@ notify_id="$(jq -r '.volume_control' "$HOME/.local/data/notify-ids.json")"
 notify_volume() {
   if [ "$(pamixer --get-mute)" = "true" ]; then
     notify-send \
-      -i audio-volume-muted \
+      -i audio-volume-muted-symbolic \
       -r "$notify_id" \
       -u normal \
       "Audio Muted"
@@ -40,13 +40,13 @@ notify_volume() {
   volume="$(pamixer --get-volume)"
 
   if ((volume == 0)); then
-    icon_name="audio-volume-muted"
+    icon_name="audio-volume-muted-symbolic"
   elif ((volume < 30)); then
-    icon_name="audio-volume-low"
+    icon_name="audio-volume-low-symbolic"
   elif ((volume < 70)); then
-    icon_name="audio-volume-medium"
+    icon_name="audio-volume-medium-symbolic"
   else
-    icon_name="audio-volume-high"
+    icon_name="audio-volume-high-symbolic"
   fi
 
   bar=$(seq -s "█" $((volume / 5)) | sed 's/[0-9]//g')
