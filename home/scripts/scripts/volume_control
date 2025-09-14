@@ -27,7 +27,7 @@ declare -r SET_VOLUME="${2:-80}"
 notify_id="$(jq -r '.volume_control' "$HOME/.local/data/notify-ids.json")"
 
 notify_volume() {
-  if [ $(pamixer --get-mute) = "true" ]; then
+  if [ "$(pamixer --get-mute)" = "true" ]; then
     notify-send \
       -i audio-volume-muted \
       -r "$notify_id" \
@@ -55,14 +55,14 @@ notify_volume() {
 
 case $COMMAND in
 up)
-  if [ $(pamixer --get-mute) = "true" ]; then
+  if [ "$(pamixer --get-mute)" = "true" ]; then
     pamixer --unmute
   else
     pamixer --increase 2
   fi
   ;;
 down)
-  if [ $(pamixer --get-mute) = "true" ]; then
+  if [ "$(pamixer --get-mute)" = "true" ]; then
     pamixer --unmute
   else
     pamixer --decrease 2
@@ -76,7 +76,7 @@ mute)
   pamixer --toggle-mute
   ;;
 *)
-  echo "$(pamixer --get-volume-human)"
+  pamixer --get-volume-human
   ;;
 esac
 

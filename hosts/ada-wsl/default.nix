@@ -7,6 +7,7 @@
   username = "frenagon";
 in {
   imports = [
+    ../../modules/common.nix
     ../../modules/colorscheme.nix
     ../../modules/1password.nix
   ];

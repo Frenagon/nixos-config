@@ -9,7 +9,7 @@ with config.lib.file; let
 in {
   home.packages = with pkgs;
     lib.mkIf (!config.windows.wsl) [
-      rofi-wayland
+      rofi
       bemoji
       wtype
     ];

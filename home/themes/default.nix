@@ -1,11 +1,22 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }:
 with lib; {
   gtk = mkIf (!config.windows.wsl) {
     enable = true;
+
+    theme = {
+      package = pkgs.magnetic-catppuccin-gtk;
+      name = "Catppuccin-GTK-Dark";
+    };
+
+    iconTheme = lib.mkDefault {
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
+    };
   };
 
   qt = mkIf (!config.windows.wsl) {
@@ -18,10 +29,6 @@ with lib; {
     enable = true;
     flavor = "macchiato";
     accent = "sapphire";
-    gtk = mkIf (!config.windows.wsl) {
-      enable = true;
-      icon.enable = true;
-    };
     cursors = mkIf (!config.windows.wsl) {
       enable = true;
     };

@@ -21,7 +21,7 @@ return {
 					-- Actions
 					map("n", "<leader>k", vim.lsp.buf.hover, "Open hover menu")
 					map("n", "<leader>r", vim.lsp.buf.rename, "Rename")
-					map({ "n", "v" }, "<leader>a", vim.lsp.buf.code_action, "Code actions")
+					map({ "n", "v" }, "<leader>A", vim.lsp.buf.code_action, "Code actions")
 
 					-- Motions
 					map("n", "gd", vim.lsp.buf.definition, "Go to definition")

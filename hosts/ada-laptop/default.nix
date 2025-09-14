@@ -6,6 +6,7 @@
 in {
   imports = [
     ./hardware-configuration.nix
+    ../../modules/common.nix
     (import ../../modules/intel.nix (inputs // {device-id = "7dd5";}))
     ../../modules/power-management.nix
     ../../modules/hyprland.nix

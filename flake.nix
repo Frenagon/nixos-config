@@ -10,10 +10,6 @@
     nixos-hardware = {
       url = "github:NixOS/nixos-hardware/master";
     };
-    auto-cpufreq = {
-      url = "github:AdnanHodzic/auto-cpufreq";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     hyprland = {
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -30,7 +26,6 @@
 
   outputs = {
     nixos-hardware,
-    auto-cpufreq,
     catppuccin,
     nixos-wsl,
     ...
@@ -62,7 +57,6 @@
           inherit username;
           modules = [
             catppuccin.nixosModules.catppuccin
-            auto-cpufreq.nixosModules.default
             nixos-hardware.nixosModules.lenovo-thinkpad-t14
           ];
           homeModules =

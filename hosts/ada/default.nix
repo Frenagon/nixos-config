@@ -6,6 +6,7 @@
 in {
   imports = [
     ./hardware-configuration.nix
+    ../../modules/common.nix
     ../../modules/nvidia.nix
     ../../modules/hyprland.nix
     ../../modules/bootloader.nix
