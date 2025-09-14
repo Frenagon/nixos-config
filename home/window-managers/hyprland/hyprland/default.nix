@@ -138,8 +138,6 @@ in {
           touchpad.natural_scroll = false;
         };
 
-        gestures.workspace_swipe = false;
-
         "$mainMod" = "SUPER";
 
         bind = [
