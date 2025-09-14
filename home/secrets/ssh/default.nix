@@ -5,17 +5,16 @@ with lib; {
     enableDefaultConfig = false;
 
     matchBlocks."*" = {
-      forwardAgent = true;
-      serverAliveInterval = 60;
+      forwardAgent = false;
+      addKeysToAgent = "no";
+      compression = false;
+      serverAliveInterval = 0;
       serverAliveCountMax = 3;
-
-      extraOptions = {
-        ControlMaster = "auto";
-        ControlPersist = "10m";
-        ControlPath = "~/.ssh/sockets/%r@%h-%p";
-        HashKnownHosts = "yes";
-        AddKeysToAgent = "yes";
-      };
+      hashKnownHosts = false;
+      userKnownHostsFile = "~/.ssh/known_hosts";
+      controlMaster = "no";
+      controlPath = "~/.ssh/master-%r@%n:%p";
+      controlPersist = "no";
     };
 
     matchBlocks = {
