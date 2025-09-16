@@ -33,6 +33,7 @@ in {
     "1password/custom_allowed_browsers" = {
       text = ''
         vivaldi-bin
+        zen-bin
       '';
       mode = "0755";
     };

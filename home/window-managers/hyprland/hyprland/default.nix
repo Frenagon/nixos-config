@@ -30,7 +30,7 @@ in {
         "$terminal" = "kitty";
 
         exec-once = [
-          "uwsm app -- vivaldi"
+          "uwsm app -- zen"
           "[workspace 2 silent] uwsm app -- kitty"
           "[workspace 3 silent] uwsm app -- obsidian"
           "uwsm app -- waybar"
