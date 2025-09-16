@@ -49,5 +49,6 @@ with lib; {
   programs = mkIf (!config.windows.wsl) {
     vivaldi.enable = true;
     google-chrome.enable = true;
+    zen-browser.enable = true;
   };
 }

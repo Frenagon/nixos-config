@@ -22,12 +22,17 @@
       url = "github:nix-community/NixOS-WSL/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
     nixos-hardware,
     catppuccin,
     nixos-wsl,
+    zen-browser,
     ...
   } @ inputs: let
     builders = import ./utils/builders.nix inputs;
@@ -35,6 +40,7 @@
     username = "frenagon";
     commonHomeModules = [
       catppuccin.homeModules.catppuccin
+      zen-browser.homeModules.beta
     ];
   in
     with builders; {
