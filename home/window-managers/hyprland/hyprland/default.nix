@@ -6,6 +6,8 @@
 }:
 with lib; let
   cfg = config.hyprland;
+  defaultVault = "Coinquest";
+  defaultGameVault = "Campaign Notes";
 in {
   config = mkIf cfg.enable {
     programs = {
@@ -30,9 +32,10 @@ in {
         "$terminal" = "kitty";
 
         exec-once = [
-          "uwsm app -- zen"
+          "[workspace 1 silent] uwsm app -- zen"
           "[workspace 2 silent] uwsm app -- kitty"
-          "[workspace 3 silent] uwsm app -- obsidian"
+          "[workspace 3 silent] uwsm app -- xdg-open 'obsidian://open?vault=${defaultVault}'"
+          "[workspace 4 silent] uwsm app -- xdg-open 'obsidian://open?vault=${defaultGameVault}'"
           "uwsm app -- waybar"
           "uwsm app -- clipse -listen"
           "systemctl --user enable --now hypridle.service"
@@ -167,13 +170,16 @@ in {
           "$mainMod, J, movefocus, d"
 
           "$mainMod, 1, workspace, 1"
+          "$mainMod, 1, exec, run_if_closed --class 'zen-beta' --workspace 1 -- zen"
           "$mainMod, 2, workspace, 2"
+          "$mainMod, 2, exec, run_if_closed --class 'kitty' --workspace 2 -- kitty"
           "$mainMod, 3, workspace, 3"
-          "$mainMod, 3, exec, run_if_closed 'class: obsidian' obsidian"
+          "$mainMod, 3, exec, run_if_closed --class 'obsidian' --workspace 3 -- xdg-open 'obsidian://open?vault=${defaultVault}'"
           "$mainMod, 4, workspace, 4"
+          "$mainMod, 4, exec, run_if_closed --class 'obsidian' --workspace 4 -- xdg-open 'obsidian://open?vault=${defaultGameVault}'"
           "$mainMod, 5, workspace, 5"
           "$mainMod, 6, workspace, 6"
-          "$mainMod, 6, exec, run_if_closed 'class: Godot' godot"
+          "$mainMod, 6, exec, run_if_closed --class 'Godot' --workspace 6 -- godot"
           "$mainMod, 7, workspace, 7"
           "$mainMod, 8, workspace, 8"
           "$mainMod, 9, workspace, 9"
@@ -253,7 +259,6 @@ in {
           "float, class:(clipse)"
           "size 622 652, class:(clipse)"
           "stayfocused, class:(clipse)"
-          "workspace 3, class:(obsidian)"
           "workspace 6, class:(Godot)"
         ];
       };
