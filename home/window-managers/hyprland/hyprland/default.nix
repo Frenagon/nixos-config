@@ -6,8 +6,6 @@
 }:
 with lib; let
   cfg = config.hyprland;
-  defaultVault = "Coinquest";
-  defaultGameVault = "Campaign Notes";
 in {
   config = mkIf cfg.enable {
     programs = {
@@ -30,12 +28,16 @@ in {
       systemd.enable = false;
       settings = {
         "$terminal" = "kitty";
+        "$browser" = "zen";
+        "$browserClass" = "zen-beta";
+        "$defaultVault " = "Coinquest";
+        "$defaultGameVault " = "Campaign Notes";
 
         exec-once = [
-          "[workspace 1 silent] uwsm app -- zen"
-          "[workspace 2 silent] uwsm app -- kitty"
-          "[workspace 3 silent] uwsm app -- xdg-open 'obsidian://open?vault=${defaultVault}'"
-          "[workspace 4 silent] uwsm app -- xdg-open 'obsidian://open?vault=${defaultGameVault}'"
+          "[workspace 1 silent] uwsm app -- $browser"
+          "[workspace 2 silent] uwsm app -- $terminal"
+          "[workspace 3 silent] uwsm app -- xdg-open 'obsidian://open?vault=$defaultVault'"
+          "[workspace 4 silent] uwsm app -- xdg-open 'obsidian://open?vault=$defaultGameVault'"
           "uwsm app -- waybar"
           "uwsm app -- clipse -listen"
           "systemctl --user enable --now hypridle.service"
@@ -153,7 +155,7 @@ in {
           "$mainMod CTRL SHIFT, Q, exit,"
           "$mainMod SHIFT, P, exec, uwsm app -- rofi_powermenu 2 7"
           "$mainMod, C, exec, uwsm app -- hyprpicker -ad"
-          "$mainMod, V, exec, uwsm app -- kitty --class clipse -e 'clipse'"
+          "$mainMod, V, exec, uwsm app -- $terminal --class clipse -e 'clipse'"
           "$mainMod SHIFT, L, exec, pgrep hyprlock || hyprlock"
           "SHIFT, SPACE, exec, rofi_launcher 4 5"
           "$mainMod, PERIOD, exec, bemoji -n"
@@ -170,13 +172,13 @@ in {
           "$mainMod, J, movefocus, d"
 
           "$mainMod, 1, workspace, 1"
-          "$mainMod, 1, exec, run_if_closed --class 'zen-beta' --workspace 1 -- zen"
+          "$mainMod, 1, exec, run_if_closed --class '$browserClass' --workspace 1 -- $browser"
           "$mainMod, 2, workspace, 2"
-          "$mainMod, 2, exec, run_if_closed --class 'kitty' --workspace 2 -- kitty"
+          "$mainMod, 2, exec, run_if_closed --class '$terminal' --workspace 2 -- $terminal"
           "$mainMod, 3, workspace, 3"
-          "$mainMod, 3, exec, run_if_closed --class 'obsidian' --workspace 3 -- xdg-open 'obsidian://open?vault=${defaultVault}'"
+          "$mainMod, 3, exec, run_if_closed --class 'obsidian' --workspace 3 -- xdg-open 'obsidian://open?vault=$defaultVault'"
           "$mainMod, 4, workspace, 4"
-          "$mainMod, 4, exec, run_if_closed --class 'obsidian' --workspace 4 -- xdg-open 'obsidian://open?vault=${defaultGameVault}'"
+          "$mainMod, 4, exec, run_if_closed --class 'obsidian' --workspace 4 -- xdg-open 'obsidian://open?vault=$defaultGameVault'"
           "$mainMod, 5, workspace, 5"
           "$mainMod, 6, workspace, 6"
           "$mainMod, 6, exec, run_if_closed --class 'Godot' --workspace 6 -- godot"
@@ -259,6 +261,8 @@ in {
           "float, class:(clipse)"
           "size 622 652, class:(clipse)"
           "stayfocused, class:(clipse)"
+          "workspace 3, class:(obsidian)"
+          "workspace 4, class:(obsidian), title:.*Campaign Notes.*|.*D&D 5E.*"
           "workspace 6, class:(Godot)"
         ];
       };
