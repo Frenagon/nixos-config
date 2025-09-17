@@ -32,12 +32,15 @@ in {
         "$browserClass" = "zen-beta";
         "$defaultVault " = "Coinquest";
         "$defaultGameVault " = "Campaign Notes";
+        "$music" = "youtube-music";
+        "$musicClass" = "com.github.th_ch.youtube_music";
 
         exec-once = [
           "[workspace 1 silent] uwsm app -- $browser"
           "[workspace 2 silent] uwsm app -- $terminal"
           "[workspace 3 silent] uwsm app -- xdg-open 'obsidian://open?vault=$defaultVault'"
           "[workspace 4 silent] uwsm app -- xdg-open 'obsidian://open?vault=$defaultGameVault'"
+          "[workspace 5 silent] uwsm app -- $music"
           "uwsm app -- waybar"
           "uwsm app -- clipse -listen"
           "systemctl --user enable --now hypridle.service"
@@ -180,6 +183,7 @@ in {
           "$mainMod, 4, workspace, 4"
           "$mainMod, 4, exec, run_if_closed --class 'obsidian' --workspace 4 -- xdg-open 'obsidian://open?vault=$defaultGameVault'"
           "$mainMod, 5, workspace, 5"
+          "$mainMod, 5, exec, run_if_closed --class '$musicClass' --workspace 5 -- $music"
           "$mainMod, 6, workspace, 6"
           "$mainMod, 6, exec, run_if_closed --class 'Godot' --workspace 6 -- godot"
           "$mainMod, 7, workspace, 7"
@@ -263,6 +267,7 @@ in {
           "stayfocused, class:(clipse)"
           "workspace 3, class:(obsidian)"
           "workspace 4, class:(obsidian), title:.*Campaign Notes.*|.*D&D 5E.*"
+          "workspace 5, class:($musicClass)"
           "workspace 6, class:(Godot)"
         ];
       };

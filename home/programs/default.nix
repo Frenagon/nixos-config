@@ -36,6 +36,7 @@ with lib; {
       openrgb
       obsidian
       godot
+      youtube-music
 
       # cli
       pamixer
