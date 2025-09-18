@@ -19,7 +19,10 @@ in
         nativeMessagingHosts = with pkgs; [libnotify];
         profiles.default = {
           isDefault = true;
-          settings."toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+          settings = {
+            "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+            "widget.wayland.fractional-scale.enabled" = true;
+          };
           userChrome = builtins.readFile "${themePath}/userChrome.css";
           userContent = builtins.readFile "${themePath}/userContent.css";
           path = "default";
