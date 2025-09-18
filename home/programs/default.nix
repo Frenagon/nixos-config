@@ -50,6 +50,9 @@ with lib; {
   programs = mkIf (!config.windows.wsl) {
     vivaldi.enable = true;
     google-chrome.enable = true;
-    zen-browser.enable = true;
+    zen-browser = {
+      enable = true;
+      nativeMessagingHosts = with pkgs; [libnotify];
+    };
   };
 }

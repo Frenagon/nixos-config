@@ -40,7 +40,7 @@
     username = "frenagon";
     commonHomeModules = [
       catppuccin.homeModules.catppuccin
-      zen-browser.homeModules.beta
+      zen-browser.homeModules.twilight
     ];
   in
     with builders; {
