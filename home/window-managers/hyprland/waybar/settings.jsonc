@@ -67,7 +67,7 @@
   "hyprland/workspaces": {
     "format": "{icon}",
     "format-icons": {
-      "1": "",
+      "1": "",
       "2": "",
       "3": "",
       "4": "",
@@ -80,10 +80,12 @@
     "format": "{class} {title}",
     "rewrite": {
       "vivaldi-stable (.*) - Vivaldi": "  $1",
+      "google-chrome (.*) - Google Chrome": "  $1",
       "zen-twilight (.*) — Zen Twilight": "  $1",
       "zen-twilight Zen Twilight": "  Zen Browser",
       "kitty (.*)": "  $1",
       "obsidian (.*) - Obsidian .*": "  $1",
+      ".* YouTube Music": "  YouTube Music",
       "(.*) - Godot Engine": "  $1",
       "Godot Godot Engine - (.*)": "  $1",
       "Godot Godot": "  Godot"
