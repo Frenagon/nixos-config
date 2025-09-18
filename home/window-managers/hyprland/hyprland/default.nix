@@ -265,7 +265,7 @@ in {
           "float, class:(clipse)"
           "size 622 652, class:(clipse)"
           "stayfocused, class:(clipse)"
-          "workspace 3, class:(obsidian)"
+          "workspace 3, class:(obsidian), title:negative:.*Campaign Notes.*|.*D&D 5E.*"
           "workspace 4, class:(obsidian), title:.*Campaign Notes.*|.*D&D 5E.*"
           "workspace 5, class:($musicClass)"
           "workspace 6, class:(Godot)"
