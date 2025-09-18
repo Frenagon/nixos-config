@@ -7,6 +7,7 @@
 with lib; {
   imports = [
     ./bat
+    ./browsers
     ./dunst
     ./eza
     ./git
@@ -46,13 +47,4 @@ with lib; {
       grimblast
       gdk-pixbuf
     ];
-
-  programs = mkIf (!config.windows.wsl) {
-    vivaldi.enable = true;
-    google-chrome.enable = true;
-    zen-browser = {
-      enable = true;
-      nativeMessagingHosts = with pkgs; [libnotify];
-    };
-  };
 }

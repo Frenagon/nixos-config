@@ -53,6 +53,22 @@
         "type": "github"
       }
     },
+    "catppuccin-zen": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1750430416,
+        "narHash": "sha256-cccLZSrUQ9wxmXnEntbQAfGDFB9gQmIM9pa9BXce1Xo=",
+        "owner": "catppuccin",
+        "repo": "zen-browser",
+        "rev": "e171e2a1d94ed70f39ff0ac452aef335f8b233c9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "zen-browser",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -489,6 +505,7 @@
     "root": {
       "inputs": {
         "catppuccin": "catppuccin",
+        "catppuccin-zen": "catppuccin-zen",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "nixos-hardware": "nixos-hardware",
