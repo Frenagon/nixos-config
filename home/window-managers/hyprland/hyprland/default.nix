@@ -29,7 +29,7 @@ in {
       settings = {
         "$terminal" = "kitty";
         "$browser" = "zen";
-        "$browserClass" = "zen-beta";
+        "$browserClass" = "zen-twilight";
         "$defaultVault " = "Coinquest";
         "$defaultGameVault " = "Campaign Notes";
         "$music" = "youtube-music";

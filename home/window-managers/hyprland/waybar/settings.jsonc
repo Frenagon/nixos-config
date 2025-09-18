@@ -80,8 +80,8 @@
     "format": "{class} {title}",
     "rewrite": {
       "vivaldi-stable (.*) - Vivaldi": "  $1",
-      "zen-beta (.*) — Zen Browser": "  $1",
-      "zen-beta Zen Browser": "  Zen Browser",
+      "zen-twilight (.*) — Zen Twilight": "  $1",
+      "zen-twilight Zen Twilight": "  Zen Browser",
       "kitty (.*)": "  $1",
       "obsidian (.*) - Obsidian .*": "  $1",
       "(.*) - Godot Engine": "  $1",
