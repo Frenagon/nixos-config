@@ -38,8 +38,7 @@ in {
         exec-once = [
           "[workspace 1 silent] uwsm app -- $browser"
           "[workspace 2 silent] uwsm app -- $terminal"
-          "[workspace 3 silent] uwsm app -- xdg-open 'obsidian://open?vault=$defaultVault'"
-          "[workspace 4 silent] uwsm app -- xdg-open 'obsidian://open?vault=$defaultGameVault'"
+          "uwsm app -- xdg-open 'obsidian://open?vault=$defaultVault' & uwsm app -- xdg-open 'obsidian://open?vault=$defaultGameVault'"
           "[workspace 5 silent] uwsm app -- $music"
           "uwsm app -- waybar"
           "uwsm app -- clipse -listen"
