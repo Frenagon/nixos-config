@@ -82,4 +82,21 @@ return {
 			},
 		},
 	},
+	{
+		"augmentcode/augment.vim",
+		keys = {
+			{
+				"<leader>cc",
+				"<cmd>Augment chat-toggle<cr>",
+				mode = { "n", "v" },
+				desc = "Augment: Toggle Chat Panel",
+			},
+			{
+				"<leader>cn",
+				"<cmd>Augment chat-new<cr>",
+				mode = { "n", "v" },
+				desc = "Augment: Open a new Chat",
+			},
+		},
+	},
 }

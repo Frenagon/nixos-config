@@ -54,3 +54,12 @@ vim.diagnostic.config({
 		},
 	},
 })
+
+local projects_path = "~/Projects"
+local folders = vim.fn.globpath(projects_path, "*/", true, true)
+vim.g.augment_workspace_folders = {}
+if folders and #folders > 0 then
+	for _, path in ipairs(folders) do
+		table.insert(vim.g.augment_workspace_folders, path)
+	end
+end
