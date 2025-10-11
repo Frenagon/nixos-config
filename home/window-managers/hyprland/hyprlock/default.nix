@@ -13,7 +13,6 @@ in {
         "$font" = "DejaVu Sans Mono";
 
         general = {
-          hide_cursor = true;
           disable_loading_bar = true;
           no_fade_in = false;
         };
