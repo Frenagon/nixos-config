@@ -29,6 +29,7 @@ with lib; {
       fzf
       clipse
       procps
+      usbutils
     ]
     ++ optionals (!config.windows.wsl) [
       # ui

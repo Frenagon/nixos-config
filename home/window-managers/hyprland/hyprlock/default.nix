@@ -18,6 +18,10 @@ in {
           no_fade_in = false;
         };
 
+        auth = {
+          "fingerprint:enabled" = true;
+        };
+
         background = {
           monitor = "";
           path = "${./background.jpg}";
@@ -73,7 +77,7 @@ in {
           hide_input = false;
           check_color = "$accent";
           fail_color = "$red";
-          fail_text = "<i>$FAIL</i>";
+          fail_text = "<i>$PAMFAIL</i>";
           capslock_color = "$yellow";
           position = "0, -84";
           halign = "center";
