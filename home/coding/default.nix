@@ -22,6 +22,7 @@
     emmet-ls
     bash-language-server
     biome
+    astro-language-server
 
     # formatter
     nodePackages.prettier
