@@ -3,9 +3,7 @@ return {
 		"neovim/nvim-lspconfig",
 		opts = {
 			servers = {
-				astro = {
-					capabilities = require("blink.cmp").get_lsp_capabilities(),
-				},
+				astro = {},
 			},
 		},
 	},
