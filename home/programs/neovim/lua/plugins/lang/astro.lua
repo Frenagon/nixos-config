@@ -1,5 +1,16 @@
 return {
 	{
+		"neovim/nvim-lspconfig",
+		opts = {
+			servers = {
+				astro = {
+					capabilities = require("blink.cmp").get_lsp_capabilities(),
+				},
+			},
+		},
+	},
+
+	{
 		"stevearc/conform.nvim",
 		opts = {
 			formatters_by_ft = {
