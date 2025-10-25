@@ -14,7 +14,6 @@
     # lsp
     typescript-language-server
     tailwindcss-language-server
-    nodePackages.vscode-json-languageserver
     nixd
     lua-language-server
     marksman
@@ -23,6 +22,7 @@
     bash-language-server
     biome
     astro-language-server
+    vscode-langservers-extracted
 
     # formatter
     nodePackages.prettier
