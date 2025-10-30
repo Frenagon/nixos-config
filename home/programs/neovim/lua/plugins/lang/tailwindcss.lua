@@ -14,9 +14,9 @@ return {
 			formatters_by_ft = {
 				html = { "biome", "prettier", stop_after_first = true },
 				css = { "biome", "prettier", stop_after_first = true },
-				less = { "biome", "prettier", stop_after_first = true },
-				sass = { "biome", "prettier", stop_after_first = true },
-				scss = { "biome", "prettier", stop_after_first = true },
+				less = { "prettier" },
+				sass = { "prettier" },
+				scss = { "prettier" },
 			},
 		},
 	},
