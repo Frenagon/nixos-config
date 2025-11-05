@@ -2,10 +2,13 @@
 with lib; {
   programs.git = {
     enable = mkDefault true;
-    userName = mkDefault "Francisco Aceves";
-    userEmail = mkDefault "frenagon@gmail.com";
 
-    extraConfig = {
+    settings = {
+      user = {
+        name = mkDefault "Francisco Aceves";
+        email = mkDefault "frenagon@gmail.com";
+      };
+
       init.defaultBranch = "main";
       push = {
         default = "current";
@@ -14,18 +17,19 @@ with lib; {
       core.editor = "nvim";
       diff.tool = "nvimdiff";
       merge.tool = "nvimdiff";
-    };
 
-    aliases = {
-      undo = "reset --soft HEAD^";
-    };
-
-    delta = {
-      enable = true;
-      options = {
-        line-numbers = true;
-        tabs = 2;
+      alias = {
+        undo = "reset --soft HEAD^";
       };
+    };
+  };
+
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
+    options = {
+      line-numbers = true;
+      tabs = 2;
     };
   };
 

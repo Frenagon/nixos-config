@@ -4,9 +4,9 @@
   windows.wsl = true;
   hyprland.enable = false;
 
-  programs.git = {
-    userName = "Francisco-Aceves-Imprivata";
-    userEmail = "francisco.aceves@imprivata.com";
+  programs.git.settings.user = {
+    name = "Francisco-Aceves-Imprivata";
+    email = "francisco.aceves@imprivata.com";
   };
 
   programs.ssh = {
