@@ -11,7 +11,7 @@ return {
 		---@module 'avante'
 		opts = {
 			-- add any opts here
-			provider = "moonshot",
+			provider = "copilot",
 			providers = {
 				claude = {
 					endpoint = "https://api.anthropic.com",
@@ -55,6 +55,7 @@ return {
 			"hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
 			"folke/snacks.nvim", -- for input provider snacks
 			"nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+			"zbirenbaum/copilot.lua", -- for providers='copilot'
 			{
 				-- support for image pasting
 				"HakonHarnes/img-clip.nvim",
@@ -83,20 +84,16 @@ return {
 		},
 	},
 	{
-		"augmentcode/augment.vim",
-		keys = {
-			{
-				"<leader>cc",
-				"<cmd>Augment chat-toggle<cr>",
-				mode = { "n", "v" },
-				desc = "Augment: Toggle Chat Panel",
-			},
-			{
-				"<leader>cn",
-				"<cmd>Augment chat-new<cr>",
-				mode = { "n", "v" },
-				desc = "Augment: Open a new Chat",
-			},
-		},
+		"zbirenbaum/copilot.lua",
+		cmd = "Copilot",
+		event = "InsertEnter",
+		dependencies = "copilotlsp-nvim/copilot-lsp",
+		config = function()
+			require("copilot").setup({
+				suggestion = {
+					auto_trigger = true,
+				},
+			})
+		end,
 	},
 }
