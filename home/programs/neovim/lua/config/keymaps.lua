@@ -34,7 +34,4 @@ map("n", "<leader>q", "<cmd>bdelete<CR>", "Close buffer")
 map("v", "??", "y:h <C-R>0<CR>", "Vim help")
 map("v", "?/", "y:/<C-R>0<CR>", "Search the buffer")
 
--- Toggles
-map("n", "<leader>tf", utils.toggle_flow, "Toggle flow")
-
 map("n", "<C-c>", "<cmd>noh<CR><cmd>redraw!<CR>", "Remove highlights")

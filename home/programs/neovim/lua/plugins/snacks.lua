@@ -9,15 +9,26 @@ return {
 			local snacks = require("snacks")
 
 			return {
-				{ "<leader>.", snacks.scratch.open, desc = "Scratch pad" },
 				{ "<leader>E", snacks.picker.explorer, desc = "Snacks explorer" },
 				{ "<leader>F", snacks.picker.files, desc = "Find files" },
-				{ "<leader>n", snacks.notifier.show_history, desc = "Show notifications" },
+				{ "<leader>n", snacks.scratch.open, desc = "Scratch pad" },
+				{ "<leader>fn", snacks.scratch.select, desc = "Scratch pad" },
+				{ "<leader>N", snacks.notifier.show_history, desc = "Show notifications" },
 				{ "<leader>gb", snacks.git.blame_line, desc = "Show git blame" },
 				{ "<leader>gr", snacks.gitbrowse.open, mode = { "n", "v" }, desc = "Open file in browser" },
 				{ "<leader>gg", snacks.lazygit.open, desc = "Open lazygit" },
 				{ "<leader>gL", snacks.lazygit.log, desc = "Show git logs" },
 				{ "<leader>gl", snacks.lazygit.log_file, desc = "Show git file history" },
+				{
+					"<leader>.",
+					function()
+						local cwd = vim.fn.expand("%:p:h")
+						if vim.fn.isdirectory(cwd) ~= 0 then
+							snacks.terminal.toggle("zsh", { cwd = cwd })
+						end
+					end,
+					desc = "Open terminal",
+				},
 			}
 		end,
 		opts = {
@@ -34,6 +45,15 @@ return {
 				},
 				animate = {
 					enabled = false,
+				},
+			},
+			styles = {
+				terminal = {
+					backdrop = 60,
+					height = 0.9,
+					width = 0.9,
+					zindex = 50,
+					border = "rounded",
 				},
 			},
 		},
