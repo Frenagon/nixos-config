@@ -10,6 +10,9 @@ with lib; {
       };
 
       init.defaultBranch = "main";
+      fetch = {
+        prune = true;
+      };
       push = {
         default = "current";
         autoSetupRemote = true;
