@@ -9,7 +9,11 @@ return {
 		build = "cargo build --release",
 		event = { "LspAttach" },
 		opts = {
-			keymap = { preset = "enter" },
+			keymap = {
+				preset = "enter",
+				["<C-u>"] = { "scroll_documentation_up", "fallback" },
+				["<C-d>"] = { "scroll_documentation_down", "fallback" },
+			},
 			appearance = {
 				nerd_font_variant = "mono",
 			},
