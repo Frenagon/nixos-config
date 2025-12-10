@@ -93,6 +93,7 @@ return {
 				suggestion = {
 					auto_trigger = true,
 				},
+				copilot_node_command = "/etc/profiles/per-user/frenagon/bin/node",
 			})
 		end,
 	},
