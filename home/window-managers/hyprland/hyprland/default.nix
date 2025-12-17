@@ -52,17 +52,6 @@ in {
           force_zero_scaling = true;
         };
 
-        env =
-          [
-            "XCURSOR_SIZE,32"
-            "NIXOS_OZONE_WL,1"
-            "ELECTRON_OZONE_PLATFORM_HINT,wayland"
-          ]
-          ++ optionals cfg.nvidiaPatches [
-            "LIBVA_DRIVER_NAME,nvidia"
-            "__GLX_VENDOR_LIBRARY_NAME,nvidia"
-          ];
-
         general = {
           gaps_in = 2;
           gaps_out = 0;
@@ -154,7 +143,7 @@ in {
           "$mainMod SHIFT, F, togglefloating,"
           "$mainMod SHIFT, J, togglesplit, # dwindle"
           "$mainMod, P, pseudo, # dwindle"
-          "$mainMod CTRL SHIFT, Q, exit,"
+          "$mainMod CTRL SHIFT, Q, exec, uwsm stop"
           "$mainMod SHIFT, P, exec, uwsm app -- rofi_powermenu 2 7"
           "$mainMod, C, exec, uwsm app -- hyprpicker -ad"
           "$mainMod, V, exec, uwsm app -- $terminal --class clipse -e 'clipse'"
@@ -256,18 +245,82 @@ in {
           ", XF86AudioPrev, exec, playerctl previous"
         ];
 
-        windowrulev2 = [
-          "suppressevent maximize, class:.*"
-          "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
-          "tile, class:(Godot)"
-          "float, class:(Godot), title:negative:(Godot)"
-          "float, class:(clipse)"
-          "size 622 652, class:(clipse)"
-          "stayfocused, class:(clipse)"
-          "workspace 3, class:(obsidian), title:negative:.*Campaign Notes.*|.*D&D 5E.*"
-          "workspace 4, class:(obsidian), title:.*Campaign Notes.*|.*D&D 5E.*"
-          "workspace 5, class:($musicClass)"
-          "workspace 6, class:(Godot)"
+        windowrule = [
+          {
+            # Ignore maximize requests from all apps. You'll probably like this.
+            name = "suppress-maximize-events";
+            "match:class" = ".*";
+
+            suppress_event = "maximize";
+          }
+          {
+            # Fix some dragging issues with XWayland
+            name = "fix-xwayland-drags";
+            "match:class" = "^$";
+            "match:title" = "^$";
+            "match:xwayland" = true;
+            "match:float" = true;
+            "match:fullscreen" = false;
+            "match:pin" = false;
+
+            no_focus = true;
+          }
+          {
+            name = "move-hyprland-run";
+            "match:class" = "hyprland-run";
+
+            move = "20 monitor_h-120";
+            float = "yes";
+          }
+          {
+            name = "godot-tile";
+            "match:class" = "Godot";
+
+            tile = "yes";
+          }
+          {
+            name = "godot-float";
+            "match:class" = "Godot";
+            "match:title" = "negative:Godot";
+
+            float = "yes";
+            center = "yes";
+          }
+          {
+            name = "clipse-float";
+            "match:class" = "clipse";
+
+            float = "yes";
+            size = "622 652";
+            center = "yes";
+            stay_focused = "yes";
+          }
+          {
+            name = "obsidian-notes-workspace";
+            "match:class" = "obsidian";
+            "match:title" = "negative:.*Campaign Notes.*|.*D&D 5E.*";
+
+            workspace = 3;
+          }
+          {
+            name = "obsidian-games-workspace";
+            "match:class" = "obsidian";
+            "match:title" = ".*Campaign Notes.*|.*D&D 5E.*";
+
+            workspace = 4;
+          }
+          {
+            name = "music-workspace";
+            "match:class" = "$musicClass";
+
+            workspace = 5;
+          }
+          {
+            name = "godot-workspace";
+            "match:class" = "Godot";
+
+            workspace = 6;
+          }
         ];
       };
     };

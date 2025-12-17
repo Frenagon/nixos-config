@@ -60,7 +60,7 @@ powermenu_options=$(
 declare -a powermenu_actions=(
   "hyprlock"
   "systemctl suspend"
-  "hyprctl dispatch exit"
+  "hyprctl dispatch exec uwsm stop"
   "reboot"
   "poweroff"
 )

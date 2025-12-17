@@ -4,6 +4,7 @@
     ./hypridle
     ./hyprlock
     ./hyprpaper
+    ./uwsm
     ./waybar
   ];
 }

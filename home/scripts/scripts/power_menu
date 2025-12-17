@@ -11,7 +11,7 @@ declare -a menu=(
 
 # Actions shuld be in the same index as it's menu option
 declare -a actions=(
-  "hyprctl dispatch exit"
+  "hyprctl dispatch exec uwsm stop"
   "reboot"
   "poweroff"
 )
@@ -22,13 +22,13 @@ command_menu=$(
 )
 selected=$(
   echo -e "$command_menu" |
-  run_or_close wofi \
-    --show dmenu \
-    --normal-window \
-    --allow-images \
-    --conf "${config_dir}/power_menu.conf" \
-    --style "${config_dir}/power_menu.css" \
-    --cache-file /dev/null
+    run_or_close wofi \
+      --show dmenu \
+      --normal-window \
+      --allow-images \
+      --conf "${config_dir}/power_menu.conf" \
+      --style "${config_dir}/power_menu.css" \
+      --cache-file /dev/null
 )
 for i in "${!menu[@]}"; do
   if [[ "$selected" == "${menu[i]}" ]]; then
