@@ -32,8 +32,8 @@ in {
         "$browserClass" = "zen-twilight";
         "$defaultVault " = "Coinquest";
         "$defaultGameVault " = "Campaign Notes";
-        "$music" = "youtube-music";
-        "$musicClass" = "com.github.th_ch.youtube_music";
+        "$music" = "ytmdesktop";
+        "$musicClass" = "YouTube Music Desktop App";
 
         exec-once = [
           "[workspace 1 silent] uwsm app -- $browser"

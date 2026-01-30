@@ -38,7 +38,11 @@ with lib; {
       openrgb
       obsidian
       godot
-      youtube-music
+      ytmdesktop
+      lutris
+      protonup-qt
+      wine
+      winetricks
 
       # cli
       pamixer
