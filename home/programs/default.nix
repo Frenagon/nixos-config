@@ -43,6 +43,7 @@ with lib; {
       protonup-qt
       wine
       winetricks
+      bottles
 
       # cli
       pamixer
