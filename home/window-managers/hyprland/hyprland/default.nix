@@ -28,7 +28,7 @@ in {
       systemd.enable = false;
       settings = {
         "$terminal" = "kitty";
-        "$browser" = "zen";
+        "$browser" = "zen-twilight";
         "$browserClass" = "zen-twilight";
         "$defaultVault " = "Coinquest";
         "$defaultGameVault " = "Campaign Notes";
