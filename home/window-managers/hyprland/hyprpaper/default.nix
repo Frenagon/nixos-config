@@ -10,8 +10,8 @@ in {
     services.hyprpaper = {
       enable = true;
       settings = {
-        preload = ["${../../../../resources/wallpapers/cat-blue-eye.png}"];
-        wallpaper = [",${../../../../resources/wallpapers/cat-blue-eye.png}"];
+        splash = false;
+        wallpaper = cfg.wallpapers;
       };
     };
   };
