@@ -42,7 +42,6 @@ in {
           "[workspace 5 silent] uwsm app -- $music"
           "uwsm app -- waybar"
           "uwsm app -- clipse -listen"
-          "systemctl --user enable --now hypridle.service"
           "1password --silent"
         ];
 
