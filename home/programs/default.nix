@@ -30,6 +30,7 @@ with lib; {
       clipse
       procps
       usbutils
+      mkcert
     ]
     ++ optionals (!config.windows.wsl) [
       # ui
