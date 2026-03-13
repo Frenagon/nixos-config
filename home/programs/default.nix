@@ -45,6 +45,7 @@ with lib; {
       wine
       winetricks
       bottles
+      qalculate-gtk
 
       # cli
       pamixer
