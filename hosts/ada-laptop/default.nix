@@ -6,13 +6,15 @@
 in {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/common.nix
-    (import ../../modules/intel.nix (inputs // {device-id = "7dd5";}))
-    ../../modules/power-management.nix
-    ../../modules/hyprland.nix
+
+    ../../modules/1password.nix
     ../../modules/bootloader.nix
     ../../modules/colorscheme.nix
-    ../../modules/1password.nix
+    ../../modules/common.nix
+    ../../modules/hyprland.nix
+    (import ../../modules/intel.nix (inputs // {device-id = "7dd5";}))
+    ../../modules/power-management.nix
+    ../../modules/printers.nix
     ../../modules/steam.nix
   ];
 
