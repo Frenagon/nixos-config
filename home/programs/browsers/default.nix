@@ -17,7 +17,6 @@ in
       zen-browser = {
         enable = true;
         nativeMessagingHosts = with pkgs; [libnotify];
-        suppressXdgMigrationWarning = true;
         profiles.default = {
           isDefault = true;
           settings = {

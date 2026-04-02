@@ -20,7 +20,7 @@ with lib; {
   home.packages = with pkgs;
     [
       # cli
-      neofetch
+      fastfetch
       tree
       unzip
       jq
