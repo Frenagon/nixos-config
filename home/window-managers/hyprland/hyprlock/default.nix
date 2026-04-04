@@ -84,7 +84,6 @@ in {
         };
       };
       extraConfig = ''
-
         {
           monitor=
           text=$FPRINTMESSAGE

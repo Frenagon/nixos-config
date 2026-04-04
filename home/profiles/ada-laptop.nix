@@ -3,20 +3,35 @@
   config,
   ...
 }: let
-  fprintd-toggle = pkgs.writeShellScriptBin "fprintd-toggle" ''
-    if [ "$1" = "close" ]; then
-      # Requires sudo/polkit because fprintd is a system service
-      sudo systemctl stop fprintd
-      sudo systemctl mask fprintd
-    elif [ "$1" = "open" ]; then
-      sudo systemctl unmask fprintd
-      sudo systemctl start fprintd
+  fprintd-lid-toggle = pkgs.writeShellScriptBin "fprintd-lid-toggle" ''
+    #!/bin/bash
+    # Script to manage fprintd based on lid state
+    LID_STATE=$(cat /proc/acpi/button/lid/LID/state | awk '{print $2}')
+
+    if [ "$LID_STATE" == "closed" ]; then
+        # Disable fingerprint reader if lid is closed
+        sudo systemctl stop fprintd
+    else
+        # Enable fingerprint reader if lid is open
+        sudo systemctl start fprintd
+    fi
+  '';
+
+  monitor-lid-toggle = pkgs.writeShellScriptBin "monitor-lid-toggle" ''
+    #!/bin/bash
+    # Script to manage monitor based on lid state
+    LID_STATE=$(cat /proc/acpi/button/lid/LID/state | awk '{print $2}')
+
+    if [ "$LID_STATE" == "closed" ]; then
+        hyprctl keyword monitor 'eDP-1, disable'
+    else
+        hyprctl keyword monitor '${builtins.elemAt config.hyprland.monitors 0}'
     fi
   '';
 in {
   imports = [./common.nix];
 
-  home.packages = [fprintd-toggle];
+  home.packages = [fprintd-lid-toggle monitor-lid-toggle];
 
   hyprland = {
     enable = true;
@@ -46,11 +61,14 @@ in {
   };
 
   wayland.windowManager.hyprland.settings = {
+    exec-once = [
+      "fprintd-lid-toggle"
+      "monitor-lid-toggle"
+    ];
+
     bindl = [
-      ", switch:on:Lid Switch, exec, hyprctl keyword monitor 'eDP-1, disable'"
-      ", switch:on:Lid Switch, exec, fprintd-toggle close"
-      ", switch:off:Lid Switch, exec, hyprctl keyword monitor '${builtins.elemAt config.hyprland.monitors 0}'"
-      ", switch:off:Lid Switch, exec, fprintd-toggle open"
+      ", switch:Lid Switch, exec, fprintd-lid-toggle"
+      ", switch:Lid Switch, exec, monitor-lid-toggle"
     ];
   };
 }
