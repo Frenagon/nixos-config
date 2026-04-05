@@ -4,7 +4,8 @@
     nodejs
     gnumake
     gcc
-    rustup
+    cargo
+    rustc
     (python3.withPackages (py-pkgs:
       with py-pkgs; [
         requests
