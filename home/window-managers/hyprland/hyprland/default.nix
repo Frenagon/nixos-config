@@ -296,15 +296,15 @@ in {
           }
           {
             name = "obsidian-notes-workspace";
-            "match:class" = "obsidian";
-            "match:title" = "negative:.*Campaign Notes.*|.*D&D 5E.*";
+            "match:class" = "electron";
+            "match:title" = "negative:.*(Campaign Notes|D&D 5E).*Obsidian.*";
 
             workspace = 3;
           }
           {
             name = "obsidian-games-workspace";
-            "match:class" = "obsidian";
-            "match:title" = ".*Campaign Notes.*|.*D&D 5E.*";
+            "match:class" = "electron";
+            "match:title" = ".*(Campaign Notes|D&D 5E).*Obsidian.*";
 
             workspace = 4;
           }

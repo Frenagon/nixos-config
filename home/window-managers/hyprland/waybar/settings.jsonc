@@ -84,7 +84,7 @@
       "zen-twilight (.*) — Zen Twilight": "  $1",
       "zen-twilight Zen Twilight": "  Zen Browser",
       "kitty (.*)": "  $1",
-      "obsidian (.*) - Obsidian .*": "  $1",
+      "electron (.*) - Obsidian.*": "  $1",
       ".* YouTube Music Desktop App": "  YouTube Music",
       "(.*) - Godot Engine": "  $1",
       "Godot Godot Engine - (.*)": "  $1",
