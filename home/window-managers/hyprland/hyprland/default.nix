@@ -33,7 +33,8 @@ in {
         "$defaultVault " = "Coinquest";
         "$defaultGameVault " = "Campaign Notes";
         "$music" = "ytmdesktop";
-        "$musicClass" = "YouTube Music Desktop App";
+        "$musicTitle" = ".*YouTube Music.*";
+        "$obsidianTitle" = ".*Obsidian.*";
 
         exec-once = [
           "[workspace 1 silent] uwsm app -- $browser"
@@ -166,11 +167,11 @@ in {
           "$mainMod, 2, workspace, 2"
           "$mainMod, 2, exec, run_if_closed --class '$terminal' --workspace 2 -- $terminal"
           "$mainMod, 3, workspace, 3"
-          "$mainMod, 3, exec, run_if_closed --class 'obsidian' --workspace 3 -- xdg-open 'obsidian://open?vault=$defaultVault'"
+          "$mainMod, 3, exec, run_if_closed --title '$obsidianTitle' --regex --workspace 3 -- xdg-open 'obsidian://open?vault=$defaultVault'"
           "$mainMod, 4, workspace, 4"
-          "$mainMod, 4, exec, run_if_closed --class 'obsidian' --workspace 4 -- xdg-open 'obsidian://open?vault=$defaultGameVault'"
+          "$mainMod, 4, exec, run_if_closed --title '$obsidianTitle' --regex --workspace 4 -- xdg-open 'obsidian://open?vault=$defaultGameVault'"
           "$mainMod, 5, workspace, 5"
-          "$mainMod, 5, exec, run_if_closed --class '$musicClass' --workspace 5 -- $music"
+          "$mainMod, 5, exec, run_if_closed --title '$musicTitle' --regex --workspace 5 -- $music"
           "$mainMod, 6, workspace, 6"
           "$mainMod, 6, exec, run_if_closed --class 'Godot' --workspace 6 -- godot"
           "$mainMod, 7, workspace, 7"
@@ -297,20 +298,20 @@ in {
           {
             name = "obsidian-notes-workspace";
             "match:class" = "electron";
-            "match:title" = "negative:.*(Campaign Notes|D&D 5E).*Obsidian.*";
+            "match:title" = "negative:.*(Campaign Notes|D&D 5E)$obsidianTitle";
 
             workspace = 3;
           }
           {
             name = "obsidian-games-workspace";
             "match:class" = "electron";
-            "match:title" = ".*(Campaign Notes|D&D 5E).*Obsidian.*";
+            "match:title" = ".*(Campaign Notes|D&D 5E)$obsidianTitle";
 
             workspace = 4;
           }
           {
             name = "music-workspace";
-            "match:class" = "$musicClass";
+            "match:title" = "$musicTitle";
 
             workspace = 5;
           }
