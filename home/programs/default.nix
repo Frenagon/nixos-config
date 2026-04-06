@@ -31,6 +31,7 @@ with lib; {
       procps
       usbutils
       mkcert
+      pamtester
     ]
     ++ optionals (!config.windows.wsl) [
       # ui

@@ -3,22 +3,7 @@
   config,
   ...
 }: let
-  fprintd-lid-toggle = pkgs.writeShellScriptBin "fprintd-lid-toggle" ''
-    #!/bin/bash
-    # Script to manage fprintd based on lid state
-    LID_STATE=$(cat /proc/acpi/button/lid/LID/state | awk '{print $2}')
-
-    if [ "$LID_STATE" == "closed" ]; then
-        # Disable fingerprint reader if lid is closed
-        sudo systemctl stop fprintd
-    else
-        # Enable fingerprint reader if lid is open
-        sudo systemctl start fprintd
-    fi
-  '';
-
   monitor-lid-toggle = pkgs.writeShellScriptBin "monitor-lid-toggle" ''
-    #!/bin/bash
     # Script to manage monitor based on lid state
     LID_STATE=$(cat /proc/acpi/button/lid/LID/state | awk '{print $2}')
 
@@ -31,7 +16,7 @@
 in {
   imports = [./common.nix];
 
-  home.packages = [fprintd-lid-toggle monitor-lid-toggle];
+  home.packages = [monitor-lid-toggle];
 
   hyprland = {
     enable = true;
@@ -61,14 +46,8 @@ in {
   };
 
   wayland.windowManager.hyprland.settings = {
-    exec-once = [
-      "fprintd-lid-toggle"
-      "monitor-lid-toggle"
-    ];
+    exec-once = ["monitor-lid-toggle"];
 
-    bindl = [
-      ", switch:Lid Switch, exec, fprintd-lid-toggle"
-      ", switch:Lid Switch, exec, monitor-lid-toggle"
-    ];
+    bindl = [", switch:Lid Switch, exec, monitor-lid-toggle"];
   };
 }

@@ -13,6 +13,7 @@ in {
     ../../modules/common.nix
     ../../modules/hyprland.nix
     (import ../../modules/intel.nix (inputs // {device-id = "7dd5";}))
+    ../../modules/pam.nix
     ../../modules/power-management.nix
     ../../modules/printers.nix
     ../../modules/steam.nix
