@@ -1,5 +1,8 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
+    # ai
+    github-copilot-cli
+
     # languages
     nodejs
     gnumake
