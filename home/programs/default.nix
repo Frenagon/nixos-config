@@ -32,6 +32,7 @@ with lib; {
       usbutils
       mkcert
       pamtester
+      libsecret
     ]
     ++ optionals (!config.windows.wsl) [
       # ui
@@ -47,6 +48,7 @@ with lib; {
       winetricks
       bottles
       qalculate-gtk
+      seahorse
 
       # cli
       pamixer
