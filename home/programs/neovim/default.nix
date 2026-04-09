@@ -11,6 +11,7 @@ in {
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
+    defaultEditor = true;
   };
   catppuccin.nvim.enable = false;
   xdg.configFile."nvim".source = mkOutOfStoreSymlink "${nvimConfig}";
