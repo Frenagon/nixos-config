@@ -72,7 +72,8 @@
       "3": "",
       "4": "",
       "5": "",
-      "6": ""
+      "6": "",
+      "10": "󰊴"
     }
   },
 
@@ -88,13 +89,15 @@
       ".* YouTube Music Desktop App": "  YouTube Music",
       "(.*) - Godot Engine": "  $1",
       "Godot Godot Engine - (.*)": "  $1",
-      "Godot Godot": "  Godot"
+      "Godot Godot": "  Godot",
+      "steam (.*)": "󰓓  $1",
+      "net.lutris.Lutris (.*)": "  $1"
     }
   },
 
   "network": {
-    "format-wifi": " {signalStrength}%",
-    "format-ethernet": " {ipaddr}/{cidr}",
+    "format-wifi": "  {signalStrength}%",
+    "format-ethernet": "  {ipaddr}/{cidr}",
     "tooltip-format": "{essid} {gwaddr}",
     "format-linked": "{ifname} (No IP)",
     "format-disconnected": "Disconnected ⚠",
@@ -140,13 +143,13 @@
 
   "backlight": {
     "device": "intel_backlight",
-    "format": "{icon} {percent}%",
+    "format": "{icon}  {percent}%",
     "format-icons": ["󰃞", "󰃟", "󰃠"],
     "on-scroll-up": "brightnessctl -q set 1%+",
     "on-scroll-down": "brightnessctl -q set 1%-"
   },
   "pulseaudio": {
-    "format": "{icon} {volume}%",
+    "format": "{icon}  {volume}%",
     "tooltip": false,
     "format-muted": " Muted",
     "on-click": "pamixer -t",
@@ -166,7 +169,7 @@
   "pulseaudio#microphone": {
     "format": "{format_source}",
     "format-source": " {volume}%",
-    "format-source-muted": " Muted",
+    "format-source-muted": "  Muted",
     "on-click": "pamixer --default-source -t",
     "on-scroll-up": "pamixer --default-source -i 5",
     "on-scroll-down": "pamixer --default-source -d 5",
