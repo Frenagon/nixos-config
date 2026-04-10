@@ -321,6 +321,12 @@ in {
 
             workspace = 6;
           }
+          {
+            name = "gaming-workspace";
+            "match:class" = "net.lutris.Lutris|steam";
+
+            workspace = 10;
+          }
         ];
       };
     };
