@@ -31,7 +31,7 @@
   },
 
   "clock": {
-    "format": " {0:%H:%M}   {0:%a, %b %e}",
+    "format": "  {0:%H:%M}    {0:%a, %b %e}",
     "tooltip-format": "<tt>{calendar}</tt>",
     "locale": "en_US.UTF-8",
     "calendar": {
