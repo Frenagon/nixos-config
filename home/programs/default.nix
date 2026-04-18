@@ -14,6 +14,7 @@ with lib; {
     ./kitty
     ./neovim
     ./rofi
+    ./tmux
     ./zoxide
   ];
 
@@ -33,7 +34,6 @@ with lib; {
       mkcert
       pamtester
       libsecret
-      tmux
     ]
     ++ optionals (!config.windows.wsl) [
       # ui
