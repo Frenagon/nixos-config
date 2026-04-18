@@ -18,6 +18,8 @@
           set -g status-left ""
           set -g @catppuccin_status_left_separator "█"
           set -g @catppuccin_status_right_separator "█"
+          set -g @catppuccin_window_text " #W"
+          set -g @catppuccin_window_current_text " #W"
           set -g status-right "#{E:@catppuccin_status_application}"
           set -ag status-right "#{E:@catppuccin_status_session}"
           set -ag status-right "#{E:@catppuccin_status_uptime}"
