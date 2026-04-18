@@ -33,6 +33,7 @@ with lib; {
       mkcert
       pamtester
       libsecret
+      tmux
     ]
     ++ optionals (!config.windows.wsl) [
       # ui
