@@ -12,6 +12,7 @@
       {
         plugin = tmuxPlugins.catppuccin;
         extraConfig = ''
+          set -g mode-key vi
           set -g @catppuccin_flavour "macchiato"
           set -g status-right-length 100
           set -g status-left-length 100
