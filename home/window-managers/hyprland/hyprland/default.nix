@@ -148,6 +148,7 @@ in {
           "$mainMod, C, exec, uwsm app -- hyprpicker -ad"
           "$mainMod, V, exec, uwsm app -- $terminal --class clipse -e 'clipse'"
           "$mainMod ALT, L, exec, pgrep hyprlock || hyprlock"
+          "$mainMod ALT, R, exec, hyprctl reload"
           "SHIFT, SPACE, exec, rofi_launcher 4 5"
           "$mainMod, PERIOD, exec, bemoji -n"
           "CTRL, SPACE, exec, change_kb_layout next"
