@@ -46,7 +46,7 @@ in {
   };
 
   wayland.windowManager.hyprland.settings = {
-    exec-once = ["monitor-lid-toggle"];
+    exec = ["monitor-lid-toggle"];
 
     bindl = [", switch:Lid Switch, exec, monitor-lid-toggle"];
   };
