@@ -23,7 +23,6 @@
           set -g @catppuccin_window_current_text " #W"
           set -g status-right "#{E:@catppuccin_status_application}"
           set -ag status-right "#{E:@catppuccin_status_session}"
-          set -ag status-right "#{E:@catppuccin_status_uptime}"
         '';
       }
     ];
