@@ -4,7 +4,7 @@
     clock24 = true;
     baseIndex = 1;
     shortcut = "C-a";
-    terminal = "xterm-kitty";
+    terminal = "tmux-256color";
     plugins = with pkgs; [
       tmuxPlugins.sensible
       tmuxPlugins.resurrect
@@ -14,6 +14,7 @@
         extraConfig = ''
           set -g mode-key vi
           set -g @catppuccin_flavour "macchiato"
+          set -as terminal-features ",xterm-256color:RGB"
           set -g status-right-length 100
           set -g status-left-length 100
           set -g status-left ""
