@@ -8,6 +8,7 @@
     extraConfig = ''
       set -g mode-key vi
       set -as terminal-features ",xterm-256color:RGB"
+      bind s choose-tree -sZ -O name
     '';
     plugins = with pkgs; [
       tmuxPlugins.sensible
