@@ -21,7 +21,7 @@ return {
 				enabled = false,
 			},
 			sources = {
-				default = { "avante", "lazydev", "lsp", "path", "snippets", "buffer", "markdown" },
+				default = { "lsp", "path", "snippets", "buffer", "markdown", "avante", "lazydev" },
 				providers = {
 					lazydev = {
 						name = "LazyDev",
