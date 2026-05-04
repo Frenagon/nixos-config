@@ -63,3 +63,5 @@ if folders and #folders > 0 then
 		table.insert(vim.g.augment_workspace_folders, path)
 	end
 end
+
+vim.g.augment_workspace_folders = { vim.fn.getcwd() }
