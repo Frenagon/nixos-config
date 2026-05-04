@@ -50,6 +50,7 @@ with lib; {
       bottles
       qalculate-gtk
       seahorse
+      gimp
 
       # cli
       pamixer

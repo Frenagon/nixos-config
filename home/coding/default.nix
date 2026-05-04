@@ -16,7 +16,7 @@
       ]))
 
     # lsp
-    typescript-language-server
+    vtsls
     tailwindcss-language-server
     nixd
     lua-language-server

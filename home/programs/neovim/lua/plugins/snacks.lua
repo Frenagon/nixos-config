@@ -22,6 +22,13 @@ return {
 				{
 					"<leader>.",
 					function()
+						snacks.terminal.toggle("zsh")
+					end,
+					desc = "Open terminal",
+				},
+				{
+					"<leader>,",
+					function()
 						local cwd = vim.fn.expand("%:p:h")
 						if vim.fn.isdirectory(cwd) ~= 0 then
 							snacks.terminal.toggle("zsh", { cwd = cwd })

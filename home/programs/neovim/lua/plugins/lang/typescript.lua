@@ -4,7 +4,21 @@ return {
 		opts = {
 			servers = {
 				biome = {},
-				ts_ls = {},
+				vtsls = {
+					settings = {
+						typescript = {
+							preferences = {
+								-- Use the shorter key for vtsls
+								importModuleSpecifier = "non-relative",
+							},
+						},
+						javascript = {
+							preferences = {
+								importModuleSpecifier = "non-relative",
+							},
+						},
+					},
+				},
 			},
 		},
 	},

@@ -79,7 +79,6 @@ return {
 		end,
 		opts = {
 			-- Text Editing
-			ai = {},
 			comment = {
 				options = {
 					custom_commentstring = function()
@@ -328,6 +327,35 @@ return {
 						})
 					end,
 				},
+			}
+
+			local ai = require("mini.ai")
+			opts.ai = {
+				custom_textobjects = {
+					-- Functions
+					f = ai.gen_spec.treesitter({ a = "@function.outer", i = "@function.inner" }),
+
+					-- Classes
+					c = ai.gen_spec.treesitter({ a = "@class.outer", i = "@class.inner" }),
+
+					-- Conditionals
+					i = ai.gen_spec.treesitter({ a = "@conditional.outer", i = "@conditional.inner" }),
+
+					-- Loops
+					l = ai.gen_spec.treesitter({ a = "@loop.outer", i = "@loop.inner" }),
+
+					-- Parameters/Arguments
+					a = ai.gen_spec.treesitter({ a = "@parameter.outer", i = "@parameter.inner" }),
+
+					-- Comments
+					C = ai.gen_spec.treesitter({ a = "@comment.outer", i = "@comment.outer" }),
+
+					-- Blocks
+					b = ai.gen_spec.treesitter({ a = "@block.outer", i = "@block.inner" }),
+				},
+
+				-- This replaces lookahead and adds "next/last" variants (e.g., 'anf' for 'a next function')
+				search_method = "cover_or_next",
 			}
 
 			for plugin, config in pairs(opts) do
