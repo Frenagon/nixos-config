@@ -29,7 +29,7 @@
     vscode-langservers-extracted
 
     # formatter
-    nodePackages.prettier
+    prettier
     alejandra
     stylua
     black

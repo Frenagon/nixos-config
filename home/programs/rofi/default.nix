@@ -3,10 +3,7 @@
   config,
   pkgs,
   ...
-}:
-with config.lib.file; let
-  rofiConfig = "${config.home.homeDirectory}/.nixos-config/home/programs/rofi/config";
-in {
+}: {
   home.packages = with pkgs;
     lib.mkIf (!config.windows.wsl) [
       rofi
@@ -15,7 +12,7 @@ in {
     ];
 
   xdg.configFile = lib.mkIf (!config.windows.wsl) {
-    "rofi".source = mkOutOfStoreSymlink "${rofiConfig}";
+    "rofi".source = ./config;
   };
 
   home.sessionPath = lib.mkIf (!config.windows.wsl) [

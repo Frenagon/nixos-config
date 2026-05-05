@@ -22,6 +22,17 @@ in {
                 imports = cfg.homeModules;
               };
             }
+
+            # TODO: Remove this once the openldap package is fixed.
+            ({...}: {
+              nixpkgs.overlays = [
+                (final: prev: {
+                  openldap = prev.openldap.overrideAttrs (old: {
+                    doCheck = !prev.stdenv.hostPlatform.isi686;
+                  });
+                })
+              ];
+            })
           ]
           ++ cfg.modules;
       }
