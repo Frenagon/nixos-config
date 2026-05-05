@@ -2,6 +2,7 @@
   programs.tmux = {
     enable = true;
     clock24 = true;
+    mouse = true;
     baseIndex = 1;
     shortcut = "C-a";
     terminal = "tmux-256color";
