@@ -34,5 +34,8 @@
     stylua
     black
     shfmt
+
+    # tools
+    tree-sitter
   ];
 }
