@@ -24,6 +24,7 @@ with lib; {
       fastfetch
       tree
       unzip
+      p7zip
       jq
       file
       fd
