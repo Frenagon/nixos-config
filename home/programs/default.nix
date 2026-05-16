@@ -52,6 +52,7 @@ with lib; {
       qalculate-gtk
       seahorse
       gimp
+      polychromatic
 
       # cli
       pamixer
