@@ -103,7 +103,7 @@
     "format-linked": "{ifname} (No IP)",
     "format-disconnected": "Disconnected ⚠",
     "format-alt": "{essid} {gwaddr}",
-    "on-click-right": "kitty --hold nmcli device wifi list"
+    "on-click-right": "kitty nmtui"
   },
   "bluetooth": {
     "format": " {status}",
