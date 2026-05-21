@@ -1,8 +1,8 @@
 #! /usr/bin/env bash
 # Toggles the bluetooth controller on/off
-STATE=`bluetoothctl show | grep Powered | awk '{print $2}'`
-if [[ $STATE == 'yes' ]]; then    
-    bluetoothctl power off    
+STATE=$(bluetoothctl show | grep Powered | awk '{print $2}')
+if [[ $STATE == 'yes' ]]; then
+  bluetoothctl power off
 else
-    bluetoothctl power on
+  bluetoothctl power on
 fi
