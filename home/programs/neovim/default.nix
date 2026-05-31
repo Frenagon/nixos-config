@@ -2,8 +2,7 @@
   config,
   pkgs,
   ...
-}:
-with config.lib.file; let
+}: let
   nvimConfig = "${config.home.homeDirectory}/.nixos-config/home/programs/neovim";
 in {
   home = {
@@ -19,9 +18,9 @@ in {
       vi = "nvim";
       vim = "nvim";
     };
-
-    file.".config/nvim".source = mkOutOfStoreSymlink "${nvimConfig}";
   };
+
+  xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink nvimConfig;
 
   catppuccin.nvim.enable = false;
 }
