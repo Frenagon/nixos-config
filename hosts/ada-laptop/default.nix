@@ -13,7 +13,7 @@ in {
     ../../modules/common.nix
     ../../modules/hyprland.nix
     (import ../../modules/intel.nix (inputs // {device-id = "7dd5";}))
-    (import ../../modules/openrazer.nix (inputs // {username = username;}))
+    # (import ../../modules/openrazer.nix (inputs // {username = username;}))
     ../../modules/pam.nix
     ../../modules/power-management.nix
     ../../modules/printers.nix
