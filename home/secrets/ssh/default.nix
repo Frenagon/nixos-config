@@ -4,7 +4,7 @@ with lib; {
     enable = true;
     enableDefaultConfig = false;
 
-    matchBlocks."*" = {
+    settings."*" = {
       forwardAgent = false;
       addKeysToAgent = "no";
       compression = false;
@@ -17,7 +17,7 @@ with lib; {
       controlPersist = "no";
     };
 
-    matchBlocks = {
+    settings = {
       "github.com" = mkDefault {
         hostname = "github.com";
         identityFile = "~/.ssh/id_ed25519";
