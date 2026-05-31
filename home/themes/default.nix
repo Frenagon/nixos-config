@@ -27,6 +27,7 @@ with lib; {
 
   catppuccin = {
     enable = true;
+    autoEnable = true;
     flavor = "macchiato";
     accent = "sapphire";
     cursors = mkIf (!config.windows.wsl) {
