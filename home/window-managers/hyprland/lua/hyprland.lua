@@ -278,6 +278,11 @@ hl.monitor({
 })
 
 hl.window_rule({
+	match = { fullscreen = true },
+	border_color = theme.peach,
+})
+
+hl.window_rule({
 	name = "suppress-maximize-events",
 	match = {
 		class = ".*",
