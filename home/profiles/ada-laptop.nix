@@ -1,22 +1,20 @@
-{
-  pkgs,
-  config,
-  ...
-}: let
+{pkgs, ...}: let
   monitor-lid-toggle = pkgs.writeShellScriptBin "monitor-lid-toggle" ''
     # Script to manage monitor based on lid state
     LID_STATE=$(cat /proc/acpi/button/lid/LID/state | awk '{print $2}')
 
     if [ "$LID_STATE" == "closed" ]; then
-        hyprctl keyword monitor 'eDP-1, disable'
+        hyprctl eval 'hl.monitor({ output = "eDP-1", disabled = true })'
     else
-        hyprctl keyword monitor '${builtins.elemAt config.hyprland.monitors 0}'
+        hyprctl eval 'hl.monitor({ output = "eDP-1", mode = "preferred", position = "auto", scale = "1.875" })'
     fi
   '';
 in {
   imports = [./common.nix];
 
   home.packages = [monitor-lid-toggle];
+
+  # TODO: Find a way to move monitor configuration to a separate file and import it here, so that it can be reused across different profiles
 
   hyprland = {
     enable = true;
@@ -38,16 +36,5 @@ in {
         path = "${../../resources/wallpapers/cat-blue-eye.png}";
       }
     ];
-    monitors = [
-      "eDP-1, preferred, auto, 1.875"
-      "DP-1, 3440x1440@60, auto, 1.25"
-      "DP-3, 3440x1440@60, auto, 1.25"
-    ];
-  };
-
-  wayland.windowManager.hyprland.settings = {
-    exec = ["monitor-lid-toggle"];
-
-    bindl = [", switch:Lid Switch, exec, monitor-lid-toggle"];
   };
 }

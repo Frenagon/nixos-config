@@ -11,7 +11,7 @@ declare -a menu=(
 
 # Actions shuld be in the same index as it's menu option
 declare -a actions=(
-  "hyprctl dispatch exec uwsm stop"
+  "hyprctl eval \"hl.dispatch(hl.dsp.exec_cmd('uwsm stop'))\""
   "reboot"
   "poweroff"
 )

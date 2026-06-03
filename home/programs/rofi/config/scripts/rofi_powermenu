@@ -60,7 +60,7 @@ powermenu_options=$(
 declare -a powermenu_actions=(
   "hyprlock"
   "systemctl suspend"
-  "hyprctl dispatch exec uwsm stop"
+  "hyprctl eval \"hl.dispatch(hl.dsp.exec_cmd('uwsm stop'))\""
   "reboot"
   "poweroff"
 )
