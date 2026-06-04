@@ -318,8 +318,14 @@ hl.config({
 		kb_variant = ",intl",
 		sensitivity = 0,
 	},
+	dwindle = {
+		preserve_split = true,
+	},
 	master = {
 		new_status = "master",
+	},
+	scrolling = {
+		fullscreen_on_one_column = true,
 	},
 	misc = {
 		background_color = theme.base,
