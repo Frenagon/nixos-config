@@ -8,132 +8,20 @@ local musicTitle = ".*YouTube Music.*"
 local obsidianTitle = ".*Obsidian.*"
 local terminal = "kitty"
 local theme = require("themes/catppuccin")
-hl.curve("easeOutQuint", { type = "bezier", points = { { 0.23, 1 }, { 0.32, 1 } } })
-hl.curve("easeInOutCubic", { type = "bezier", points = { { 0.65, 0.05 }, { 0.36, 1 } } })
-hl.curve("linear", { type = "bezier", points = { { 0, 0 }, { 1, 1 } } })
-hl.curve("almostLinear", { type = "bezier", points = { { 0.5, 0.5 }, { 0.75, 1.0 } } })
-hl.curve("quick", { type = "bezier", points = { { 0.15, 0 }, { 0.1, 1 } } })
-hl.animation({
-	leaf = "global",
-	enabled = true,
-	speed = 10,
-	bezier = "default",
-})
-hl.animation({
-	leaf = "border",
-	enabled = true,
-	speed = 5.39,
-	bezier = "easeOutQuint",
-})
-hl.animation({
-	leaf = "windows",
-	enabled = true,
-	speed = 4.79,
-	bezier = "easeOutQuint",
-})
-hl.animation({
-	leaf = "global",
-	enabled = true,
-	speed = 10,
-	bezier = "default",
-})
-hl.animation({
-	leaf = "border",
-	enabled = true,
-	speed = 5.39,
-	bezier = "easeOutQuint",
-})
-hl.animation({
-	leaf = "windows",
-	enabled = true,
-	speed = 4.79,
-	bezier = "easeOutQuint",
-})
-hl.animation({
-	leaf = "windowsIn",
-	enabled = true,
-	speed = 4.1,
-	bezier = "easeOutQuint",
-	style = "popin 87%",
-})
-hl.animation({
-	leaf = "windowsOut",
-	enabled = true,
-	speed = 1.49,
-	bezier = "linear",
-	style = "popin 87%",
-})
-hl.animation({
-	leaf = "fadeIn",
-	enabled = true,
-	speed = 1.73,
-	bezier = "almostLinear",
-})
-hl.animation({
-	leaf = "fadeOut",
-	enabled = true,
-	speed = 1.46,
-	bezier = "almostLinear",
-})
-hl.animation({
-	leaf = "fade",
-	enabled = true,
-	speed = 3.03,
-	bezier = "quick",
-})
-hl.animation({
-	leaf = "layers",
-	enabled = true,
-	speed = 3.81,
-	bezier = "easeOutQuint",
-})
-hl.animation({
-	leaf = "layersIn",
-	enabled = true,
-	speed = 4,
-	bezier = "easeOutQuint",
-	style = "fade",
-})
-hl.animation({
-	leaf = "layersOut",
-	enabled = true,
-	speed = 1.5,
-	bezier = "linear",
-	style = "fade",
-})
-hl.animation({
-	leaf = "fadeLayersIn",
-	enabled = true,
-	speed = 1.79,
-	bezier = "almostLinear",
-})
-hl.animation({
-	leaf = "fadeLayersOut",
-	enabled = true,
-	speed = 1.39,
-	bezier = "almostLinear",
-})
-hl.animation({
-	leaf = "workspaces",
-	enabled = true,
-	speed = 1.94,
-	bezier = "almostLinear",
-	style = "fade",
-})
-hl.animation({
-	leaf = "workspacesIn",
-	enabled = true,
-	speed = 1.21,
-	bezier = "almostLinear",
-	style = "fade",
-})
-hl.animation({
-	leaf = "workspacesOut",
-	enabled = true,
-	speed = 1.94,
-	bezier = "almostLinear",
-	style = "fade",
-})
+
+hl.curve("fluent_decel", { type = "bezier", points = { { 0, 0.2 }, { 0.4, 1 } } })
+hl.curve("easeOutCirc", { type = "bezier", points = { { 0, 0.55 }, { 0.45, 1 } } })
+hl.curve("easeOutCubic", { type = "bezier", points = { { 0.33, 1 }, { 0.68, 1 } } })
+hl.curve("easeinoutsine", { type = "bezier", points = { { 0.37, 0 }, { 0.63, 1 } } })
+hl.animation({ leaf = "windowsIn", enabled = true, speed = 1.5, bezier = "easeinoutsine", style = "popin 60%" })
+hl.animation({ leaf = "windowsOut", enabled = true, speed = 1.5, bezier = "easeOutCubic", style = "popin 60%" })
+hl.animation({ leaf = "windowsMove", enabled = true, speed = 1.5, bezier = "easeinoutsine", style = "slide" })
+hl.animation({ leaf = "fade", enabled = true, speed = 2.5, bezier = "fluent_decel" })
+hl.animation({ leaf = "fadeLayersIn", enabled = false })
+hl.animation({ leaf = "border", enabled = false })
+hl.animation({ leaf = "layers", enabled = true, speed = 1.5, bezier = "easeinoutsine", style = "popin" })
+hl.animation({ leaf = "workspaces", enabled = true, speed = 3, bezier = "fluent_decel", style = "slide 60%" })
+hl.animation({ leaf = "specialWorkspace", enabled = true, speed = 2, bezier = "fluent_decel", style = "slidefade 10%" })
 
 hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd("uwsm app -- " .. terminal))
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
@@ -255,7 +143,7 @@ hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
-hl.bind("switch:Lid Switch", hl.dsp.exec_cmd("monitor-lid-toggle"), { locked = true })
+-- hl.bind("switch:Lid Switch", hl.dsp.exec_cmd("monitor-lid-toggle"), { locked = true })
 
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag())
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize())
@@ -458,6 +346,6 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("1password --silent")
 end)
 
-hl.on("config.reloaded", function()
-	hl.exec_cmd("monitor-lid-toggle")
-end)
+-- hl.on("config.reloaded", function()
+-- 	hl.exec_cmd("monitor-lid-toggle")
+-- end)
