@@ -336,6 +336,13 @@ hl.config({
 	},
 })
 
+hl.gesture({
+	fingers = 3,
+	direction = "horizontal",
+	action = "workspace",
+	scale = 4,
+})
+
 hl.on("hyprland.start", function()
 	hl.exec_cmd("uwsm app -- " .. browser, { workspace = "1 silent" })
 	hl.exec_cmd("uwsm app -- " .. terminal, { workspace = "2 silent" })
