@@ -152,39 +152,78 @@ hl.monitor({
 	mode = "preferred",
 	position = "auto",
 	scale = "1.875",
+	bitdepth = 10,
+	cm = "hdr",
+	sdrbrightness = 1.2,
+	sdrsaturation = 0.98,
 })
 
 hl.monitor({
 	output = "DP-1",
-	mode = "3440x1440@60",
+	mode = "3440x1440@144",
 	position = "auto",
 	scale = "1.25",
+	bitdepth = 10,
+	cm = "hdr",
+	sdrbrightness = 2,
+	sdrsaturation = 0.98,
 })
 
 hl.monitor({
 	output = "DP-3",
-	mode = "3440x1440@60",
+	mode = "3440x1440@144",
 	position = "auto",
 	scale = "1.25",
+	bitdepth = 10,
+	cm = "hdr",
+	sdrbrightness = 2,
+	sdrsaturation = 0.98,
 })
 
-local lidClosed = false
+-- Helper function to read the lid state
+local function get_lid_state()
+	local file = io.open("/proc/acpi/button/lid/LID0/state", "r")
+	if not file then
+		-- Try alternate LID node if LID0 doesn't exist
+		file = io.open("/proc/acpi/button/lid/LID/state", "r")
+	end
+
+	if file then
+		local content = file:read("*all")
+		file:close()
+		-- Content typically looks like "state: open" or "state: closed"
+		if content:match("closed") then
+			return "closed"
+		else
+			return "open"
+		end
+	end
+	return "unknown"
+end
 
 -- Monitor event handling
 hl.bind("switch:on:Lid Switch", function()
-	lidClosed = true
 	if #hl.get_monitors() > 1 then
 		hl.monitor({ output = "eDP-1", disabled = true })
 	end
 end, { locked = true })
 
 hl.bind("switch:off:Lid Switch", function()
-	lidClosed = false
-	hl.monitor({ output = "eDP-1", disabled = false, mode = "preferred", position = "auto", scale = "1.875" })
+	hl.monitor({
+		output = "eDP-1",
+		disabled = false,
+		mode = "preferred",
+		position = "auto",
+		scale = "1.875",
+		bitdepth = 10,
+		cm = "hdr",
+		sdrbrightness = 1.2,
+		sdrsaturation = 0.98,
+	})
 end, { locked = true })
 
 hl.on("monitor.added", function()
-	if lidClosed and #hl.get_monitors() > 1 then
+	if get_lid_state() == "closed" and #hl.get_monitors() > 1 then
 		hl.monitor({ output = "eDP-1", disabled = true })
 	end
 end)
@@ -377,4 +416,10 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("uwsm app -- waybar")
 	hl.exec_cmd("uwsm app -- clipse -listen")
 	hl.exec_cmd("1password --silent")
+end)
+
+hl.on("config.reloaded", function()
+	if get_lid_state() == "closed" and #hl.get_monitors() > 1 then
+		hl.monitor({ output = "eDP-1", disabled = true })
+	end
 end)
