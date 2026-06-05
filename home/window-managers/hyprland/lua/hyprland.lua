@@ -160,24 +160,24 @@ hl.monitor({
 
 hl.monitor({
 	output = "DP-1",
-	mode = "3440x1440@144",
+	mode = "3440x1440@120",
 	position = "auto",
 	scale = "1.25",
 	bitdepth = 10,
 	cm = "hdr",
-	sdrbrightness = 1.875,
-	sdrsaturation = 1.1,
+	sdrbrightness = 2.2,
+	sdrsaturation = 1.125,
 })
 
 hl.monitor({
 	output = "DP-3",
-	mode = "3440x1440@144",
+	mode = "3440x1440@120",
 	position = "auto",
 	scale = "1.25",
 	bitdepth = 10,
 	cm = "hdr",
-	sdrbrightness = 1.875,
-	sdrsaturation = 1.1,
+	sdrbrightness = 2.2,
+	sdrsaturation = 1.125,
 })
 
 -- Helper function to read the lid state
