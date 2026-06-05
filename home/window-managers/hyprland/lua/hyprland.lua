@@ -165,8 +165,8 @@ hl.monitor({
 	scale = "1.25",
 	bitdepth = 10,
 	cm = "hdr",
-	sdrbrightness = 2,
-	sdrsaturation = 0.98,
+	sdrbrightness = 1.875,
+	sdrsaturation = 1.1,
 })
 
 hl.monitor({
@@ -176,8 +176,8 @@ hl.monitor({
 	scale = "1.25",
 	bitdepth = 10,
 	cm = "hdr",
-	sdrbrightness = 2,
-	sdrsaturation = 0.98,
+	sdrbrightness = 1.875,
+	sdrsaturation = 1.1,
 })
 
 -- Helper function to read the lid state
