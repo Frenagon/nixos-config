@@ -143,7 +143,6 @@ hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
--- hl.bind("switch:Lid Switch", hl.dsp.exec_cmd("monitor-lid-toggle"), { locked = true })
 
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag())
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize())
@@ -168,6 +167,27 @@ hl.monitor({
 	position = "auto",
 	scale = "1.25",
 })
+
+local lidClosed = false
+
+-- Monitor event handling
+hl.bind("switch:on:Lid Switch", function()
+	lidClosed = true
+	if #hl.get_monitors() > 1 then
+		hl.monitor({ output = "eDP-1", disabled = true })
+	end
+end, { locked = true })
+
+hl.bind("switch:off:Lid Switch", function()
+	lidClosed = false
+	hl.monitor({ output = "eDP-1", disabled = false, mode = "preferred", position = "auto", scale = "1.875" })
+end, { locked = true })
+
+hl.on("monitor.added", function()
+	if lidClosed and #hl.get_monitors() > 1 then
+		hl.monitor({ output = "eDP-1", disabled = true })
+	end
+end)
 
 hl.window_rule({
 	match = { fullscreen = true },
@@ -358,7 +378,3 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("uwsm app -- clipse -listen")
 	hl.exec_cmd("1password --silent")
 end)
-
--- hl.on("config.reloaded", function()
--- 	hl.exec_cmd("monitor-lid-toggle")
--- end)
