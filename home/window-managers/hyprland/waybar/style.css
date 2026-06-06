@@ -30,7 +30,8 @@ tooltip {
 #memory,
 #battery,
 #backlight,
-#pulseaudio {
+#pulseaudio,
+#language {
   background-color: transparent;
   padding: 0px 10px;
   margin: 0px;
@@ -140,4 +141,8 @@ window#waybar.empty #window {
 
 #pulseaudio.microphone {
   color: @mauve;
+}
+
+#language {
+  color: @lavender;
 }

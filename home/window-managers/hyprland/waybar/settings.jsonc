@@ -12,6 +12,7 @@
   ],
   "modules-center": ["hyprland/window"],
   "modules-right": [
+    "hyprland/language",
     "custom/separator",
     "network",
     "bluetooth",
@@ -23,6 +24,12 @@
     "pulseaudio",
     "pulseaudio#microphone"
   ],
+
+  "hyprland/language": {
+    "format": "{}",
+    "format-en": "EN",
+    "format-en-intl": "EN-INTL"
+  },
 
   "custom/separator": {
     "format": "❚",
@@ -66,6 +73,7 @@
 
   "hyprland/workspaces": {
     "format": "{icon}",
+    "all-outputs": true,
     "format-icons": {
       "1": "",
       "2": "",
