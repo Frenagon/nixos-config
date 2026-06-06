@@ -160,7 +160,7 @@ hl.monitor({
 
 hl.monitor({
 	output = "DP-1",
-	mode = "3440x1440@120",
+	mode = "3440x1440@180",
 	position = "auto",
 	scale = "1.25",
 	bitdepth = 10,
@@ -171,7 +171,7 @@ hl.monitor({
 
 hl.monitor({
 	output = "DP-3",
-	mode = "3440x1440@120",
+	mode = "3440x1440@180",
 	position = "auto",
 	scale = "1.25",
 	bitdepth = 10,
