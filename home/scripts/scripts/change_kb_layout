@@ -12,6 +12,6 @@ for keyboard in $keyboardList; do
   hyprctl switchxkblayout "$(jq_decode "$keyboard" '.name')" "${1:-next}"
 done
 
-notify_id="$(jq -r '.change_kb_layout' "$HOME/.local/data/notify-ids.json")"
-kb_layout=$(hyprctl devices -j | jq -r '.keyboards[0].active_keymap')
-notify-send -t 2000 -e -r "$notify_id" "Keyboard Layout" "$kb_layout"
+# notify_id="$(jq -r '.change_kb_layout' "$HOME/.local/data/notify-ids.json")"
+# kb_layout=$(hyprctl devices -j | jq -r '.keyboards[0].active_keymap')
+# notify-send -t 2000 -e -r "$notify_id" "Keyboard Layout" "$kb_layout"
