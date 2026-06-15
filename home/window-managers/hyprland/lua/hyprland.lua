@@ -165,7 +165,7 @@ hl.monitor({
 	scale = "1.25",
 	bitdepth = 10,
 	cm = "hdr",
-	sdrbrightness = 2.2,
+	sdrbrightness = 2.8,
 	sdrsaturation = 1.125,
 })
 
@@ -176,7 +176,7 @@ hl.monitor({
 	scale = "1.25",
 	bitdepth = 10,
 	cm = "hdr",
-	sdrbrightness = 2.2,
+	sdrbrightness = 2.8,
 	sdrsaturation = 1.125,
 })
 
@@ -217,8 +217,8 @@ hl.bind("switch:off:Lid Switch", function()
 		scale = "1.875",
 		bitdepth = 10,
 		cm = "hdr",
-		sdrbrightness = 1.2,
-		sdrsaturation = 0.98,
+		sdrbrightness = 2.2,
+		sdrsaturation = 1.125,
 	})
 end, { locked = true })
 
@@ -389,6 +389,7 @@ hl.config({
 	misc = {
 		background_color = theme.base,
 		disable_hyprland_logo = true,
+		vrr = 1,
 	},
 	xwayland = {
 		force_zero_scaling = true,
