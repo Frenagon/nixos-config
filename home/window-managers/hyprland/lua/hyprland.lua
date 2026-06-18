@@ -403,6 +403,16 @@ hl.gesture({
 	scale = 4,
 })
 
+hl.device({
+	name = "razer-razer-basilisk-v3-pro-35k",
+	sensitivity = -0.4,
+})
+
+hl.device({
+	name = "razer-razer-basilisk-v3-pro-35k-2",
+	sensitivity = -0.4,
+})
+
 hl.on("hyprland.start", function()
 	hl.exec_cmd("uwsm app -- " .. browser, { workspace = "1 silent" })
 	hl.exec_cmd("uwsm app -- " .. terminal, { workspace = "2 silent" })
