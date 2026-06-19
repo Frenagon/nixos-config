@@ -147,19 +147,36 @@ hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true 
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag())
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize())
 
-hl.monitor({
+local builtInMonitorOptions = {
 	output = "eDP-1",
 	mode = "preferred",
 	position = "auto",
 	scale = "1.875",
 	bitdepth = 10,
 	cm = "hdr",
-	sdrbrightness = 2.2,
+	sdrbrightness = 2.8,
 	sdrsaturation = 1.125,
-})
+}
 
-hl.monitor({
-	output = "DP-1",
+hl.monitor(builtInMonitorOptions)
+
+local function merge_dictionaries(base, additions)
+	local new_dict = {}
+
+	-- Copy base entries
+	for k, v in pairs(base) do
+		new_dict[k] = v
+	end
+
+	-- Overwrite or add entries from additions
+	for k, v in pairs(additions) do
+		new_dict[k] = v
+	end
+
+	return new_dict
+end
+
+local externalMonitorOptions = {
 	mode = "3440x1440@180",
 	position = "auto",
 	scale = "1.25",
@@ -167,18 +184,10 @@ hl.monitor({
 	cm = "hdr",
 	sdrbrightness = 2.8,
 	sdrsaturation = 1.125,
-})
+}
 
-hl.monitor({
-	output = "DP-3",
-	mode = "3440x1440@180",
-	position = "auto",
-	scale = "1.25",
-	bitdepth = 10,
-	cm = "hdr",
-	sdrbrightness = 2.8,
-	sdrsaturation = 1.125,
-})
+hl.monitor(merge_dictionaries({ output = "DP-1" }, externalMonitorOptions))
+hl.monitor(merge_dictionaries({ output = "DP-3" }, externalMonitorOptions))
 
 -- Helper function to read the lid state
 local function get_lid_state()
@@ -209,22 +218,26 @@ hl.bind("switch:on:Lid Switch", function()
 end, { locked = true })
 
 hl.bind("switch:off:Lid Switch", function()
-	hl.monitor({
-		output = "eDP-1",
-		disabled = false,
-		mode = "preferred",
-		position = "auto",
-		scale = "1.875",
-		bitdepth = 10,
-		cm = "hdr",
-		sdrbrightness = 2.2,
-		sdrsaturation = 1.125,
-	})
+	hl.monitor(builtInMonitorOptions)
 end, { locked = true })
 
 hl.on("monitor.added", function()
 	if get_lid_state() == "closed" and #hl.get_monitors() > 1 then
 		hl.monitor({ output = "eDP-1", disabled = true })
+	end
+end)
+
+hl.on("monitor.removed", function()
+	local externalCount = 0
+
+	for _, m in ipairs(hl.get_monitors()) do
+		if m.name ~= "eDP-1" then
+			externalCount = externalCount + 1
+		end
+	end
+
+	if externalCount == 0 then
+		hl.monitor(builtInMonitorOptions)
 	end
 end)
 
@@ -389,7 +402,7 @@ hl.config({
 	misc = {
 		background_color = theme.base,
 		disable_hyprland_logo = true,
-		vrr = 1,
+		vrr = 2,
 	},
 	xwayland = {
 		force_zero_scaling = true,
