@@ -25,12 +25,6 @@
     "pulseaudio#microphone"
   ],
 
-  "hyprland/language": {
-    "format": "{}",
-    "format-en": "EN",
-    "format-en-intl": "EN-INTL"
-  },
-
   "custom/separator": {
     "format": "❚",
     "interval": "once",
@@ -74,6 +68,7 @@
   "hyprland/workspaces": {
     "format": "{icon}",
     "on-click": "activate",
+    "enable-bar-scroll": true,
     "all-outputs": true,
     "format-icons": {
       "1": "",
@@ -103,6 +98,16 @@
       "steam (.*)": "󰓓  $1",
       "net.lutris.Lutris (.*)": "  $1"
     }
+  },
+
+  "hyprland/language": {
+    "format": "{}",
+    "format-en": "EN",
+    "format-en-intl": "EN-INTL",
+    "on-click": "change_kb_layout next",
+    "on-click-right": "change_kb_layout prev",
+    "on-scroll-up": "change_kb_layout next",
+    "on-scroll-down": "change_kb_layout prev"
   },
 
   "network": {
