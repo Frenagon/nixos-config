@@ -1,12 +1,10 @@
 local browser = "zen-twilight"
 local browserClass = "zen-twilight"
-local defaultGameVault = "Campaign Notes"
-local defaultVault = "Coinquest"
 local mainMod = "SUPER"
 local music = "ytmdesktop"
 local musicTitle = ".*YouTube Music.*"
-local obsidianTitle = ".*Obsidian.*"
 local terminal = "kitty"
+local obsidian = require("programs/obsidian")
 local theme = require("themes/catppuccin")
 
 hl.curve("fluent_decel", { type = "bezier", points = { { 0, 0.2 }, { 0.4, 1 } } })
@@ -62,9 +60,9 @@ hl.bind(
 	mainMod .. " + 3",
 	hl.dsp.exec_cmd(
 		"run_if_closed --title '"
-			.. obsidianTitle
+			.. obsidian.title
 			.. "' --regex --workspace 3 -- xdg-open 'obsidian://open?vault="
-			.. defaultVault
+			.. obsidian.defaultVault
 			.. "'"
 	)
 )
@@ -73,9 +71,9 @@ hl.bind(
 	mainMod .. " + 4",
 	hl.dsp.exec_cmd(
 		"run_if_closed --title '"
-			.. obsidianTitle
+			.. obsidian.title
 			.. "' --regex --workspace 4 -- xdg-open 'obsidian://open?vault="
-			.. defaultGameVault
+			.. obsidian.defaultGameVault
 			.. "'"
 	)
 )
@@ -309,7 +307,7 @@ hl.window_rule({
 	name = "obsidian-notes-workspace",
 	match = {
 		class = "obsidian|electron",
-		title = "negative:.*(Campaign Notes|D&D 5E)" .. obsidianTitle,
+		title = "negative:.*(Campaign Notes|D&D 5E)" .. obsidian.title,
 	},
 	workspace = "3",
 })
@@ -318,7 +316,7 @@ hl.window_rule({
 	name = "obsidian-games-workspace",
 	match = {
 		class = "obsidian|electron",
-		title = ".*(Campaign Notes|D&D 5E)" .. obsidianTitle,
+		title = ".*(Campaign Notes|D&D 5E)" .. obsidian.title,
 	},
 	workspace = "4",
 })
@@ -431,9 +429,9 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("uwsm app -- " .. terminal, { workspace = "2 silent" })
 	hl.exec_cmd(
 		"uwsm app -- xdg-open 'obsidian://open?vault="
-			.. defaultVault
+			.. obsidian.defaultVault
 			.. "' & uwsm app -- xdg-open 'obsidian://open?vault="
-			.. defaultGameVault
+			.. obsidian.defaultGameVault
 			.. "'"
 	)
 	hl.exec_cmd("uwsm app -- " .. music, { workspace = "5 silent" })
