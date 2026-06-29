@@ -67,6 +67,7 @@
 
   "hyprland/workspaces": {
     "format": "{icon}",
+    "show-special": true,
     "on-click": "activate",
     "enable-bar-scroll": true,
     "all-outputs": true,
@@ -77,7 +78,8 @@
       "4": "",
       "5": "",
       "6": "",
-      "10": "󰊴"
+      "10": "󰊴",
+      "special": ""
     }
   },
 
