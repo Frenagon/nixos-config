@@ -175,7 +175,7 @@ local function merge_dictionaries(base, additions)
 end
 
 local externalMonitorOptions = {
-	mode = "3440x1440@180",
+	mode = "3440x1440@144",
 	position = "auto",
 	scale = "1.25",
 	bitdepth = 10,
