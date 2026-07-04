@@ -150,10 +150,12 @@ local builtInMonitorOptions = {
 	mode = "preferred",
 	position = "auto",
 	scale = "1.875",
+	supports_hdr = 1,
+	supports_wide_color = 1,
 	bitdepth = 10,
-	cm = "hdr",
+	cm = "hdredid",
 	sdrbrightness = 2.8,
-	sdrsaturation = 1.125,
+	sdrsaturation = 1,
 }
 
 hl.monitor(builtInMonitorOptions)
@@ -178,10 +180,12 @@ local externalMonitorOptions = {
 	mode = "3440x1440@144",
 	position = "auto",
 	scale = "1.25",
+	supports_hdr = 1,
+	supports_wide_color = 1,
 	bitdepth = 10,
-	cm = "hdr",
+	cm = "hdredid",
 	sdrbrightness = 2.8,
-	sdrsaturation = 1.125,
+	sdrsaturation = 1,
 }
 
 hl.monitor(merge_dictionaries({ output = "DP-1" }, externalMonitorOptions))
@@ -378,6 +382,10 @@ hl.config({
 		gaps_out = 1,
 		layout = "dwindle",
 		resize_on_border = false,
+	},
+	render = {
+		cm_enabled = true,
+		cm_auto_hdr = 2,
 	},
 	input = {
 		touchpad = {
