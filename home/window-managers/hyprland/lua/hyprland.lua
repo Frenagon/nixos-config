@@ -147,6 +147,7 @@ hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize())
 
 local builtInMonitorOptions = {
 	output = "eDP-1",
+	disabled = false,
 	mode = "preferred",
 	position = "auto",
 	scale = "1.875",
@@ -154,7 +155,7 @@ local builtInMonitorOptions = {
 	supports_wide_color = 1,
 	bitdepth = 10,
 	cm = "hdredid",
-	sdrbrightness = 2.8,
+	sdrbrightness = 1.8,
 	sdrsaturation = 1,
 }
 
