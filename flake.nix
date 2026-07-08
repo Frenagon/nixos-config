@@ -32,10 +32,6 @@
       url = "github:catppuccin/zen-browser";
       flake = false;
     };
-    waybar = {
-      url = "github:Alexays/Waybar";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = {
