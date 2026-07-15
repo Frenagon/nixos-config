@@ -14,6 +14,12 @@
       shell-node = "nix shell nixpkgs#nodejs nixpkgs#pnpm nixpkgs#yarn";
     };
 
+    initContent = ''
+      if [ -z "$TMUX" ] && [ -n "$PS1" ]; then
+        exec tmux new-session -A -s 0-terminal
+      fi
+    '';
+
     oh-my-zsh = {
       enable = true;
       plugins = [
