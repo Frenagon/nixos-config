@@ -12,7 +12,7 @@ in {
         text = ''
           export XCURSOR_SIZE=32
           export NIXOS_OZONE_WL=1
-          export ELECTRON_OZONE_PLATFORM_HINT=wayland
+          export ELECTRON_OZONE_PLATFORM_HINT=auto
           ${
             if cfg.nvidiaPatches
             then ''

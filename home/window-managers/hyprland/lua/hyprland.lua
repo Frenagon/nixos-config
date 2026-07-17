@@ -151,13 +151,10 @@ local builtInMonitorOptions = {
 	mode = "preferred",
 	position = "auto",
 	scale = "1.875",
-	-- supports_hdr = 1,
-	-- supports_wide_color = 1,
 	-- bitdepth = 10,
 	-- cm = "hdredid",
 	-- sdrbrightness = 1.8,
 	-- sdrsaturation = 1.1,
-	-- vrr = 1,
 }
 
 hl.monitor(builtInMonitorOptions)
@@ -180,16 +177,13 @@ end
 
 local externalMonitorOptions = {
 	disabled = false,
-	mode = "3440x1440@144",
+	mode = "3440x1440@120",
 	position = "auto",
 	scale = "1.25",
-	-- supports_hdr = 1,
-	-- supports_wide_color = 1,
 	-- bitdepth = 10,
 	-- cm = "hdredid",
-	-- sdrbrightness = 2.8,
-	-- sdrsaturation = 1,
-	-- vrr = 1,
+	-- sdrbrightness = 5,
+	-- sdrsaturation = 1.1,
 }
 
 hl.monitor(merge_dictionaries({ output = "DP-1" }, externalMonitorOptions))
