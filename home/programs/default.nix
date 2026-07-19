@@ -11,7 +11,7 @@ with lib; {
     ./dunst
     ./eza
     ./git
-    ./kitty
+    ./terminals
     ./neovim
     ./rofi
     ./tmux

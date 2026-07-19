@@ -91,6 +91,7 @@
       "zen-twilight (.*) — Zen Twilight": "  $1",
       "zen-twilight Zen Twilight": "  Zen Browser",
       "kitty (.*)": "  $1",
+      "com.mitchellh.ghostty (.*)": "  $1",
       "electron (.*) - Obsidian.*": "  $1",
       "obsidian (.*) - Obsidian.*": "  $1",
       ".* YouTube Music Desktop App": "  YouTube Music",
@@ -119,7 +120,7 @@
     "format-linked": "{ifname} (No IP)",
     "format-disconnected": "Disconnected ⚠",
     "format-alt": "{essid} {gwaddr}",
-    "on-click-right": "kitty nmtui"
+    "on-click-right": "ghostty --initial-command=nmtui"
   },
   "bluetooth": {
     "format": " {status}",
@@ -129,7 +130,7 @@
     "tooltip-format-connected": " {device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}",
     "on-click": "toggle_bluetooth",
-    "on-click-right": "kitty bluetoothctl"
+    "on-click-right": "ghostty --initial-command=bluetoothctl"
   },
 
   "temperature": {

@@ -14,4 +14,14 @@ with lib; {
       "ctrl+c" = "copy_and_clear_or_interrupt";
     };
   };
+
+  programs.ghostty = {
+    enable = true;
+    enableZshIntegration = true;
+    settings = {
+      font-family = "DejaVu Sans Mono";
+      window-padding-x = "10";
+      window-padding-y = "20,0";
+    };
+  };
 }

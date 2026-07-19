@@ -3,7 +3,9 @@ local browserClass = "zen-twilight"
 local mainMod = "SUPER"
 local music = "ytmdesktop"
 local musicTitle = ".*YouTube Music.*"
-local terminal = "kitty"
+local terminal = "ghostty"
+local terminalClass = "com.mitchellh.ghostty"
+local clipse = terminal .. " --title=clipse --initial-command=clipse"
 local obsidian = require("programs/obsidian")
 local theme = require("themes/catppuccin")
 
@@ -28,7 +30,7 @@ hl.bind(mainMod .. " + ALT + F", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + CTRL + SHIFT + Q", hl.dsp.exec_cmd("uwsm stop"))
 hl.bind(mainMod .. " + ALT + P", hl.dsp.exec_cmd("uwsm app -- rofi_powermenu 2 7"))
 hl.bind(mainMod .. " + C", hl.dsp.exec_cmd("uwsm app -- hyprpicker -ad"))
-hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("uwsm app -- " .. terminal .. " --class clipse -e 'clipse'"))
+hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("uwsm app -- " .. clipse))
 hl.bind(mainMod .. " + SHIFT + L", hl.dsp.exec_cmd("pgrep hyprlock || hyprlock"))
 hl.bind(mainMod .. " + ALT + R", function()
 	hl.dispatch(hl.dsp.exec_cmd("kill $(pgrep waybar)"))
@@ -54,7 +56,10 @@ hl.bind(
 	hl.dsp.exec_cmd("run_if_closed --class '" .. browserClass .. "' --workspace 1 -- " .. browser)
 )
 hl.bind(mainMod .. " + 2", hl.dsp.focus({ workspace = 2 }))
-hl.bind(mainMod .. " + 2", hl.dsp.exec_cmd("run_if_closed --class '" .. terminal .. "' --workspace 2 -- " .. terminal))
+hl.bind(
+	mainMod .. " + 2",
+	hl.dsp.exec_cmd("run_if_closed --class '" .. terminalClass .. "' --workspace 2 -- " .. terminal)
+)
 hl.bind(mainMod .. " + 3", hl.dsp.focus({ workspace = 3 }))
 hl.bind(
 	mainMod .. " + 3",
@@ -297,7 +302,7 @@ hl.window_rule({
 hl.window_rule({
 	name = "clipse-float",
 	match = {
-		class = "clipse",
+		title = "clipse",
 	},
 	center = true,
 	float = true,
