@@ -12,6 +12,7 @@
       nfu = "nix flake update";
       ndev = "nix develop -c $SHELL";
       shell-node = "nix shell nixpkgs#nodejs nixpkgs#pnpm nixpkgs#yarn";
+      ai = "claude";
     };
 
     initContent = ''

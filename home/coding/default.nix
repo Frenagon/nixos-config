@@ -2,6 +2,7 @@
   home.packages = with pkgs; [
     # ai
     github-copilot-cli
+    claude-code
 
     # languages
     nodejs
