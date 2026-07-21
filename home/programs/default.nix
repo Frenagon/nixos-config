@@ -35,6 +35,7 @@ with lib; {
       mkcert
       pamtester
       libsecret
+      htop
     ]
     ++ optionals (!config.windows.wsl) [
       # ui
