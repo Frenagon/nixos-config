@@ -38,5 +38,6 @@
 
     # tools
     tree-sitter
+    gh
   ];
 }
