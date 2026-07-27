@@ -36,6 +36,8 @@ with lib; {
       pamtester
       libsecret
       htop
+      xclip
+      xsel
     ]
     ++ optionals (!config.windows.wsl) [
       # ui
