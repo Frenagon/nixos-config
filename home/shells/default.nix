@@ -5,4 +5,5 @@
   ];
 
   programs.bash.enable = true;
+  programs.direnv.enable = true;
 }
